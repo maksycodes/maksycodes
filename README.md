@@ -1,6 +1,6 @@
 ##### Helloooooo 👋
 
-## I guess you're here because you want to get to know me... so here's a snapshot ✨
+I guess you're here because you want to get to know me... so here's a snapshot ✨
 
 - 🔭 I’m currently working on my SDE apprenticeship
 - 🌱 I’m currently learning to program in python 
