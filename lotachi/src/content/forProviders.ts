@@ -4,7 +4,7 @@ export const forProvidersPage = {
   eyebrow: "For providers",
   heading: "Built around how providers actually work.",
   intro:
-    "LOTACHI is being shaped through conversations with tutors, academies, clinics and training providers about how model recruitment and practical-session logistics work today.",
+    "LOTACHI is an early-stage marketplace that helps training providers reach people interested in becoming models for practical training, assessments, demonstrations and portfolio work. It's being shaped through conversations with tutors, academies, clinics and training providers about how model recruitment and practical-session logistics work today.",
   sections: [
     {
       heading: "Find more suitable models",

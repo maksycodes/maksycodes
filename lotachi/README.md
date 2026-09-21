@@ -191,6 +191,10 @@ still need real input before it should be treated as fully public/final:
    tested" rather than stating a number; update `src/content/faq.ts` and `src/content/providers.ts`
    once pricing is decided.
 8. **Domain DNS access** in Namecheap to complete the steps in "Connecting lotachi.com" above.
+9. **A founder/team line for the About page.** The current copy deliberately stays anonymous
+   (no name, background or photo was provided to write truthfully) — a short, real founder bio
+   would meaningfully strengthen credibility for cautious visitors deciding whether to trust the
+   site. Update `src/content/about.ts` once you're ready to share this.
 
 ## Notes on scope
 

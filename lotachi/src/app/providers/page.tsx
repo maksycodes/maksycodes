@@ -32,6 +32,18 @@ export default function ProvidersPage() {
               </div>
 
               <p className="mt-6 text-sm text-ink-400">
+                Want more detail first?{" "}
+                <Link href="/for-providers" className="text-accent underline underline-offset-2">
+                  Read more for providers
+                </Link>{" "}
+                or see the{" "}
+                <Link href="/faq" className="text-accent underline underline-offset-2">
+                  FAQ
+                </Link>
+                .
+              </p>
+
+              <p className="mt-2 text-sm text-ink-400">
                 Looking for opportunities as a model instead?{" "}
                 <Link href="/models" className="text-accent underline underline-offset-2">
                   Join as a model

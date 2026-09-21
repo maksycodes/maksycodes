@@ -36,6 +36,18 @@ export default function ModelsPage() {
               </div>
 
               <p className="mt-6 text-sm text-ink-400">
+                Not ready to sign up yet?{" "}
+                <Link href="/how-it-works" className="text-accent underline underline-offset-2">
+                  See how it works
+                </Link>{" "}
+                or read the{" "}
+                <Link href="/faq" className="text-accent underline underline-offset-2">
+                  FAQ
+                </Link>
+                .
+              </p>
+
+              <p className="mt-2 text-sm text-ink-400">
                 Interested in listing opportunities instead?{" "}
                 <Link href="/providers" className="text-accent underline underline-offset-2">
                   Join as a provider
