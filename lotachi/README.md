@@ -196,7 +196,10 @@ Once the real LOTACHI logo, colours and typeface are ready:
   `tailwind.config.ts` to match.
 - **Open Graph image**: add an `opengraph-image.png` (1200×630) inside `src/app/` — Next.js picks
   it up automatically for link previews.
-- **Social links**: replace the placeholder `#` URLs in `src/content/global.ts` (`siteConfig.social`).
+- **Social links**: TikTok, Instagram, YouTube and Facebook are set in `src/content/global.ts`
+  (`siteConfig.social`) — LinkedIn is still a `#` placeholder pending a URL. All are rendered by
+  `src/components/SocialLinks.tsx`, which opens any non-placeholder link in a new tab with
+  `rel="noopener noreferrer"`.
 
 ## Assets and information still needed before public launch
 
@@ -205,8 +208,8 @@ still need real input before it should be treated as fully public/final:
 
 1. **Formspree form IDs** (or an alternative backend) for the model, provider and contact forms —
    see "Environment variables" above. Nothing currently sends anywhere without these.
-2. **Real social media URLs** for TikTok, Instagram, LinkedIn and Facebook (currently `#`
-   placeholders in `src/content/global.ts`).
+2. **A LinkedIn URL** — TikTok, Instagram, YouTube and Facebook are already set in
+   `src/content/global.ts`; LinkedIn is still a `#` placeholder.
 3. **Final logo, brand colours and typeface** — see "Adding the final brand identity" above.
 4. **Legal review** of all 5 legal pages (Privacy, Terms, Provider Terms, Cookies, Safety
    Disclaimer) by a qualified professional — current content is a plain-language placeholder, not

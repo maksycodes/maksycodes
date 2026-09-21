@@ -17,13 +17,14 @@ export const siteConfig = {
     providerFormId: process.env.NEXT_PUBLIC_FORMSPREE_PROVIDER_FORM_ID || "",
     contactFormId: process.env.NEXT_PUBLIC_FORMSPREE_CONTACT_FORM_ID || "",
   },
-  // TODO: replace with real social URLs before launch — see README "Assets
-  // and information still needed" section.
+  // TODO: linkedin still needs a real URL — see README "Assets and
+  // information still needed" section. The rest are confirmed.
   social: {
-    tiktok: "#",
-    instagram: "#",
+    tiktok: "https://www.tiktok.com/@joinlotachi",
+    instagram: "https://www.instagram.com/joinlotachi",
+    youtube: "https://www.youtube.com/@joinlotachi",
     linkedin: "#",
-    facebook: "#",
+    facebook: "https://www.facebook.com/share/1c8qJrQC48/?mibextid=wwXIfr",
   },
 };
 

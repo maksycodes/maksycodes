@@ -11,6 +11,12 @@ const icons: Record<string, JSX.Element> = {
       <circle cx="14" cy="6" r="0.9" />
     </>
   ),
+  youtube: (
+    <>
+      <rect x="2.5" y="5" width="15" height="10" rx="3" fill="none" stroke="currentColor" strokeWidth="1.4" />
+      <path d="M8.5 7.8v4.4l4-2.2z" />
+    </>
+  ),
   linkedin: (
     <>
       <rect x="3" y="3" width="14" height="14" rx="2" />
@@ -26,24 +32,29 @@ export function SocialLinks({ className = "" }: { className?: string }) {
   const links = [
     { key: "tiktok", label: "TikTok", href: siteConfig.social.tiktok },
     { key: "instagram", label: "Instagram", href: siteConfig.social.instagram },
-    { key: "linkedin", label: "LinkedIn", href: siteConfig.social.linkedin },
+    { key: "youtube", label: "YouTube", href: siteConfig.social.youtube },
     { key: "facebook", label: "Facebook", href: siteConfig.social.facebook },
+    { key: "linkedin", label: "LinkedIn", href: siteConfig.social.linkedin },
   ];
 
   return (
     <div className={`flex items-center gap-3 ${className}`}>
-      {links.map((link) => (
-        <a
-          key={link.key}
-          href={link.href}
-          aria-label={`LOTACHI on ${link.label}`}
-          className="flex h-9 w-9 items-center justify-center rounded-full border border-ink-700 text-ink-200 transition-colors hover:border-paper hover:text-paper"
-        >
-          <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-            {icons[link.key]}
-          </svg>
-        </a>
-      ))}
+      {links.map((link) => {
+        const isLive = link.href !== "#";
+        return (
+          <a
+            key={link.key}
+            href={link.href}
+            aria-label={`LOTACHI on ${link.label}`}
+            {...(isLive ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-ink-700 text-ink-200 transition-colors hover:border-paper hover:text-paper"
+          >
+            <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              {icons[link.key]}
+            </svg>
+          </a>
+        );
+      })}
     </div>
   );
 }
