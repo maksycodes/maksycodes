@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { AnchorHTMLAttributes, ButtonHTMLAttributes } from "react";
 
 const base =
@@ -11,12 +12,21 @@ const variants = {
 
 type Variant = keyof typeof variants;
 
+function isExternalHref(href: string) {
+  return href.startsWith("http") || href.startsWith("mailto:") || href.startsWith("tel:");
+}
+
 export function LinkButton({
   variant = "primary",
   className = "",
+  href,
   ...props
-}: AnchorHTMLAttributes<HTMLAnchorElement> & { variant?: Variant }) {
-  return <a className={`${base} ${variants[variant]} ${className}`} {...props} />;
+}: AnchorHTMLAttributes<HTMLAnchorElement> & { variant?: Variant; href: string }) {
+  const classes = `${base} ${variants[variant]} ${className}`;
+  if (isExternalHref(href)) {
+    return <a href={href} className={classes} {...props} />;
+  }
+  return <Link href={href} className={classes} {...props} />;
 }
 
 export function Button({

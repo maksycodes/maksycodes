@@ -1,12 +1,12 @@
 import { Nav } from "@/components/Nav";
-import { Hero } from "@/components/Hero";
-import { WhyLotachi } from "@/components/WhyLotachi";
-import { HowItWorks } from "@/components/HowItWorks";
-import { ProviderSection } from "@/components/ProviderSection";
-import { ModelWaitlistSection } from "@/components/ModelWaitlistSection";
-import { About } from "@/components/About";
-import { FAQ } from "@/components/FAQ";
-import { Contact } from "@/components/Contact";
+import { Hero } from "@/components/home/Hero";
+import { ModelStepsSection } from "@/components/home/ModelStepsSection";
+import { ProviderStepsSection } from "@/components/home/ProviderStepsSection";
+import { ProblemSection } from "@/components/home/ProblemSection";
+import { WhySection } from "@/components/home/WhySection";
+import { TrustSection } from "@/components/home/TrustSection";
+import { ComingSoonSection } from "@/components/home/ComingSoonSection";
+import { EarlyAccessSection } from "@/components/home/EarlyAccessSection";
 import { Footer } from "@/components/Footer";
 
 export default function Home() {
@@ -15,13 +15,13 @@ export default function Home() {
       <Nav />
       <main id="main-content">
         <Hero />
-        <WhyLotachi />
-        <HowItWorks />
-        <ProviderSection />
-        <ModelWaitlistSection />
-        <About />
-        <FAQ />
-        <Contact />
+        <ModelStepsSection />
+        <ProviderStepsSection />
+        <ProblemSection />
+        <WhySection />
+        <TrustSection />
+        <ComingSoonSection />
+        <EarlyAccessSection />
       </main>
       <Footer />
     </>

@@ -1,11 +1,24 @@
 import type { MetadataRoute } from "next";
-import { siteConfig } from "@/content/site";
+import { siteConfig } from "@/content/global";
+
+const routes = [
+  "/",
+  "/models",
+  "/providers",
+  "/about",
+  "/for-models",
+  "/for-providers",
+  "/how-it-works",
+  "/faq",
+  "/contact",
+  "/privacy",
+  "/terms",
+  "/provider-terms",
+  "/cookies",
+  "/safety",
+];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = `https://${siteConfig.domain}`;
-  return [
-    { url: `${base}/`, lastModified: new Date() },
-    { url: `${base}/privacy`, lastModified: new Date() },
-    { url: `${base}/terms`, lastModified: new Date() },
-  ];
+  return routes.map((route) => ({ url: `${base}${route}`, lastModified: new Date() }));
 }

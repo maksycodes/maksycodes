@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { siteConfig } from "@/content/site";
+import { siteConfig } from "@/content/global";
+import { UtmCapture } from "@/components/UtmCapture";
 
-// Temporary typeface. Swap for the final Lotachi type choice in this file
+// Temporary typeface. Swap for the final LOTACHI type choice in this file
 // once the brand identity is complete — see README.md "Brand identity".
 const inter = Inter({
   subsets: ["latin"],
@@ -48,6 +49,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         >
           Skip to content
         </a>
+        <UtmCapture />
         {children}
       </body>
     </html>

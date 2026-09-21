@@ -112,6 +112,54 @@ export function CheckboxGroup({
   );
 }
 
+export function RadioGroup({
+  legend,
+  name,
+  options,
+  value,
+  onChange,
+}: {
+  legend: string;
+  name: string;
+  options: string[];
+  value: string;
+  onChange: (value: string) => void;
+}) {
+  return (
+    <fieldset className="flex flex-col gap-2">
+      <legend className="text-sm font-medium text-ink-900">{legend}</legend>
+      <div className="flex flex-wrap gap-2">
+        {options.map((option) => {
+          const id = `${name}-${option.replace(/\s+/g, "-").toLowerCase()}`;
+          const checked = value === option;
+          return (
+            <label
+              key={option}
+              htmlFor={id}
+              className={`cursor-pointer rounded-full border px-4 py-2 text-sm transition-colors ${
+                checked
+                  ? "border-ink-900 bg-ink-900 text-paper"
+                  : "border-ink-200 text-ink-700 hover:border-ink-400"
+              }`}
+            >
+              <input
+                id={id}
+                type="radio"
+                name={name}
+                value={option}
+                checked={checked}
+                onChange={() => onChange(option)}
+                className="sr-only"
+              />
+              {option}
+            </label>
+          );
+        })}
+      </div>
+    </fieldset>
+  );
+}
+
 export function Checkbox({
   id,
   checked,

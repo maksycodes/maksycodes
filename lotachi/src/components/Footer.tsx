@@ -1,22 +1,37 @@
-import { footer, siteConfig } from "@/content/site";
+import Link from "next/link";
+import { footer, siteConfig } from "@/content/global";
 import { Container } from "./ui/Container";
+import { SocialLinks } from "./SocialLinks";
+import { EmailCaptureForm } from "./EmailCaptureForm";
 
 export function Footer() {
   return (
     <footer className="border-t border-ink-100 bg-ink-900 text-paper">
-      <Container className="flex flex-col gap-8 py-14 sm:flex-row sm:items-start sm:justify-between">
-        <div>
+      <Container className="grid gap-12 py-14 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="sm:col-span-2 lg:col-span-2">
           <p className="text-lg font-semibold tracking-tight">{siteConfig.name}</p>
           <p className="mt-1 text-sm text-ink-300">{siteConfig.domain}</p>
+          <p className="mt-4 max-w-xs text-sm text-ink-300">{footer.emailCapture.body}</p>
+          <div className="mt-4">
+            <EmailCaptureForm />
+          </div>
+          <SocialLinks className="mt-6" />
         </div>
 
-        <nav aria-label="Footer" className="flex flex-wrap gap-x-8 gap-y-3">
-          {footer.links.map((link) => (
-            <a key={link.href} href={link.href} className="text-sm text-ink-200 hover:text-paper">
-              {link.label}
-            </a>
-          ))}
-        </nav>
+        {footer.columns.map((column) => (
+          <nav key={column.heading} aria-label={column.heading}>
+            <h3 className="text-sm font-semibold text-ink-200">{column.heading}</h3>
+            <ul className="mt-4 flex flex-col gap-3">
+              {column.links.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className="text-sm text-ink-300 hover:text-paper">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        ))}
       </Container>
       <Container className="flex flex-col gap-2 border-t border-ink-700 py-6 text-sm text-ink-300 sm:flex-row sm:justify-between">
         <p>{footer.copyright}</p>

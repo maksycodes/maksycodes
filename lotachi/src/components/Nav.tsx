@@ -1,9 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { nav, siteConfig } from "@/content/site";
+import Link from "next/link";
+import { nav, siteConfig } from "@/content/global";
 import { LinkButton } from "./ui/Button";
 import { Container } from "./ui/Container";
+import { trackEvent } from "@/lib/analytics";
 
 export function Nav() {
   const [open, setOpen] = useState(false);
@@ -11,23 +13,38 @@ export function Nav() {
   return (
     <header className="sticky top-0 z-40 border-b border-ink-100 bg-paper/95 backdrop-blur">
       <Container className="flex h-16 items-center justify-between sm:h-20">
-        <a href="#main-content" className="text-lg font-semibold tracking-tight text-ink-900">
+        <Link href="/" className="text-lg font-semibold tracking-tight text-ink-900">
           {siteConfig.name}
-        </a>
+        </Link>
 
-        <nav aria-label="Primary" className="hidden items-center gap-8 lg:flex">
+        <nav aria-label="Primary" className="hidden items-center gap-7 xl:flex">
           {nav.links.map((link) => (
-            <a key={link.href} href={link.href} className="text-sm font-medium text-ink-700 hover:text-ink-900">
+            <Link
+              key={link.href}
+              href={link.href}
+              onClick={() => trackEvent("nav_click", { label: link.label })}
+              className="text-sm font-medium text-ink-700 hover:text-ink-900"
+            >
               {link.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
-        <div className="hidden items-center gap-3 lg:flex">
-          <LinkButton href={nav.ctaModel.href} variant="outline" className="px-5 py-2.5">
+        <div className="hidden items-center gap-3 xl:flex">
+          <LinkButton
+            href={nav.ctaModel.href}
+            variant="outline"
+            className="px-5 py-2.5"
+            onClick={() => trackEvent("cta_click", { label: nav.ctaModel.label, placement: "nav" })}
+          >
             {nav.ctaModel.label}
           </LinkButton>
-          <LinkButton href={nav.ctaProvider.href} variant="accent" className="px-5 py-2.5">
+          <LinkButton
+            href={nav.ctaProvider.href}
+            variant="accent"
+            className="px-5 py-2.5"
+            onClick={() => trackEvent("cta_click", { label: nav.ctaProvider.label, placement: "nav" })}
+          >
             {nav.ctaProvider.label}
           </LinkButton>
         </div>
@@ -37,7 +54,7 @@ export function Nav() {
           aria-expanded={open}
           aria-controls="mobile-menu"
           onClick={() => setOpen((v) => !v)}
-          className="inline-flex items-center justify-center rounded-full p-2 text-ink-900 lg:hidden"
+          className="inline-flex items-center justify-center rounded-full p-2 text-ink-900 xl:hidden"
         >
           <span className="sr-only">{open ? "Close menu" : "Open menu"}</span>
           {open ? (
@@ -53,18 +70,18 @@ export function Nav() {
       </Container>
 
       {open && (
-        <div id="mobile-menu" className="border-t border-ink-100 bg-paper lg:hidden">
+        <div id="mobile-menu" className="border-t border-ink-100 bg-paper xl:hidden">
           <Container className="flex flex-col gap-4 py-6">
             <nav aria-label="Mobile" className="flex flex-col gap-4">
               {nav.links.map((link) => (
-                <a
+                <Link
                   key={link.href}
                   href={link.href}
                   onClick={() => setOpen(false)}
                   className="text-base font-medium text-ink-700 hover:text-ink-900"
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
             </nav>
             <div className="flex flex-col gap-3 pt-2">
