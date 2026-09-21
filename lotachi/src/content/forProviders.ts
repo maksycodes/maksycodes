@@ -11,6 +11,14 @@ export const forProvidersPage = {
       body: "Describe what you need, and reach people who are more likely to be a match — rather than posting into a general group and hoping.",
     },
     {
+      heading: "Be specific about who you're looking for",
+      body: "State the hair types, skin types or other characteristics a session is seeking or equipped to work with, so people can see whether they're a likely fit before applying — rather than that being guessed from appearance.",
+    },
+    {
+      heading: "Be clear about photos, video and aftercare",
+      body: "Set out what any photos or video are for and whether consent will be needed separately from the treatment itself, and attach your own written aftercare and contact details once a booking is complete.",
+    },
+    {
       heading: "Reach people outside your existing database",
       body: "Extend beyond your current customer list and social following to a wider pool of interested people.",
     },

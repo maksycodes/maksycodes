@@ -37,7 +37,17 @@ export const faqPage = {
     },
     {
       question: "Who decides if I am suitable?",
-      answer: "The provider decides suitability for their specific opportunity. LOTACHI does not make clinical suitability decisions.",
+      answer: "The provider decides suitability for their specific opportunity. LOTACHI does not make clinical suitability decisions, and doesn't infer suitability from photos or appearance alone.",
+    },
+    {
+      question: "Will photos or video be taken of me?",
+      answer:
+        "Only where a listing says so, and only with your separate agreement — that's different from agreeing to the treatment. A listing will say what any photos or video are for and whether your face would be identifiable.",
+    },
+    {
+      question: "What happens with aftercare after my appointment?",
+      answer:
+        "Once bookings exist, the provider's own written aftercare will be attached to your booking and stay accessible afterwards, along with a clear way to contact them if you have a concern.",
     },
     {
       question: "What if I have had previous treatments?",
@@ -78,6 +88,16 @@ export const faqPage = {
     {
       question: "Can we specify eligibility criteria?",
       answer: "Yes — you'll be able to set requirements for a given opportunity, and LOTACHI will show these where relevant.",
+    },
+    {
+      question: "Can we say what hair or skin type we're looking for?",
+      answer:
+        "Yes — you'll be able to state characteristics a session is specifically seeking or equipped to work with, so the right people can see it's a fit before applying.",
+    },
+    {
+      question: "How do photos, video and aftercare work?",
+      answer:
+        "You'll set out what any photos or video are for and ask for that consent separately from the treatment itself. Once bookings exist, you'll attach your own written aftercare and contact details — LOTACHI doesn't generate this content on your behalf.",
     },
     {
       question: "Can we invite returning models?",

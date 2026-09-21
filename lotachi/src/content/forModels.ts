@@ -19,12 +19,20 @@ export const forModelsPage = {
       body: "Each opportunity may come with its own requirements — for example, hair length, skin type or availability. The provider sets and checks these, not LOTACHI. You may be asked for more detail once you express interest in a specific opportunity.",
     },
     {
+      heading: "Photos, video and media consent",
+      body: "Agreeing to a treatment or training session is not the same as agreeing to be photographed or filmed. Where a provider wants to take photos or video, a listing will say what for — clinical notes, training records, assessment, portfolio, website, social media or advertising — and whether your face would be identifiable. This is always asked for as its own, separate consent, never assumed from booking.",
+    },
+    {
       heading: "Cancellations and last-minute opportunities",
       body: "Cancellation policies are set by each provider. Some opportunities come up at short notice — you can tell us how much notice suits you when you join the waitlist.",
     },
     {
       heading: "Provider responsibility",
       body: "The provider you attend is responsible for consultation, consent, suitability and delivery of the service. LOTACHI's role is to help you discover and connect with opportunities.",
+    },
+    {
+      heading: "Aftercare and support",
+      body: "Once bookings exist, written aftercare from the provider who delivered your session will be attached to your booking and stay accessible afterwards, along with a clear way to contact that provider if you have a concern. LOTACHI does not write aftercare instructions on a provider's behalf — they always come from the provider.",
     },
     {
       heading: "Safety basics",
@@ -73,9 +81,24 @@ export const forModelsPage = {
         "Yes. You can select just the categories you're interested in, and we'll aim to only send you relevant opportunities where possible.",
     },
     {
-      question: "Will I have to provide photos?",
+      question: "Will I have to provide photos when I sign up?",
       answer:
         "Not at this early-access stage. Some individual opportunities may ask for photos later, only where relevant to that specific opportunity.",
+    },
+    {
+      question: "Will providers take photos or video of me during my appointment?",
+      answer:
+        "Only where the listing says so, and only with your separate agreement — that's different from agreeing to the treatment itself. A listing will say what any photos or video are for (for example training records, portfolio or social media) and whether your face would be identifiable.",
+    },
+    {
+      question: "How do I get aftercare or support after my appointment?",
+      answer:
+        "Once bookings exist, the provider's written aftercare instructions will be attached to your booking, along with a clear way to contact them if you have a concern afterwards. This always comes from the provider, not from LOTACHI.",
+    },
+    {
+      question: "Can providers say what hair or skin type they're looking for?",
+      answer:
+        "Yes. A provider may state characteristics they're specifically seeking or equipped to work with — for example a hair type or skin type — so you can see whether an opportunity is a likely fit before you apply.",
     },
   ],
   cta: { label: "Join as a Model", href: "/models" },

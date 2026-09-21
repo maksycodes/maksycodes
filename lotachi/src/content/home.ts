@@ -1,5 +1,7 @@
 // Homepage copy.
 
+import type { OpportunityListing } from "@/types/opportunity";
+
 export const hero = {
   eyebrow: "Early access",
   headline: "Find model opportunities. Find the right models.",
@@ -135,18 +137,46 @@ export const trust = {
   doesNot: [
     "Does not perform treatments or services itself",
     "Does not make clinical suitability decisions",
+    "Does not infer your suitability from photos or appearance",
+    "Does not treat media/content consent as the same thing as treatment consent",
+    "Does not write or generate aftercare instructions on a provider's behalf",
     "Does not guarantee any specific appointment, outcome or price",
     "Does not currently claim to verify every provider — see below",
   ],
   principles: [
     "Clear provider information, where available",
-    "Transparent pricing, as set by the provider",
+    "Transparent pricing, as set by the provider, alongside a comparable price where one is given",
     "A clear explanation of who will perform or supervise the service",
     "Eligibility requirements shown where relevant",
+    "Photo/video use and treatment consent always requested separately, never combined",
+    "Provider-written aftercare and a clear way to contact the provider afterwards, once bookings exist",
     "LOTACHI's role as a marketplace is kept separate from the provider's treatment responsibility",
     "Provider verification may be introduced or expanded as the platform develops",
     "Higher-risk categories may require additional checks",
   ],
+};
+
+export const transparency = {
+  id: "model-transparency",
+  eyebrow: "Model transparency",
+  heading: "Being a model can mean different things at different providers.",
+  message: "Know what you're agreeing to before you book.",
+  intro:
+    "What 'being a model' involves varies a lot — who performs the service, how it's priced, whether photos are taken and what they're used for, what aftercare looks like. LOTACHI's goal is to make those differences clear on every listing, before you book, not after.",
+  fields: [
+    { label: "Why a model is needed", body: "Training, assessment, demonstration, portfolio, content creation and more — shown plainly, not left for you to guess." },
+    { label: "Who performs it, and supervision", body: "Whether it's a student, newly qualified practitioner or experienced professional, and how they're supervised." },
+    { label: "Pricing", body: "The model price, and a comparable standard price where the provider has given one." },
+    { label: "Duration and eligibility", body: "How long to expect, and any requirements the provider has set." },
+    { label: "Photos and video", body: "Whether any will be taken, exactly what they may be used for, and whether your face would be identifiable." },
+    { label: "Aftercare and contact", body: "Provider-specific aftercare attached to your booking, and how to reach the provider afterwards." },
+  ],
+  mediaDistinction: {
+    heading: "Treatment consent and media consent are not the same thing.",
+    body: "Agreeing to a treatment or training session is separate from agreeing to be photographed or filmed. Where a provider wants to take photos or video, that's always asked for as its own, separate consent — never bundled in with anything else.",
+  },
+  appearanceNote:
+    "Providers can state which hair types, skin types or other characteristics they're specifically seeking or equipped to work with. LOTACHI does not infer whether you're suitable for an opportunity from photos or appearance alone — that's for the provider to assess directly.",
 };
 
 export const earlyAccess = {
@@ -159,34 +189,84 @@ export const earlyAccess = {
 };
 
 // Illustrative only — not live opportunities. Every card using this data
-// must be labelled "Example opportunity" in the UI.
-export const exampleOpportunities = [
+// must be labelled "Example opportunity" in the UI. Shaped to the
+// OpportunityListing type (src/types/opportunity.ts) so the cards
+// demonstrate the transparency a real listing is designed to provide.
+export const exampleOpportunities: OpportunityListing[] = [
   {
+    id: "example-hair-colour-correction",
     category: "Hair",
     title: "Colour correction — model needed",
     location: "Manchester",
-    price: "Free",
+    reason: "Training",
+    performedBy: "Final-stage hairdressing student",
+    supervision: "Supervised throughout by a qualified tutor",
+    priceType: "Free",
+    modelPrice: "Free",
+    comparablePrice: "£85–£120 at standard salon rate",
+    durationMinutes: 180,
+    eligibility: ["Hair not chemically coloured within the last 4 weeks"],
+    modelCharacteristicsSought: "Looking for a range of hair types and lengths — ask if you're unsure whether yours fits",
+    media: { photosOrVideoTaken: true, usage: ["Training records", "Portfolio"], faceIdentifiable: false, requiresSeparateConsent: true },
+    aftercareProvided: true,
+    cancellationPolicy: "Please give at least 48 hours' notice if you can't attend",
     notice: "This week",
   },
   {
+    id: "example-aesthetics-consultation",
     category: "Aesthetics",
     title: "Consultation & assessment practice",
     location: "London",
-    price: "Discounted",
+    reason: "Assessment",
+    performedBy: "Qualified aesthetics practitioner completing an assessment module",
+    supervision: "Assessed by an external examiner; the practitioner is already qualified",
+    priceType: "Discounted",
+    modelPrice: "£20",
+    comparablePrice: "£60 standard consultation rate",
+    durationMinutes: 45,
+    eligibility: ["Full consultation carried out before anything proceeds"],
+    modelCharacteristicsSought: null,
+    media: { photosOrVideoTaken: true, usage: ["Clinical notes", "Assessment"], faceIdentifiable: true, requiresSeparateConsent: true },
+    aftercareProvided: true,
+    cancellationPolicy: "At least 24 hours' notice requested",
     notice: "Flexible dates",
   },
   {
+    id: "example-spmu-portfolio-brows",
     category: "SPMU",
     title: "Portfolio session — brows",
     location: "Birmingham",
-    price: "Free",
+    reason: "Portfolio",
+    performedBy: "Newly qualified SPMU practitioner",
+    supervision: "Working independently as a newly qualified practitioner; academy remains available for support",
+    priceType: "Free",
+    modelPrice: "Free",
+    comparablePrice: "£150–£250 typical studio rate",
+    durationMinutes: 120,
+    eligibility: ["Not currently pregnant or breastfeeding", "No previous SPMU in the treatment area"],
+    modelCharacteristicsSought: "Looking for a range of brow shapes and skin tones for portfolio variety",
+    media: { photosOrVideoTaken: true, usage: ["Portfolio", "Social media"], faceIdentifiable: true, requiresSeparateConsent: true },
+    aftercareProvided: true,
+    cancellationPolicy: "This slot is last-minute — please only apply if you can definitely attend",
     notice: "Last-minute",
   },
   {
+    id: "example-nails-newly-qualified",
     category: "Nails",
     title: "Newly qualified practitioner practice",
     location: "Leeds",
-    price: "Under £25",
+    reason: "Newly qualified practitioner",
+    performedBy: "Newly qualified nail technician",
+    supervision: "Salon owner available on-site throughout",
+    priceType: "Discounted",
+    modelPrice: "£20",
+    comparablePrice: "£45 standard salon price",
+    durationMinutes: 60,
+    eligibility: ["No known nail or skin conditions affecting the treatment area"],
+    modelCharacteristicsSought: null,
+    media: { photosOrVideoTaken: false, usage: [], faceIdentifiable: false, requiresSeparateConsent: false },
+    aftercareProvided: true,
+    cancellationPolicy: "Please give at least 24 hours' notice",
     notice: "Next 2 weeks",
   },
 ];
@@ -194,5 +274,5 @@ export const exampleOpportunities = [
 export const comingSoonFeed = {
   eyebrow: "Coming soon",
   heading: "A preview of what the opportunity feed could look like.",
-  body: "These are example opportunities to illustrate the idea — not opportunities you can currently book.",
+  body: "These are example opportunities to illustrate the idea — not opportunities you can currently book. Open “See full details” on any card to see the kind of transparency a real listing is designed to give you.",
 };

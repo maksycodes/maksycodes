@@ -5,6 +5,7 @@ import { ProviderStepsSection } from "@/components/home/ProviderStepsSection";
 import { ProblemSection } from "@/components/home/ProblemSection";
 import { WhySection } from "@/components/home/WhySection";
 import { TrustSection } from "@/components/home/TrustSection";
+import { ModelTransparencySection } from "@/components/home/ModelTransparencySection";
 import { ComingSoonSection } from "@/components/home/ComingSoonSection";
 import { EarlyAccessSection } from "@/components/home/EarlyAccessSection";
 import { Footer } from "@/components/Footer";
@@ -20,6 +21,7 @@ export default function Home() {
         <ProblemSection />
         <WhySection />
         <TrustSection />
+        <ModelTransparencySection />
         <ComingSoonSection />
         <EarlyAccessSection />
       </main>

@@ -14,7 +14,7 @@ export const howItWorksPage = {
     {
       number: "02",
       title: "Model requirements added",
-      body: "The provider sets any requirements for the opportunity, such as category, location or eligibility criteria.",
+      body: "The provider sets requirements for the opportunity — category, eligibility, pricing, duration, and whether photos or video are involved and what they'd be used for.",
     },
     {
       number: "03",
@@ -39,8 +39,13 @@ export const howItWorksPage = {
     {
       number: "07",
       title: "Attendance",
-      body: "The model attends the session with the provider, who remains responsible for delivery.",
+      body: "The model attends the session with the provider, who remains responsible for delivery. Any photo or video consent is requested separately from treatment consent, never combined with it.",
+    },
+    {
+      number: "08",
+      title: "Aftercare and after-appointment contact",
+      body: "Once bookings exist, the provider attaches their own written aftercare to the completed booking, along with a clear way to contact them afterwards if there's a concern.",
     },
   ],
-  note: "Where a step involves professional or clinical judgement, LOTACHI refers to people as 'potentially suitable' or 'potentially eligible' — the final decision sits with the provider.",
+  note: "Where a step involves professional or clinical judgement, LOTACHI refers to people as 'potentially suitable' or 'potentially eligible' — the final decision sits with the provider. LOTACHI does not infer suitability from appearance, and never writes aftercare content on a provider's behalf.",
 };

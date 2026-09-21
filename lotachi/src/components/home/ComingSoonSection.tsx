@@ -13,7 +13,7 @@ export function ComingSoonSection() {
 
       <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {exampleOpportunities.map((opportunity) => (
-          <OpportunityCard key={opportunity.title} opportunity={opportunity} />
+          <OpportunityCard key={opportunity.id} opportunity={opportunity} />
         ))}
       </div>
     </Section>
