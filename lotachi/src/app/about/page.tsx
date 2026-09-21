@@ -23,6 +23,14 @@ export default function AboutPage() {
 
             <div className="mt-10 flex flex-col gap-8">
               <div>
+                <h2 className="text-lg font-semibold text-ink-900">{aboutPage.founder.heading}</h2>
+                <div className="mt-2 flex flex-col gap-3 text-ink-600">
+                  {aboutPage.founder.body.map((paragraph) => (
+                    <p key={paragraph}>{paragraph}</p>
+                  ))}
+                </div>
+              </div>
+              <div>
                 <h2 className="text-lg font-semibold text-ink-900">{aboutPage.vision.heading}</h2>
                 <p className="mt-2 text-ink-600">{aboutPage.vision.body}</p>
               </div>

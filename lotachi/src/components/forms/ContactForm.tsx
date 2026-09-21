@@ -32,7 +32,6 @@ export function ContactForm() {
     if (Object.keys(nextErrors).length > 0) return;
 
     setState("submitting");
-    trackEvent("form_start", { form: "contact" });
     try {
       await submitToFormspree(siteConfig.formspree.contactFormId, {
         name,
@@ -41,10 +40,9 @@ export function ContactForm() {
         message,
         ...getUtmParams(),
       });
-      trackEvent("form_complete", { form: "contact", reason });
+      trackEvent("contact_form_submitted", { reason });
       setState("success");
     } catch {
-      trackEvent("form_error", { form: "contact" });
       setState("error");
     }
   }

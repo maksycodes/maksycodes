@@ -105,7 +105,7 @@ export const faqPage = {
     },
     {
       question: "How much will it cost?",
-      answer: "Early-access and pilot pricing is currently being tested with a small number of providers. We haven't set permanent pricing yet, and we'll be upfront about costs before you commit to anything.",
+      answer: "The Founding Provider Pilot is free during the initial pilot period — early provider partners pay no platform cost while we test model matching, difficult-to-fill appointments and last-minute recruitment. Commercial pricing will be developed based on pilot results and provider feedback. This is a limited early-stage pilot with a small number of provider slots: future paid pricing may apply once it ends, and joining now doesn't guarantee permanent free access.",
     },
   ],
 };

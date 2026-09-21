@@ -4,7 +4,7 @@ import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { Section } from "@/components/ui/Section";
 import { Badge } from "@/components/ui/Badge";
-import { LinkButton } from "@/components/ui/Button";
+import { ProviderPilotCta } from "@/components/ProviderPilotCta";
 
 export const metadata: Metadata = {
   title: forProvidersPage.metaTitle,
@@ -39,9 +39,13 @@ export default function ForProvidersPage() {
           <div className="max-w-2xl">
             <h2 className="text-2xl font-semibold tracking-tight">{forProvidersPage.pilot.heading}</h2>
             <p className="mt-3 text-ink-200">{forProvidersPage.pilot.body}</p>
-            <LinkButton href={forProvidersPage.pilot.cta.href} variant="accent" className="mt-6">
-              {forProvidersPage.pilot.cta.label}
-            </LinkButton>
+            <p className="mt-2 text-sm text-ink-300">{forProvidersPage.pilot.constraints}</p>
+            <ProviderPilotCta
+              label={forProvidersPage.pilot.cta.label}
+              href={forProvidersPage.pilot.cta.href}
+              placement="for_providers_page"
+              className="mt-6"
+            />
           </div>
         </Section>
 

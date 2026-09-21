@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Script from "next/script";
+import { Suspense } from "react";
 import "./globals.css";
 import { siteConfig } from "@/content/global";
 import { UtmCapture } from "@/components/UtmCapture";
+import { GA4PageView } from "@/components/GA4PageView";
+import { GA4_MEASUREMENT_ID } from "@/lib/ga4";
 
 // Temporary typeface. Swap for the final LOTACHI type choice in this file
 // once the brand identity is complete — see README.md "Brand identity".
@@ -50,6 +54,34 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Skip to content
         </a>
         <UtmCapture />
+
+        {/*
+          GA4 only loads when NEXT_PUBLIC_GA4_MEASUREMENT_ID is set — see
+          .env.example and README.md "Analytics & UTM tracking". Consent
+          Mode v2 defaults analytics_storage to "denied", so no analytics
+          cookies are set and no data reaches GA4 until a cookie-consent
+          banner calls gtag('consent','update',{analytics_storage:'granted'})
+          — this site doesn't have that banner yet.
+        */}
+        {GA4_MEASUREMENT_ID && (
+          <>
+            <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA4_MEASUREMENT_ID}`} strategy="afterInteractive" />
+            <Script id="ga4-init" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                window.gtag = gtag;
+                gtag('consent', 'default', { analytics_storage: 'denied', ad_storage: 'denied' });
+                gtag('js', new Date());
+                gtag('config', '${GA4_MEASUREMENT_ID}', { send_page_view: false });
+              `}
+            </Script>
+            <Suspense fallback={null}>
+              <GA4PageView />
+            </Suspense>
+          </>
+        )}
+
         {children}
       </body>
     </html>

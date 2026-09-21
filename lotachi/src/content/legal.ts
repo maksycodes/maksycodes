@@ -167,8 +167,8 @@ export const providerTerms = {
       body: "Once bookings exist, providers will be responsible for attaching their own written aftercare to a completed booking and providing a clear way for the model to contact them afterwards if they have a concern. LOTACHI does not write or generate aftercare content on a provider's behalf.",
     },
     {
-      heading: "Pilot participation",
-      body: "Providers taking part in an early pilot do so on the basis discussed directly with LOTACHI. Pilot terms, including any pricing, are being tested and are not yet final.",
+      heading: "Founding Provider Pilot pricing",
+      body: "The Founding Provider Pilot is free of platform cost during the initial pilot period. This is a limited early-stage pilot with a small number of provider slots. Commercial pricing will be developed based on pilot results and provider feedback, and may apply once the pilot ends — joining the pilot does not guarantee permanent free access.",
     },
     {
       heading: "Full terms ahead of launch",

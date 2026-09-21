@@ -8,8 +8,11 @@ export const providersPage = {
   headline: "Need models? Join the LOTACHI provider network.",
   body: "LOTACHI is currently working with providers to understand and improve model recruitment. Tell us about your organisation and how you currently find models, and we'll be in touch as things develop.",
   pilotNote: {
-    heading: "Interested in an early pilot?",
-    body: "We're inviting a small number of providers to take part in an early LOTACHI pilot, working with around 10 provider slots. You can register interest as part of the form below.",
+    heading: "Founding Provider Pilot — free during the initial pilot period.",
+    body: "Early provider partners can join the LOTACHI pilot at no platform cost while we test model matching, difficult-to-fill appointments and last-minute recruitment. Commercial pricing will be developed based on pilot results and provider feedback.",
+    constraints:
+      "This is a limited early-stage pilot with a small number of provider slots. Future paid pricing may apply once the pilot ends, and joining now does not guarantee permanent free access.",
+    cta: { label: "Join the Founding Provider Pilot", href: "#provider-form" },
   },
   form: {
     providerTypeOptions: ["Academy", "College", "Clinic", "Salon", "Independent educator", "Practitioner", "Other"],
@@ -38,6 +41,7 @@ export const providersPage = {
       "Other",
     ],
     pilotLabel: "I'd be interested in participating in an early LOTACHI pilot.",
+    hasAppointmentsLabel: "I have model appointments LOTACHI could help me fill during the pilot.",
     submitLabel: "Join the provider network",
     successHeading: "Thank you — we've received your details.",
     successBody: "LOTACHI may contact you regarding early pilot opportunities as the platform develops.",

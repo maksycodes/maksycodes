@@ -1,4 +1,7 @@
+"use client";
+
 import { whyModels, whyProviders } from "@/content/home";
+import { trackEvent } from "@/lib/analytics";
 import { Section, Eyebrow } from "../ui/Section";
 import { LinkButton } from "../ui/Button";
 
@@ -36,7 +39,17 @@ function WhyCard({
           </li>
         ))}
       </ul>
-      <LinkButton href={cta.href} variant={tone === "provider" ? "accent" : "primary"} className="mt-8 self-start">
+      <LinkButton
+        href={cta.href}
+        variant={tone === "provider" ? "accent" : "primary"}
+        className="mt-8 self-start"
+        onClick={() =>
+          trackEvent(tone === "provider" ? "provider_cta_clicked" : "model_cta_clicked", {
+            label: cta.label,
+            placement: "why_section",
+          })
+        }
+      >
         {cta.label}
       </LinkButton>
     </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useRef, useState } from "react";
 import { siteConfig } from "@/content/global";
 import { modelsPage } from "@/content/models";
 import { submitToFormspree, SubmitState } from "@/lib/formspree";
@@ -27,6 +27,13 @@ export function ModelForm() {
   const [privacyAck, setPrivacyAck] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [state, setState] = useState<SubmitState>("idle");
+  const hasStarted = useRef(false);
+
+  function markStarted() {
+    if (hasStarted.current) return;
+    hasStarted.current = true;
+    trackEvent("model_signup_started");
+  }
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
@@ -43,7 +50,6 @@ export function ModelForm() {
     if (Object.keys(nextErrors).length > 0) return;
 
     setState("submitting");
-    trackEvent("form_start", { form: "model_waitlist" });
     try {
       await submitToFormspree(siteConfig.formspree.modelFormId, {
         user_type: "model",
@@ -61,10 +67,9 @@ export function ModelForm() {
         privacy_acknowledged: privacyAck,
         ...getUtmParams(),
       });
-      trackEvent("form_complete", { form: "model_waitlist" });
+      trackEvent("model_signup_completed");
       setState("success");
     } catch {
-      trackEvent("form_error", { form: "model_waitlist" });
       setState("error");
     }
   }
@@ -87,6 +92,7 @@ export function ModelForm() {
             name="firstName"
             autoComplete="given-name"
             value={firstName}
+            onFocus={markStarted}
             onChange={(e) => setFirstName(e.target.value)}
           />
         </Field>

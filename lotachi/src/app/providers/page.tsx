@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer";
 import { Section } from "@/components/ui/Section";
 import { Badge } from "@/components/ui/Badge";
 import { ProviderForm } from "@/components/forms/ProviderForm";
+import { ProviderPilotCta } from "@/components/ProviderPilotCta";
 
 export const metadata: Metadata = {
   title: providersPage.metaTitle,
@@ -29,6 +30,8 @@ export default function ProvidersPage() {
               <div className="mt-8 rounded-2xl bg-paper-muted p-6">
                 <h2 className="font-semibold text-ink-900">{providersPage.pilotNote.heading}</h2>
                 <p className="mt-2 text-sm text-ink-600">{providersPage.pilotNote.body}</p>
+                <p className="mt-2 text-sm text-ink-500">{providersPage.pilotNote.constraints}</p>
+                <ProviderPilotCta placement="providers_page" />
               </div>
 
               <p className="mt-6 text-sm text-ink-400">
@@ -52,7 +55,7 @@ export default function ProvidersPage() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-ink-100 bg-white p-6 sm:p-8">
+            <div id="provider-form" className="scroll-mt-24 rounded-2xl border border-ink-100 bg-white p-6 sm:p-8">
               <ProviderForm />
             </div>
           </div>

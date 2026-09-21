@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useRef, useState } from "react";
 import Link from "next/link";
 import { siteConfig } from "@/content/global";
 import { providersPage } from "@/content/providers";
@@ -29,8 +29,16 @@ export function ProviderForm() {
   const [sources, setSources] = useState<string[]>([]);
   const [challenge, setChallenge] = useState("");
   const [pilot, setPilot] = useState(false);
+  const [hasAppointments, setHasAppointments] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [state, setState] = useState<SubmitState>("idle");
+  const hasStarted = useRef(false);
+
+  function markStarted() {
+    if (hasStarted.current) return;
+    hasStarted.current = true;
+    trackEvent("provider_signup_started");
+  }
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
@@ -47,7 +55,6 @@ export function ProviderForm() {
     if (Object.keys(nextErrors).length > 0) return;
 
     setState("submitting");
-    trackEvent("form_start", { form: "provider_network" });
     try {
       await submitToFormspree(siteConfig.formspree.providerFormId, {
         user_type: "provider",
@@ -67,12 +74,12 @@ export function ProviderForm() {
         current_sources: sources,
         biggest_challenge: challenge,
         pilot_interest: pilot,
+        has_appointments_to_fill: hasAppointments,
         ...getUtmParams(),
       });
-      trackEvent("form_complete", { form: "provider_network" });
+      trackEvent("provider_signup_completed", { has_appointments_to_fill: hasAppointments });
       setState("success");
     } catch {
-      trackEvent("form_error", { form: "provider_network" });
       setState("error");
     }
   }
@@ -90,7 +97,14 @@ export function ProviderForm() {
     <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-5">
       <div className="grid gap-5 sm:grid-cols-2">
         <Field label="Name" htmlFor="provider-name" required error={errors.name}>
-          <TextInput id="provider-name" name="name" autoComplete="name" value={name} onChange={(e) => setName(e.target.value)} />
+          <TextInput
+            id="provider-name"
+            name="name"
+            autoComplete="name"
+            value={name}
+            onFocus={markStarted}
+            onChange={(e) => setName(e.target.value)}
+          />
         </Field>
         <Field label="Job title" htmlFor="provider-job-title" required error={errors.jobTitle}>
           <TextInput
@@ -215,9 +229,13 @@ export function ProviderForm() {
         <TextInput id="provider-challenge" name="challenge" value={challenge} onChange={(e) => setChallenge(e.target.value)} />
       </Field>
 
-      <div className="rounded-lg bg-paper-muted p-4">
+      <div className="flex flex-col gap-3 rounded-lg bg-paper-muted p-4">
+        <p className="text-xs font-semibold uppercase tracking-wide text-ink-400">Founding Provider Pilot</p>
         <Checkbox id="provider-pilot" checked={pilot} onChange={setPilot}>
           {form.pilotLabel}
+        </Checkbox>
+        <Checkbox id="provider-has-appointments" checked={hasAppointments} onChange={setHasAppointments}>
+          {form.hasAppointmentsLabel}
         </Checkbox>
       </div>
 

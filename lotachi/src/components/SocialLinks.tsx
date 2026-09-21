@@ -1,4 +1,7 @@
+"use client";
+
 import { siteConfig } from "@/content/global";
+import { trackEvent } from "@/lib/analytics";
 
 const icons: Record<string, JSX.Element> = {
   tiktok: (
@@ -46,6 +49,7 @@ export function SocialLinks({ className = "" }: { className?: string }) {
             key={link.key}
             href={link.href}
             aria-label={`LOTACHI on ${link.label}`}
+            onClick={() => trackEvent("social_link_clicked", { platform: link.key, href: link.href })}
             {...(isLive ? { target: "_blank", rel: "noopener noreferrer" } : {})}
             className="flex h-9 w-9 items-center justify-center rounded-full border border-ink-700 text-ink-200 transition-colors hover:border-paper hover:text-paper"
           >

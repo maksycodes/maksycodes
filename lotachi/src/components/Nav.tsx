@@ -35,7 +35,7 @@ export function Nav() {
             href={nav.ctaModel.href}
             variant="outline"
             className="px-5 py-2.5"
-            onClick={() => trackEvent("cta_click", { label: nav.ctaModel.label, placement: "nav" })}
+            onClick={() => trackEvent("model_cta_clicked", { label: nav.ctaModel.label, placement: "nav" })}
           >
             {nav.ctaModel.label}
           </LinkButton>
@@ -43,7 +43,7 @@ export function Nav() {
             href={nav.ctaProvider.href}
             variant="accent"
             className="px-5 py-2.5"
-            onClick={() => trackEvent("cta_click", { label: nav.ctaProvider.label, placement: "nav" })}
+            onClick={() => trackEvent("provider_cta_clicked", { label: nav.ctaProvider.label, placement: "nav" })}
           >
             {nav.ctaProvider.label}
           </LinkButton>
@@ -85,10 +85,24 @@ export function Nav() {
               ))}
             </nav>
             <div className="flex flex-col gap-3 pt-2">
-              <LinkButton href={nav.ctaModel.href} variant="outline" onClick={() => setOpen(false)}>
+              <LinkButton
+                href={nav.ctaModel.href}
+                variant="outline"
+                onClick={() => {
+                  setOpen(false);
+                  trackEvent("model_cta_clicked", { label: nav.ctaModel.label, placement: "nav_mobile" });
+                }}
+              >
                 {nav.ctaModel.label}
               </LinkButton>
-              <LinkButton href={nav.ctaProvider.href} variant="accent" onClick={() => setOpen(false)}>
+              <LinkButton
+                href={nav.ctaProvider.href}
+                variant="accent"
+                onClick={() => {
+                  setOpen(false);
+                  trackEvent("provider_cta_clicked", { label: nav.ctaProvider.label, placement: "nav_mobile" });
+                }}
+              >
                 {nav.ctaProvider.label}
               </LinkButton>
             </div>

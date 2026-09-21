@@ -44,9 +44,11 @@ export const forProvidersPage = {
     },
   ],
   pilot: {
-    heading: "Join the provider pilot",
-    body: "We're inviting a small number of providers to help test and shape LOTACHI early on. You can register interest for the pilot as part of the provider sign-up form.",
-    cta: { label: "Join the provider pilot", href: "/providers" },
+    heading: "Founding Provider Pilot — free during the initial pilot period.",
+    body: "Early provider partners can join the LOTACHI pilot at no platform cost while we test model matching, difficult-to-fill appointments and last-minute recruitment. Commercial pricing will be developed based on pilot results and provider feedback.",
+    constraints:
+      "This is a limited early-stage pilot with a small number of provider slots. Future paid pricing may apply once the pilot ends, and joining now does not guarantee permanent free access.",
+    cta: { label: "Join the Founding Provider Pilot", href: "/providers#provider-form" },
   },
   builtWith: {
     heading: "Built with real provider conversations",
