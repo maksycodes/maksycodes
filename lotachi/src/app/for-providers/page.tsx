@@ -45,6 +45,7 @@ export default function ForProvidersPage() {
               href={forProvidersPage.pilot.cta.href}
               placement="for_providers_page"
               className="mt-6"
+              variant="inverse"
             />
           </div>
         </Section>

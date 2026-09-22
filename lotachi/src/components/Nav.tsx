@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { nav, siteConfig } from "@/content/global";
 import { LinkButton } from "./ui/Button";
@@ -13,8 +14,15 @@ export function Nav() {
   return (
     <header className="sticky top-0 z-40 border-b border-ink-100 bg-paper/95 backdrop-blur">
       <Container className="flex h-16 items-center justify-between sm:h-20">
-        <Link href="/" className="text-lg font-semibold tracking-tight text-ink-900">
-          {siteConfig.name}
+        <Link href="/" aria-label={siteConfig.name} className="flex items-center">
+          <Image
+            src="/brand/lotachi-horizontal-colour.png"
+            alt={siteConfig.name}
+            width={1350}
+            height={320}
+            priority
+            className="h-8 w-auto sm:h-9"
+          />
         </Link>
 
         <nav aria-label="Primary" className="hidden items-center gap-7 xl:flex">

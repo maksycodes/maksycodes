@@ -85,7 +85,7 @@ export function CookieConsent() {
             <button
               type="button"
               onClick={() => choose(ACCEPT_ALL)}
-              className="inline-flex items-center justify-center rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-paper transition-colors hover:bg-accent-dark"
+              className="inline-flex items-center justify-center rounded-full bg-ink-900 px-5 py-2.5 text-sm font-medium text-paper transition-colors hover:bg-ink-700"
             >
               Accept all
             </button>
@@ -148,7 +148,7 @@ export function CookieConsent() {
             <button
               type="button"
               onClick={() => choose({ analytics: analyticsPref, marketing: marketingPref })}
-              className="inline-flex items-center justify-center rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-paper transition-colors hover:bg-accent-dark"
+              className="inline-flex items-center justify-center rounded-full bg-ink-900 px-5 py-2.5 text-sm font-medium text-paper transition-colors hover:bg-ink-700"
             >
               Save preferences
             </button>

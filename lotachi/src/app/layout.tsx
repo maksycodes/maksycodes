@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Instrument_Sans } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/content/global";
 import { UtmCapture } from "@/components/UtmCapture";
 import { GA4Loader } from "@/components/GA4Loader";
 import { CookieConsent } from "@/components/CookieConsent";
 
-// Temporary typeface. Swap for the final LOTACHI type choice in this file
-// once the brand identity is complete — see README.md "Brand identity".
-const inter = Inter({
+// LOTACHI's supporting typeface, per the brand guidelines.
+const instrumentSans = Instrument_Sans({
   subsets: ["latin"],
-  variable: "--font-inter",
+  weight: ["500", "600", "700"],
+  variable: "--font-instrument-sans",
   display: "swap",
 });
 
@@ -37,13 +37,17 @@ export const metadata: Metadata = {
     description: siteConfig.description,
   },
   icons: {
-    icon: "/favicon.svg",
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon-512.png", type: "image/png", sizes: "512x512" },
+    ],
+    apple: "/apple-touch-icon.png",
   },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en-GB" className={inter.variable}>
+    <html lang="en-GB" className={instrumentSans.variable}>
       <body className="font-sans">
         <a
           href="#main-content"

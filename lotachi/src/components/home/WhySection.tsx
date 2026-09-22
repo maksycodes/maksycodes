@@ -41,7 +41,7 @@ function WhyCard({
       </ul>
       <LinkButton
         href={cta.href}
-        variant={tone === "provider" ? "accent" : "primary"}
+        variant={tone === "provider" ? "inverse" : "primary"}
         className="mt-8 self-start"
         onClick={() =>
           trackEvent(tone === "provider" ? "provider_cta_clicked" : "model_cta_clicked", {

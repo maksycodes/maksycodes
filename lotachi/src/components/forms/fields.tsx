@@ -231,7 +231,7 @@ export function FormNotice({ tone, children }: { tone: "success" | "error"; chil
     <p
       role="status"
       className={`rounded-lg px-4 py-3 text-sm ${
-        tone === "success" ? "bg-accent-light text-accent-dark" : "bg-red-50 text-red-800"
+        tone === "success" ? "bg-paper-muted text-ink-900 border border-ink-200" : "bg-red-50 text-red-800"
       }`}
     >
       {children}

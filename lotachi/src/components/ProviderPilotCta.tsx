@@ -9,11 +9,15 @@ export function ProviderPilotCta({
   href,
   placement,
   className = "mt-4",
+  variant = "accent",
 }: {
   label?: string;
   href?: string;
   placement: string;
   className?: string;
+  // Pass "inverse" when this sits on a dark (bg-ink-900) surface — the
+  // default solid style would otherwise be invisible against it.
+  variant?: "accent" | "inverse";
 }) {
   const cta = providersPage.pilotNote.cta;
   const resolvedLabel = label ?? cta.label;
@@ -22,7 +26,7 @@ export function ProviderPilotCta({
   return (
     <LinkButton
       href={resolvedHref}
-      variant="accent"
+      variant={variant}
       className={className}
       onClick={() => trackEvent("provider_pilot_clicked", { label: resolvedLabel, placement })}
     >

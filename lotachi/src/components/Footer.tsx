@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { footer, siteConfig } from "@/content/global";
 import { trackEvent } from "@/lib/analytics";
@@ -19,8 +20,14 @@ export function Footer() {
     <footer className="border-t border-ink-100 bg-ink-900 text-paper">
       <Container className="grid gap-12 py-14 sm:grid-cols-2 lg:grid-cols-5">
         <div className="sm:col-span-2 lg:col-span-2">
-          <p className="text-lg font-semibold tracking-tight">{siteConfig.name}</p>
-          <p className="mt-1 text-sm text-ink-300">{siteConfig.domain}</p>
+          <Image
+            src="/brand/lotachi-horizontal-white.png"
+            alt={siteConfig.name}
+            width={1350}
+            height={320}
+            className="h-8 w-auto"
+          />
+          <p className="mt-2 text-sm text-ink-300">{siteConfig.domain}</p>
           <p className="mt-4 max-w-xs text-sm text-ink-300">{footer.emailCapture.body}</p>
           <div className="mt-4">
             <EmailCaptureForm />
