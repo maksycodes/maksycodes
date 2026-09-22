@@ -4,11 +4,13 @@ import { FormEvent, useState } from "react";
 import { siteConfig, footer } from "@/content/global";
 import { submitToFormspree } from "@/lib/formspree";
 import { getUtmParams, trackEvent } from "@/lib/analytics";
+import { Honeypot } from "./forms/fields";
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export function EmailCaptureForm() {
   const [email, setEmail] = useState("");
+  const [gotcha, setGotcha] = useState("");
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
 
   async function handleSubmit(e: FormEvent) {
@@ -23,6 +25,7 @@ export function EmailCaptureForm() {
       await submitToFormspree(siteConfig.formspree.contactFormId, {
         source: "footer_email_capture",
         email,
+        _gotcha: gotcha,
         ...getUtmParams(),
       });
       trackEvent("form_complete", { form: "footer_email_capture" });
@@ -38,6 +41,7 @@ export function EmailCaptureForm() {
 
   return (
     <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-2 sm:flex-row">
+      <Honeypot id="_gotcha-footer" value={gotcha} onChange={setGotcha} />
       <label htmlFor="footer-email" className="sr-only">
         Email address
       </label>

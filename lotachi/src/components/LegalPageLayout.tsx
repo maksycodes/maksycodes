@@ -3,7 +3,7 @@ import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { Section } from "@/components/ui/Section";
 
-type LegalSection = { heading: string; body?: string; list?: string[] };
+type LegalSection = { heading: string; body?: string; list?: string[]; flag?: string };
 type LegalDoc = {
   heading: string;
   intro?: string;
@@ -42,6 +42,11 @@ export function LegalPageLayout({ doc }: { doc: LegalDoc }) {
                         </li>
                       ))}
                     </ul>
+                  )}
+                  {section.flag && (
+                    <p className="mt-3 rounded-lg border border-amber-300 bg-amber-50 px-3 py-2 text-sm text-amber-900">
+                      <strong>Solicitor review recommended:</strong> {section.flag}
+                    </p>
                   )}
                 </section>
               ))}

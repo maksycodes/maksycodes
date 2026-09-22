@@ -6,7 +6,7 @@ import { modelsPage } from "@/content/models";
 import { submitToFormspree, SubmitState } from "@/lib/formspree";
 import { getUtmParams, trackEvent } from "@/lib/analytics";
 import Link from "next/link";
-import { Field, TextInput, CheckboxGroup, RadioGroup, Checkbox, FormNotice } from "./fields";
+import { Field, TextInput, CheckboxGroup, RadioGroup, Checkbox, FormNotice, Honeypot } from "./fields";
 import { Button } from "../ui/Button";
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -25,6 +25,7 @@ export function ModelForm() {
   const [interests, setInterests] = useState("");
   const [consent, setConsent] = useState(false);
   const [privacyAck, setPrivacyAck] = useState(false);
+  const [gotcha, setGotcha] = useState("");
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [state, setState] = useState<SubmitState>("idle");
   const hasStarted = useRef(false);
@@ -65,6 +66,7 @@ export function ModelForm() {
         interests,
         consent,
         privacy_acknowledged: privacyAck,
+        _gotcha: gotcha,
         ...getUtmParams(),
       });
       trackEvent("model_signup_completed");
@@ -85,6 +87,7 @@ export function ModelForm() {
 
   return (
     <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-5">
+      <Honeypot id="_gotcha-model" value={gotcha} onChange={setGotcha} />
       <div className="grid gap-5 sm:grid-cols-2">
         <Field label="First name" htmlFor="model-first-name" required error={errors.firstName}>
           <TextInput

@@ -5,7 +5,7 @@ import { siteConfig } from "@/content/global";
 import { contactPage } from "@/content/contact";
 import { submitToFormspree, SubmitState } from "@/lib/formspree";
 import { getUtmParams, trackEvent } from "@/lib/analytics";
-import { Field, TextInput, Textarea, Select, FormNotice } from "./fields";
+import { Field, TextInput, Textarea, Select, FormNotice, Honeypot } from "./fields";
 import { Button } from "../ui/Button";
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -16,6 +16,7 @@ export function ContactForm() {
   const [email, setEmail] = useState("");
   const [reason, setReason] = useState(contactPage.reasonOptions[0]);
   const [message, setMessage] = useState("");
+  const [gotcha, setGotcha] = useState("");
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [state, setState] = useState<SubmitState>("idle");
 
@@ -38,6 +39,7 @@ export function ContactForm() {
         email,
         reason,
         message,
+        _gotcha: gotcha,
         ...getUtmParams(),
       });
       trackEvent("contact_form_submitted", { reason });
@@ -58,6 +60,7 @@ export function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-5">
+      <Honeypot id="_gotcha-contact" value={gotcha} onChange={setGotcha} />
       <div className="grid gap-5 sm:grid-cols-2">
         <Field label="Name" htmlFor="contact-name" required error={errors.name}>
           <TextInput id="contact-name" name="name" autoComplete="name" value={name} onChange={(e) => setName(e.target.value)} />

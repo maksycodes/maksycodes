@@ -190,6 +190,42 @@ export function Checkbox({
   );
 }
 
+// Formspree's honeypot convention: a field named "_gotcha" that's invisible
+// to real visitors (off-screen, unfocusable, hidden from assistive tech) but
+// still present in the DOM for simple bots to fill in. If Formspree receives
+// a non-empty value for it, the submission is silently discarded server-side
+// — the field's value must be included in the payload passed to
+// submitToFormspree() for this to work, since our forms build a plain JSON
+// object rather than relying on native form-encoded submission.
+export function Honeypot({
+  value,
+  onChange,
+  id = "_gotcha",
+}: {
+  value: string;
+  onChange: (value: string) => void;
+  // Unique per form instance so multiple forms rendered on the same page
+  // (e.g. a page form plus the footer's email-capture form) never produce
+  // duplicate DOM ids. The field NAME stays "_gotcha" on every instance —
+  // that's the part Formspree actually checks.
+  id?: string;
+}) {
+  return (
+    <div aria-hidden="true" className="absolute left-[-9999px] top-0 h-0 w-0 overflow-hidden">
+      <label htmlFor={id}>Leave this field blank</label>
+      <input
+        type="text"
+        id={id}
+        name="_gotcha"
+        tabIndex={-1}
+        autoComplete="off"
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+      />
+    </div>
+  );
+}
+
 export function FormNotice({ tone, children }: { tone: "success" | "error"; children: ReactNode }) {
   return (
     <p

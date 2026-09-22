@@ -6,7 +6,7 @@ import { siteConfig } from "@/content/global";
 import { providersPage } from "@/content/providers";
 import { submitToFormspree, SubmitState } from "@/lib/formspree";
 import { getUtmParams, trackEvent } from "@/lib/analytics";
-import { Field, TextInput, Select, CheckboxGroup, RadioGroup, Checkbox, FormNotice } from "./fields";
+import { Field, TextInput, Select, CheckboxGroup, RadioGroup, Checkbox, FormNotice, Honeypot } from "./fields";
 import { Button } from "../ui/Button";
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -30,6 +30,7 @@ export function ProviderForm() {
   const [challenge, setChallenge] = useState("");
   const [pilot, setPilot] = useState(false);
   const [hasAppointments, setHasAppointments] = useState(false);
+  const [gotcha, setGotcha] = useState("");
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [state, setState] = useState<SubmitState>("idle");
   const hasStarted = useRef(false);
@@ -75,6 +76,7 @@ export function ProviderForm() {
         biggest_challenge: challenge,
         pilot_interest: pilot,
         has_appointments_to_fill: hasAppointments,
+        _gotcha: gotcha,
         ...getUtmParams(),
       });
       trackEvent("provider_signup_completed", { has_appointments_to_fill: hasAppointments });
@@ -95,6 +97,7 @@ export function ProviderForm() {
 
   return (
     <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-5">
+      <Honeypot id="_gotcha-provider" value={gotcha} onChange={setGotcha} />
       <div className="grid gap-5 sm:grid-cols-2">
         <Field label="Name" htmlFor="provider-name" required error={errors.name}>
           <TextInput

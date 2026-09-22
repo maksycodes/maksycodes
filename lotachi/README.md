@@ -95,15 +95,25 @@ Visit http://localhost:3000.
 | `NEXT_PUBLIC_FORMSPREE_CONTACT_FORM_ID` | For the contact form + footer email capture to send | Formspree form ID for general contact |
 | `NEXT_PUBLIC_CONTACT_EMAIL` | No (defaults to `hello@lotachi.com`) | General contact email shown on site |
 | `NEXT_PUBLIC_PROVIDER_EMAIL` | No (defaults to `providers@lotachi.com`) | Provider contact email shown on site |
+| `NEXT_PUBLIC_GA4_MEASUREMENT_ID` | No (analytics stays fully off without it) | GA4 property Measurement ID, e.g. `G-XXXXXXXXXX` |
 
-**To set up Formspree (free tier is enough for early-access volumes):**
+**Formspree is already configured** with LOTACHI's live form IDs, set as the defaults in
+`.env.example`:
 
-1. Create an account at https://formspree.io.
-2. Create three forms — e.g. "LOTACHI model waitlist", "LOTACHI provider network", "LOTACHI contact".
-3. Copy each form's ID (the part after `/f/` in the form's endpoint URL) into the matching env
-   variable above.
-4. Every model/provider submission includes a `user_type` field (`model` or `provider`) as well,
-   so leads stay segmentable even if you later consolidate inboxes.
+| Form | Formspree ID | Endpoint |
+| --- | --- | --- |
+| Model waitlist | `mwlpobvd` | `https://formspree.io/f/mwlpobvd` |
+| Provider network | `mrpbqken` | `https://formspree.io/f/mrpbqken` |
+| General contact (+ footer email capture) | `xbgloygr` | `https://formspree.io/f/xbgloygr` |
+
+Every model/provider submission includes a `user_type` field (`model` or `provider`) as well, so
+leads stay segmentable even if you later consolidate inboxes. Every submission also includes an
+honeypot field (`_gotcha`, hidden from real visitors) that Formspree uses to silently discard
+automated spam — see `src/components/forms/fields.tsx`.
+
+**To point at a different Formspree account or form:** create an account at https://formspree.io,
+create a form, and replace the relevant ID in `.env.example` (or override it in `.env.local` /
+your Vercel project's environment variables) — the part after `/f/` in the form's endpoint URL.
 
 Without an ID set, the relevant form still renders and validates normally but shows a friendly
 error on submit telling the visitor to email you directly instead — nothing breaks, it just can't
@@ -111,11 +121,35 @@ send yet.
 
 ## Analytics & UTM tracking
 
-No analytics vendor is connected. `src/lib/analytics.ts` exports a `trackEvent()` stub (currently
-just `console.debug`s in development) that's already called from every primary CTA click, nav
-click, and form start/complete/error across the site. To wire up a real provider (GA4, PostHog,
-Segment, etc.), replace the body of `trackEvent()` — every call site already passes a stable event
-name and payload.
+**Google Analytics 4** is wired up, but stays completely inactive until you set
+`NEXT_PUBLIC_GA4_MEASUREMENT_ID` (see `.env.example`) — with no ID set, no `gtag` script is
+requested at all and nothing reaches Google. `src/lib/analytics.ts` exports `trackEvent()`, which
+console-debugs in development and, once a real GA4 ID is set, also sends the event to `gtag`.
+
+**Nine events are tracked** at the relevant call sites across the site: `model_signup_started`,
+`model_signup_completed`, `provider_signup_started`, `provider_signup_completed`,
+`contact_form_submitted`, `model_cta_clicked`, `provider_cta_clicked`, `provider_pilot_clicked`,
+and `social_link_clicked` — plus a GA4 `page_view` fired on every client-side route change
+(`src/components/GA4PageView.tsx`), since the App Router doesn't reload the page on `<Link>`
+navigation and GA4's automatic page_view only fires once. To add a new event, follow the pattern
+at any existing `trackEvent(...)` call site — the `AnalyticsEvent` type in `src/lib/analytics.ts`
+gives autocomplete for the standard set but also accepts any string.
+
+**Consent Mode v2**: when a real Measurement ID is set, GA4 defaults `analytics_storage` to
+`"denied"` (see the inline script in `src/app/layout.tsx`). No analytics cookies are set and no
+data reaches GA4 until something calls
+`window.gtag('consent', 'update', { analytics_storage: 'granted' })` — **this site does not yet
+have a cookie-consent banner to do that.** Build one before relying on real GA4 data, to stay
+compliant with UK PECR/GDPR; see the Cookie Policy content in `src/content/legal.ts` and
+`docs/legal-readiness-checklists.md`.
+
+**UTM parameters** (`utm_source`, `utm_medium`, `utm_campaign`, `utm_content`, `utm_term`) are
+captured from the URL on first load and persisted in `sessionStorage`
+(`src/components/UtmCapture.tsx` + `src/lib/analytics.ts`), then attached to every `trackEvent()`
+call and every Formspree submission — so a link like `/models?utm_source=tiktok` tags that
+visitor's eventual conversion with its source, regardless of which page they land on vs. convert
+on. This works the same way for TikTok, Instagram, Facebook, LinkedIn or email campaign links —
+attribution isn't platform-specific.
 
 UTM parameters (`utm_source`, `utm_medium`, `utm_campaign`, `utm_content`, `utm_term`) are captured
 from the URL on first load (`src/components/UtmCapture.tsx` + `src/lib/analytics.ts`), persisted
@@ -152,9 +186,23 @@ from appearance.
 ## Legal pages
 
 `/privacy`, `/terms`, `/provider-terms`, `/cookies` and `/safety` are early-stage, plain-language
-placeholders (content in `src/content/legal.ts`), each rendered with a visible banner stating
-they're not final legal advice. **These must be reviewed by a qualified professional before public
-launch** — see "Assets and information still needed" below.
+placeholders (content in `src/content/legal.ts`), written specifically around LOTACHI's own
+business model and current functionality — not based on or copied from any other organisation's
+policies. Each page carries a visible banner stating it's not final legal advice, and individual
+clauses that need specific legal sign-off carry their own inline "Solicitor review recommended"
+note (e.g. the liability clause in Terms of Use, or retention periods in the Privacy Policy).
+
+Two related internal documents (not published on the website) live in `docs/`:
+
+- `docs/media-consent-standard.md` — the proposed standard for how every opportunity listing
+  must disclose photography/video use, keeping treatment consent and media consent strictly
+  separate.
+- `docs/legal-readiness-checklists.md` — a launch-now checklist, a before-bookings/payments
+  checklist, a before-collecting-health-data checklist, and the open business/legal decisions
+  still needed (e.g. LOTACHI's legal entity details, minimum-age policy, post-pilot pricing).
+
+**All of this must be reviewed by a UK-qualified solicitor before public launch** — see
+`docs/legal-readiness-checklists.md` for the full breakdown.
 
 ## Deploying to Vercel
 
@@ -206,27 +254,19 @@ Once the real LOTACHI logo, colours and typeface are ready:
 This site was built to be launch-ready for early access and provider outreach, but the following
 still need real input before it should be treated as fully public/final:
 
-1. **Formspree form IDs** (or an alternative backend) for the model, provider and contact forms —
-   see "Environment variables" above. Nothing currently sends anywhere without these.
-2. **A LinkedIn URL** — TikTok, Instagram, YouTube and Facebook are already set in
+1. **A LinkedIn URL** — TikTok, Instagram, YouTube and Facebook are already set in
    `src/content/global.ts`; LinkedIn is still a `#` placeholder.
-3. **Final logo, brand colours and typeface** — see "Adding the final brand identity" above.
-4. **Legal review** of all 5 legal pages (Privacy, Terms, Provider Terms, Cookies, Safety
-   Disclaimer) by a qualified professional — current content is a plain-language placeholder, not
-   final legal advice.
-5. **Confirmation of contact inboxes** — `hello@lotachi.com` and `providers@lotachi.com` are used
+2. **Final logo, brand colours and typeface** — see "Adding the final brand identity" above.
+3. **Full legal, business and launch-readiness review** — see `docs/legal-readiness-checklists.md`
+   for the complete breakdown (launch-now / before-bookings-and-payments / before-collecting-
+   health-data checklists, plus every open business decision, such as LOTACHI's registered legal
+   entity details and post-pilot commercial pricing).
+4. **Confirmation of contact inboxes** — `hello@lotachi.com` and `providers@lotachi.com` are used
    throughout; set the env vars if you want different addresses, and make sure both inboxes are
    actually monitored before launch.
-6. **An analytics provider**, if you want real conversion tracking beyond the built-in UTM capture
-   — see "Analytics & UTM tracking" above.
-7. **Decision on pilot pricing** — the site currently says pilot/early-access pricing is "being
-   tested" rather than stating a number; update `src/content/faq.ts` and `src/content/providers.ts`
-   once pricing is decided.
-8. **Domain DNS access** in Namecheap to complete the steps in "Connecting lotachi.com" above.
-9. **A founder/team line for the About page.** The current copy deliberately stays anonymous
-   (no name, background or photo was provided to write truthfully) — a short, real founder bio
-   would meaningfully strengthen credibility for cautious visitors deciding whether to trust the
-   site. Update `src/content/about.ts` once you're ready to share this.
+5. **A GA4 Measurement ID**, if you want real analytics — see "Analytics & UTM tracking" above.
+   Also requires a cookie-consent banner (not yet built) before it will actually collect data.
+6. **Domain DNS access** in Namecheap to complete the steps in "Connecting lotachi.com" above.
 
 ## Notes on scope
 
