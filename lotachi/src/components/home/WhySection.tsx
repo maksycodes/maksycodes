@@ -20,7 +20,7 @@ function WhyCard({
 }) {
   return (
     <div
-      className={`flex flex-col rounded-2xl border p-8 ${
+      className={`flex flex-col rounded-2xl border p-8 shadow-sm ${
         tone === "model" ? "border-ink-100 bg-white" : "border-ink-800 bg-ink-900 text-paper"
       }`}
     >

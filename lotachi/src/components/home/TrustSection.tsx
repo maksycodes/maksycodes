@@ -3,7 +3,7 @@ import { Section, Eyebrow } from "../ui/Section";
 
 function List({ heading, items, tone }: { heading: string; items: string[]; tone: "does" | "doesNot" }) {
   return (
-    <div className="rounded-2xl border border-ink-100 bg-white p-6 sm:p-8">
+    <div className="rounded-2xl border border-ink-100 bg-white p-6 shadow-sm sm:p-8">
       <h3 className="text-sm font-semibold text-ink-900">{heading}</h3>
       <ul className="mt-4 flex flex-col gap-3">
         {items.map((item) => (

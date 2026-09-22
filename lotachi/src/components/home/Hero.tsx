@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { hero } from "@/content/home";
 import { trackEvent } from "@/lib/analytics";
 import { Badge } from "../ui/Badge";
@@ -8,10 +9,20 @@ import { Container } from "../ui/Container";
 
 export function Hero() {
   return (
-    <section aria-label="Introduction" className="border-b border-ink-100 py-20 sm:py-28">
-      <Container className="max-w-3xl">
+    <section aria-label="Introduction" className="relative overflow-hidden border-b border-ink-100 py-20 sm:py-28">
+      <Image
+        src="/brand/lotachi-symbol-colour.png"
+        alt=""
+        aria-hidden="true"
+        width={512}
+        height={512}
+        className="pointer-events-none absolute -right-24 -top-24 h-[26rem] w-[26rem] opacity-[0.07] sm:-right-16 sm:-top-32 sm:h-[34rem] sm:w-[34rem]"
+      />
+      <Container className="relative max-w-3xl">
         <Badge tone="accent">{hero.eyebrow}</Badge>
-        <h1 className="mt-4 text-4xl font-semibold tracking-tight text-ink-900 sm:text-5xl">{hero.headline}</h1>
+        <h1 className="mt-4 text-4xl font-semibold leading-[1.05] tracking-tight text-ink-900 sm:text-6xl">
+          {hero.headline}
+        </h1>
         <p className="mt-6 text-lg text-ink-600">{hero.body}</p>
         <div className="mt-10 flex flex-col gap-3 sm:flex-row">
           <LinkButton
