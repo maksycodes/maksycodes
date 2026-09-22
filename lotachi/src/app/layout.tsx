@@ -6,6 +6,7 @@ import "./globals.css";
 import { siteConfig } from "@/content/global";
 import { UtmCapture } from "@/components/UtmCapture";
 import { GA4PageView } from "@/components/GA4PageView";
+import { CookieConsent } from "@/components/CookieConsent";
 import { GA4_MEASUREMENT_ID } from "@/lib/ga4";
 
 // Temporary typeface. Swap for the final LOTACHI type choice in this file
@@ -58,10 +59,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/*
           GA4 only loads when NEXT_PUBLIC_GA4_MEASUREMENT_ID is set — see
           .env.example and README.md "Analytics & UTM tracking". Consent
-          Mode v2 defaults analytics_storage to "denied", so no analytics
-          cookies are set and no data reaches GA4 until a cookie-consent
-          banner calls gtag('consent','update',{analytics_storage:'granted'})
-          — this site doesn't have that banner yet.
+          Mode v2 defaults every signal to "denied" here; the CookieConsent
+          component (mounted below, sitewide) is what's allowed to call
+          gtag('consent','update',...) once a visitor has made a choice —
+          see src/lib/consent.ts.
         */}
         {GA4_MEASUREMENT_ID && (
           <>
@@ -71,7 +72,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
                 window.gtag = gtag;
-                gtag('consent', 'default', { analytics_storage: 'denied', ad_storage: 'denied' });
+                gtag('consent', 'default', { analytics_storage: 'denied', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' });
                 gtag('js', new Date());
                 gtag('config', '${GA4_MEASUREMENT_ID}', { send_page_view: false });
               `}
@@ -81,6 +82,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </Suspense>
           </>
         )}
+
+        <CookieConsent />
 
         {children}
       </body>

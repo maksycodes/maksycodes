@@ -66,6 +66,7 @@ export const footer = {
         { label: "Terms of Use", href: "/terms" },
         { label: "Provider Terms", href: "/provider-terms" },
         { label: "Cookie Policy", href: "/cookies" },
+        { label: "Cookie settings", href: "#cookie-settings" },
         { label: "Marketplace Disclaimer", href: "/safety" },
       ],
     },

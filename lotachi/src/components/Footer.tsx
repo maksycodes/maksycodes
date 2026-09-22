@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { footer, siteConfig } from "@/content/global";
 import { trackEvent } from "@/lib/analytics";
+import { OPEN_COOKIE_SETTINGS_EVENT } from "./CookieConsent";
 import { Container } from "./ui/Container";
 import { SocialLinks } from "./SocialLinks";
 import { EmailCaptureForm } from "./EmailCaptureForm";
@@ -32,6 +33,19 @@ export function Footer() {
             <h3 className="text-sm font-semibold text-ink-200">{column.heading}</h3>
             <ul className="mt-4 flex flex-col gap-3">
               {column.links.map((link) => {
+                if (link.href === "#cookie-settings") {
+                  return (
+                    <li key={link.href}>
+                      <button
+                        type="button"
+                        onClick={() => window.dispatchEvent(new Event(OPEN_COOKIE_SETTINGS_EVENT))}
+                        className="text-sm text-ink-300 hover:text-paper"
+                      >
+                        {link.label}
+                      </button>
+                    </li>
+                  );
+                }
                 const event = footerLinkEvent(link.href);
                 return (
                   <li key={link.href}>

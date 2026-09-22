@@ -273,27 +273,31 @@ export const cookiePolicy = {
   metaTitle: "Cookie Policy",
   heading: "Cookie Policy",
   intro:
-    "This policy explains the technologies this site currently uses in your browser, and how that would change if we introduce analytics.",
+    "This site shows a cookie banner on your first visit, asking which of the categories below you're happy for us to use. You can change your answer at any time using the \"Cookie settings\" link in the footer.",
   sections: [
     {
       heading: "Strictly necessary",
-      body: "Where this site stores anything in your browser, it's currently limited to what's strictly necessary for the site to function — for example, remembering that you've dismissed a notice. These don't require consent under UK PECR rules, and are the only category of storage this site uses by default.",
+      body: "Used to run the site and to remember the choice you make in the cookie banner itself (stored in your browser's local storage, not a cookie). These don't require consent under UK PECR rules, and can't be turned off.",
     },
     {
-      heading: "Analytics — not currently active",
-      body: "LOTACHI is prepared to use Google Analytics 4 in future, but it is not collecting any data today. The site is built with Google's Consent Mode, which defaults analytics cookies to \"denied\": even once a GA4 Measurement ID is configured, no analytics cookies are set and no data reaches Google until a cookie-consent banner has been added to this site and you've given consent through it. Neither of those is true yet, so no analytics cookies are currently set.",
+      heading: "Analytics",
+      body: "If you accept this category, LOTACHI uses Google Analytics 4 to understand how the site is used (pages viewed, approximate location, device/browser type). This is off by default. The site uses Google's Consent Mode, so no analytics cookie is set and no data reaches Google until you actively accept this category — either via \"Accept all\" or by switching it on in \"Manage preferences.\"",
     },
     {
-      heading: "Marketing or advertising cookies",
-      body: "None are used, and none are planned at this time. If that changes, this policy will be updated first, and consent requested through a cookie-consent banner before any such cookie is set.",
+      heading: "Marketing",
+      body: "Shown as its own category for transparency, but no marketing or advertising cookie or pixel is used on this site today — accepting this category currently has no effect. If that changes, this policy and the banner will be updated first, and your consent requested again before any marketing cookie is set.",
     },
     {
-      heading: "Managing cookies",
-      body: "Most browsers let you view, block or delete cookies through their settings. Blocking strictly-necessary storage may affect basic site functions like dismissing notices.",
+      heading: "Changing your choice",
+      body: "Use the \"Cookie settings\" link in the footer of any page to reopen your preferences and change your choice at any time.",
+    },
+    {
+      heading: "Managing cookies in your browser",
+      body: "Most browsers also let you view, block or delete cookies through their own settings, independently of the banner above. Blocking strictly-necessary storage may affect basic site functions.",
     },
     {
       heading: "Changes to this policy",
-      body: "We'll update this policy, and add a consent banner, before any non-essential cookie is set — including before Google Analytics 4 is switched on for real visitors.",
+      body: "We'll update this policy before adding any new non-essential cookie or tracking technology, and request consent through the banner before it's set.",
     },
   ],
 };
