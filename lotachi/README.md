@@ -244,9 +244,9 @@ Once the real LOTACHI logo, colours and typeface are ready:
   `tailwind.config.ts` to match.
 - **Open Graph image**: add an `opengraph-image.png` (1200×630) inside `src/app/` — Next.js picks
   it up automatically for link previews.
-- **Social links**: TikTok, Instagram, YouTube and Facebook are set in `src/content/global.ts`
-  (`siteConfig.social`) — LinkedIn is still a `#` placeholder pending a URL. All are rendered by
-  `src/components/SocialLinks.tsx`, which opens any non-placeholder link in a new tab with
+- **Social links**: TikTok, Instagram, YouTube, LinkedIn and Facebook are all set in
+  `src/content/global.ts` (`siteConfig.social`). All are rendered by
+  `src/components/SocialLinks.tsx`, which opens each link in a new tab with
   `rel="noopener noreferrer"`.
 
 ## Assets and information still needed before public launch
@@ -254,19 +254,18 @@ Once the real LOTACHI logo, colours and typeface are ready:
 This site was built to be launch-ready for early access and provider outreach, but the following
 still need real input before it should be treated as fully public/final:
 
-1. **A LinkedIn URL** — TikTok, Instagram, YouTube and Facebook are already set in
-   `src/content/global.ts`; LinkedIn is still a `#` placeholder.
-2. **Final logo, brand colours and typeface** — see "Adding the final brand identity" above.
-3. **Full legal, business and launch-readiness review** — see `docs/legal-readiness-checklists.md`
+1. **Final logo, brand colours and typeface** — see "Adding the final brand identity" above.
+2. **Full legal, business and launch-readiness review** — see `docs/legal-readiness-checklists.md`
    for the complete breakdown (launch-now / before-bookings-and-payments / before-collecting-
    health-data checklists, plus every open business decision, such as LOTACHI's registered legal
    entity details and post-pilot commercial pricing).
-4. **Confirmation of contact inboxes** — `hello@lotachi.com` and `providers@lotachi.com` are used
+3. **Confirmation of contact inboxes** — `hello@lotachi.com` and `providers@lotachi.com` are used
    throughout; set the env vars if you want different addresses, and make sure both inboxes are
    actually monitored before launch.
-5. **A GA4 Measurement ID**, if you want real analytics — see "Analytics & UTM tracking" above.
-   Also requires a cookie-consent banner (not yet built) before it will actually collect data.
-6. **Domain DNS access** in Namecheap to complete the steps in "Connecting lotachi.com" above.
+4. **A GA4 Measurement ID**, if you want real analytics — see "Analytics & UTM tracking" above.
+   Also requires a cookie-consent banner (not yet built) before it will actually collect data — see
+   the step-by-step GA4/cookie-consent setup underway.
+5. **Domain DNS access** in Namecheap to complete the steps in "Connecting lotachi.com" above.
 
 ## Notes on scope
 

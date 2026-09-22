@@ -107,10 +107,34 @@ under UK GDPR.
 Items the business (not the product build) needs to decide — several legal
 sections above are deliberately non-committal pending these:
 
-1. **LOTACHI's legal entity.** Registered company name, number and address,
-   for the Privacy Policy and Terms.
-2. **Minimum age policy for models.** Whether under-18s can be models, and if
-   so, what parental/guardian consent and safeguarding process applies.
+1. **LOTACHI's legal entity — decided, not yet executed.** LOTACHI will be
+   incorporated as its own company (working name: LOTACHI LTD), separate
+   from Osari (currently the founder's sole-trader trading name), before
+   real bookings, payments or provider contracts begin — the two have
+   different brands, customer groups, risk profiles and liability exposure.
+   Still to do: a Companies House name-availability check and trademark
+   clearance, then the actual incorporation. Only once that's complete
+   should a real registered company name/number/address be added to the
+   Privacy Policy "Who we are" section — do not add placeholder company
+   details before incorporation is real.
+2. **Minimum age policy for models — decided (phased).** Phase 1 (now, the
+   waitlist/early-access site): self-declaration only — the model confirms
+   "I am 18 or over" at sign-up; LOTACHI does not collect or store any ID
+   document. Phase 2 (once bookings exist): add platform-level age
+   verification before a first booking, ideally via a privacy-preserving
+   third-party provider that returns only an "18+ / not 18+" result rather
+   than the underlying document — the ICO recognises this kind of
+   tokenised/third-party age-assurance approach. Phase 3 (higher-risk
+   categories, e.g. injectables): both LOTACHI-level and provider-level
+   checks, since the provider retains their own separate professional/
+   clinical obligation regardless of what LOTACHI does. In-person: the
+   provider is still required to check government-issued photo ID before
+   any treatment and should record only a "18+ verified" flag, not a copy
+   of the document. Website wording should say: "LOTACHI is for adults
+   aged 18 and over. You may be asked to verify your age before accessing
+   booking functionality, and participating providers may require valid
+   photographic ID at your appointment." — not "age-verified platform,"
+   since today that would only be self-declaration.
 3. **Post-pilot commercial pricing** for providers (commission, subscription,
    or another model) — intentionally not invented in the legal pages, since
    it hasn't been decided.

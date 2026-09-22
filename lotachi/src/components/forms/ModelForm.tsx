@@ -23,6 +23,7 @@ export function ModelForm() {
   const [lastMinute, setLastMinute] = useState("");
   const [budget, setBudget] = useState("");
   const [interests, setInterests] = useState("");
+  const [ageConfirmed, setAgeConfirmed] = useState(false);
   const [consent, setConsent] = useState(false);
   const [privacyAck, setPrivacyAck] = useState(false);
   const [gotcha, setGotcha] = useState("");
@@ -44,6 +45,7 @@ export function ModelForm() {
     if (!email.trim()) nextErrors.email = "Please enter your email address.";
     else if (!EMAIL_PATTERN.test(email)) nextErrors.email = "Please enter a valid email address.";
     if (!location.trim()) nextErrors.location = "Please enter your postcode or area.";
+    if (!ageConfirmed) nextErrors.ageConfirmed = "Please confirm you're 18 or over to join.";
     if (!consent) nextErrors.consent = "Please confirm you'd like to hear from us.";
     if (!privacyAck) nextErrors.privacyAck = "Please confirm you've read the Privacy Policy.";
 
@@ -64,6 +66,7 @@ export function ModelForm() {
         last_minute_availability: lastMinute,
         budget,
         interests,
+        age_confirmed: ageConfirmed,
         consent,
         privacy_acknowledged: privacyAck,
         _gotcha: gotcha,
@@ -183,6 +186,15 @@ export function ModelForm() {
       </Field>
 
       <div className="flex flex-col gap-3">
+        <Checkbox id="model-age" checked={ageConfirmed} onChange={setAgeConfirmed} required>
+          {form.ageConfirmLabel}
+        </Checkbox>
+        {errors.ageConfirmed && (
+          <p role="alert" className="-mt-2 text-sm text-red-700">
+            {errors.ageConfirmed}
+          </p>
+        )}
+
         <Checkbox id="model-consent" checked={consent} onChange={setConsent} required>
           {form.consentLabel}
         </Checkbox>

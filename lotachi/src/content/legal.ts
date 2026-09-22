@@ -148,8 +148,8 @@ export const termsOfUse = {
     },
     {
       heading: "Eligibility",
-      body: "We may set a minimum age or other eligibility requirement for models once bookings exist. This will be confirmed and published here before that functionality launches.",
-      flag: "Decide and document LOTACHI's policy on minors as models (minimum age, parental/guardian consent requirements, safeguarding process) before any booking functionality launches.",
+      body: "LOTACHI is for adults aged 18 and over. You may be asked to verify your age before accessing booking functionality, and participating providers may require valid photographic ID at your appointment. Today, joining the model waitlist requires you to self-declare that you're 18 or over — LOTACHI does not collect or store any identity document for this.",
+      flag: "This reflects a phased approach: self-declaration only today; platform-level age verification (ideally via a privacy-preserving third-party provider returning only an \"18+/not 18+\" result) before booking functionality launches; and both platform- and provider-level checks for higher-risk categories. A solicitor should confirm this phasing, and any parental/guardian consent or safeguarding process if under-18s are ever permitted, before booking functionality launches.",
     },
     {
       heading: "How your enquiry is handled",

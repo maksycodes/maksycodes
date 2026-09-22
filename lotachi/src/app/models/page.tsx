@@ -28,6 +28,7 @@ export default function ModelsPage() {
               </h1>
               <p className="mt-5 text-ink-600">{modelsPage.body}</p>
               <p className="mt-4 text-sm text-ink-500">{modelsPage.note}</p>
+              <p className="mt-2 text-sm text-ink-500">{modelsPage.ageNote}</p>
 
               <div className="mt-8 rounded-2xl border border-ink-100 bg-white p-6">
                 <h2 className="text-sm font-semibold text-ink-900">{modelsPage.social.heading}</h2>
