@@ -15,7 +15,7 @@ export default function AboutPage() {
     <>
       <Nav />
       <main id="main-content">
-        <Section ariaLabel="About LOTACHI">
+        <Section ariaLabel="About LOTACHI" watermark>
           <div className="max-w-2xl">
             <Badge tone="accent">{aboutPage.eyebrow}</Badge>
             <h1 className="mt-4 text-3xl font-semibold tracking-tight text-ink-900 sm:text-4xl">{aboutPage.heading}</h1>

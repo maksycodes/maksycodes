@@ -15,7 +15,7 @@ export default function HowItWorksPage() {
     <>
       <Nav />
       <main id="main-content">
-        <Section ariaLabel="How it works">
+        <Section ariaLabel="How it works" watermark>
           <div className="max-w-2xl">
             <Badge tone="accent">{howItWorksPage.eyebrow}</Badge>
             <h1 className="mt-4 text-3xl font-semibold tracking-tight text-ink-900 sm:text-4xl">{howItWorksPage.heading}</h1>

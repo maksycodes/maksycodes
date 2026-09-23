@@ -18,7 +18,7 @@ export default function ProvidersPage() {
     <>
       <Nav />
       <main id="main-content">
-        <Section ariaLabel="Join as a provider">
+        <Section ariaLabel="Join as a provider" watermark>
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
             <div>
               <Badge tone="accent">{providersPage.eyebrow}</Badge>

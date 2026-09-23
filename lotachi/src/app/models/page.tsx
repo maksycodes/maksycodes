@@ -19,7 +19,7 @@ export default function ModelsPage() {
     <>
       <Nav />
       <main id="main-content">
-        <Section ariaLabel="Join as a model">
+        <Section ariaLabel="Join as a model" watermark>
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
             <div>
               <Badge tone="accent">{modelsPage.eyebrow}</Badge>

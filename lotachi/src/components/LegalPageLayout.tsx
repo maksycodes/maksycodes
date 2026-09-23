@@ -17,7 +17,7 @@ export function LegalPageLayout({ doc }: { doc: LegalDoc }) {
     <>
       <Nav />
       <main id="main-content">
-        <Section ariaLabel={doc.heading}>
+        <Section ariaLabel={doc.heading} watermark>
           <div className="mx-auto max-w-2xl">
             <h1 className="text-3xl font-semibold tracking-tight text-ink-900 sm:text-4xl">{doc.heading}</h1>
             <p className="mt-2 text-sm text-ink-400">Last updated: {lastUpdated}</p>

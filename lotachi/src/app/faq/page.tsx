@@ -16,7 +16,7 @@ export default function FAQPage() {
     <>
       <Nav />
       <main id="main-content">
-        <Section ariaLabel="Frequently asked questions">
+        <Section ariaLabel="Frequently asked questions" watermark>
           <Badge tone="accent">{faqPage.eyebrow}</Badge>
           <h1 className="mt-4 text-3xl font-semibold tracking-tight text-ink-900 sm:text-4xl">{faqPage.heading}</h1>
 

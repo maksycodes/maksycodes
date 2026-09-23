@@ -16,7 +16,7 @@ export default function ForProvidersPage() {
     <>
       <Nav />
       <main id="main-content">
-        <Section ariaLabel="For providers">
+        <Section ariaLabel="For providers" watermark>
           <div className="max-w-2xl">
             <Badge tone="accent">{forProvidersPage.eyebrow}</Badge>
             <h1 className="mt-4 text-3xl font-semibold tracking-tight text-ink-900 sm:text-4xl">

@@ -17,7 +17,7 @@ export default function ContactPage() {
     <>
       <Nav />
       <main id="main-content">
-        <Section ariaLabel="Contact">
+        <Section ariaLabel="Contact" watermark>
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
             <div>
               <Badge tone="accent">{contactPage.eyebrow}</Badge>

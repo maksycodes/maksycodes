@@ -17,7 +17,7 @@ export default function ForModelsPage() {
     <>
       <Nav />
       <main id="main-content">
-        <Section ariaLabel="For models">
+        <Section ariaLabel="For models" watermark>
           <div className="max-w-2xl">
             <Badge tone="accent">{forModelsPage.eyebrow}</Badge>
             <h1 className="mt-4 text-3xl font-semibold tracking-tight text-ink-900 sm:text-4xl">{forModelsPage.heading}</h1>
