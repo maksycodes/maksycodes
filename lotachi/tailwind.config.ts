@@ -47,6 +47,26 @@ const config: Config = {
       maxWidth: {
         content: "72rem",
       },
+      keyframes: {
+        // The hero's one authored focal entrance — content rises and
+        // settles with a confident deceleration curve.
+        "rise-in": {
+          "0%": { opacity: "0", transform: "translateY(14px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        // A small dot "arriving" beside the hero badge — echoes the brand
+        // mark's own ring-and-approaching-dot motif as a literal gesture
+        // of connection, LOTACHI's actual product idea.
+        "dot-settle": {
+          "0%": { opacity: "0", transform: "translateX(-8px) scale(0.4)" },
+          "55%": { opacity: "1" },
+          "100%": { opacity: "1", transform: "translateX(0) scale(1)" },
+        },
+      },
+      animation: {
+        "rise-in": "rise-in 650ms cubic-bezier(0.16,1,0.3,1) both",
+        "dot-settle": "dot-settle 550ms cubic-bezier(0.16,1,0.3,1) 380ms both",
+      },
     },
   },
   plugins: [],

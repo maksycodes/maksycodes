@@ -13,7 +13,7 @@ export function FAQAccordion({ items }: { items: FaqItem[] }) {
               </svg>
             </span>
           </summary>
-          <p className="mt-3 text-ink-600">{item.answer}</p>
+          <p className="mt-3 text-ink-600 motion-safe:group-open:animate-rise-in">{item.answer}</p>
         </details>
       ))}
     </div>

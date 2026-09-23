@@ -2,18 +2,18 @@ import Link from "next/link";
 import { AnchorHTMLAttributes, ButtonHTMLAttributes } from "react";
 
 const base =
-  "inline-flex min-h-[44px] items-center justify-center rounded-full px-6 py-3 text-sm font-medium transition-colors focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-60";
+  "inline-flex min-h-[44px] items-center justify-center rounded-full px-6 py-3 text-sm font-medium transition-all duration-200 ease-out focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-60 motion-safe:hover:-translate-y-0.5 motion-safe:active:translate-y-0 motion-safe:active:scale-[0.97] disabled:hover:translate-y-0";
 
 // "accent" is a solid-fill button style, kept as an alias of "primary" —
 // the brand's Terracotta accent colour is reserved for small highlights
 // (links, focus rings, the logo's own dot) and must never fill a button.
 const variants = {
-  primary: "bg-ink-900 text-paper hover:bg-ink-700",
-  accent: "bg-ink-900 text-paper hover:bg-ink-700",
+  primary: "bg-ink-900 text-paper shadow-sm hover:bg-ink-700 hover:shadow-md",
+  accent: "bg-ink-900 text-paper shadow-sm hover:bg-ink-700 hover:shadow-md",
   outline: "border border-ink-900 text-ink-900 hover:bg-ink-900 hover:text-paper",
   // For a solid button placed on an ink-900 (dark) surface, e.g. a dark
   // card — "primary"/"accent" would be invisible against that background.
-  inverse: "bg-paper text-ink-900 hover:bg-paper-muted",
+  inverse: "bg-paper text-ink-900 shadow-sm hover:bg-paper-muted hover:shadow-md",
 };
 
 type Variant = keyof typeof variants;

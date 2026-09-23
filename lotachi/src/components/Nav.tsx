@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { nav, siteConfig } from "@/content/global";
@@ -10,9 +10,26 @@ import { trackEvent } from "@/lib/analytics";
 
 export function Nav() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  // A shadow that appears once the page has actually scrolled — a small,
+  // continuous cue distinguishing "at the top" from "scrolled", rather
+  // than a permanent shadow that means nothing.
+  useEffect(() => {
+    function handleScroll() {
+      setScrolled(window.scrollY > 8);
+    }
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-ink-100 bg-paper/95 backdrop-blur">
+    <header
+      className={`sticky top-0 z-40 border-b border-ink-100 bg-paper/95 backdrop-blur transition-shadow duration-300 ${
+        scrolled ? "shadow-sm" : ""
+      }`}
+    >
       <Container className="flex h-16 items-center justify-between sm:h-20">
         <Link href="/" aria-label={siteConfig.name} className="flex items-center">
           <Image

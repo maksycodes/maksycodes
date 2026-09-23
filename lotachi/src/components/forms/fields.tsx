@@ -118,7 +118,7 @@ export function CheckboxGroup({
             <label
               key={option}
               htmlFor={id}
-              className={`inline-flex min-h-[44px] cursor-pointer items-center rounded-full border px-4 py-2 text-sm transition-colors ${
+              className={`inline-flex min-h-[44px] cursor-pointer items-center rounded-full border px-4 py-2 text-sm transition-all duration-150 motion-safe:active:scale-95 ${
                 checked
                   ? "border-ink-900 bg-ink-900 text-paper"
                   : "border-ink-200 text-ink-700 hover:border-ink-400"
@@ -166,7 +166,7 @@ export function RadioGroup({
             <label
               key={option}
               htmlFor={id}
-              className={`inline-flex min-h-[44px] cursor-pointer items-center rounded-full border px-4 py-2 text-sm transition-colors ${
+              className={`inline-flex min-h-[44px] cursor-pointer items-center rounded-full border px-4 py-2 text-sm transition-all duration-150 motion-safe:active:scale-95 ${
                 checked
                   ? "border-ink-900 bg-ink-900 text-paper"
                   : "border-ink-200 text-ink-700 hover:border-ink-400"

@@ -93,7 +93,7 @@ export function CookieConsent() {
         type="button"
         onClick={() => setExpanded(true)}
         aria-label="Cookie choices — tap to accept, reject or manage"
-        className="fixed bottom-3 right-3 z-50 flex h-11 w-11 items-center justify-center rounded-full border border-ink-200 bg-white shadow-lg transition-colors hover:border-ink-400 sm:bottom-4 sm:right-4"
+        className="fixed bottom-3 right-3 z-50 flex h-11 w-11 items-center justify-center rounded-full border border-ink-200 bg-white shadow-lg transition-colors hover:border-ink-400 motion-safe:animate-rise-in sm:bottom-4 sm:right-4"
       >
         <span aria-hidden="true" className="h-2.5 w-2.5 shrink-0 rounded-full bg-accent" />
       </button>
@@ -104,7 +104,7 @@ export function CookieConsent() {
     <div
       role="region"
       aria-label="Cookie preferences"
-      className="fixed inset-x-3 bottom-3 z-50 mx-auto max-w-2xl rounded-2xl border border-ink-200 bg-white p-3.5 shadow-lg sm:inset-x-4 sm:bottom-4 sm:p-5"
+      className="fixed inset-x-3 bottom-3 z-50 mx-auto max-w-2xl rounded-2xl border border-ink-200 bg-white p-3.5 shadow-lg motion-safe:animate-rise-in sm:inset-x-4 sm:bottom-4 sm:p-5"
     >
       {!showPreferences ? (
         <>

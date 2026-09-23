@@ -9,7 +9,7 @@ function formatDuration(minutes: number) {
 
 export function OpportunityCard({ opportunity }: { opportunity: OpportunityListing }) {
   return (
-    <div className="flex flex-col gap-3 rounded-2xl border border-ink-100 bg-white p-6 shadow-sm">
+    <div className="flex flex-col gap-3 rounded-2xl border border-ink-100 bg-white p-6 shadow-sm transition-shadow duration-200 hover:shadow-md">
       <div className="flex items-start justify-between gap-3">
         <Badge>{opportunity.category}</Badge>
         <Badge tone="accent">Example opportunity</Badge>
@@ -50,7 +50,7 @@ export function OpportunityCard({ opportunity }: { opportunity: OpportunityListi
           </span>
         </summary>
 
-        <div className="mt-4 flex flex-col gap-4 text-sm text-ink-600">
+        <div className="mt-4 flex flex-col gap-4 text-sm text-ink-600 motion-safe:group-open:animate-rise-in">
           <div>
             <h4 className="text-xs font-semibold uppercase tracking-wide text-ink-400">Who performs it</h4>
             <p className="mt-1">{opportunity.performedBy}</p>
