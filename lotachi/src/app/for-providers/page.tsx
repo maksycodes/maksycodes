@@ -27,7 +27,7 @@ export default function ForProvidersPage() {
 
           <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {forProvidersPage.sections.map((section) => (
-              <div key={section.heading} className="rounded-2xl border border-ink-100 bg-white p-6">
+              <div key={section.heading} className="rounded-2xl border border-ink-100 bg-white p-6 shadow-sm">
                 <h2 className="font-semibold text-ink-900">{section.heading}</h2>
                 <p className="mt-2 text-sm text-ink-600">{section.body}</p>
               </div>

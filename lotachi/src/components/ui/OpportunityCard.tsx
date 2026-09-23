@@ -9,7 +9,7 @@ function formatDuration(minutes: number) {
 
 export function OpportunityCard({ opportunity }: { opportunity: OpportunityListing }) {
   return (
-    <div className="flex flex-col gap-3 rounded-2xl border border-ink-100 bg-white p-6">
+    <div className="flex flex-col gap-3 rounded-2xl border border-ink-100 bg-white p-6 shadow-sm">
       <div className="flex items-start justify-between gap-3">
         <Badge>{opportunity.category}</Badge>
         <Badge tone="accent">Example opportunity</Badge>

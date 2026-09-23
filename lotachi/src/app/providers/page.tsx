@@ -55,7 +55,7 @@ export default function ProvidersPage() {
               </p>
             </div>
 
-            <div id="provider-form" className="scroll-mt-24 rounded-2xl border border-ink-100 bg-white p-6 sm:p-8">
+            <div id="provider-form" className="scroll-mt-24 rounded-2xl border border-ink-100 bg-white p-6 shadow-sm sm:p-8">
               <ProviderForm />
             </div>
           </div>

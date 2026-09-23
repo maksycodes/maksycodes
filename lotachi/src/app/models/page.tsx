@@ -30,7 +30,7 @@ export default function ModelsPage() {
               <p className="mt-4 text-sm text-ink-500">{modelsPage.note}</p>
               <p className="mt-2 text-sm text-ink-500">{modelsPage.ageNote}</p>
 
-              <div className="mt-8 rounded-2xl border border-ink-100 bg-white p-6">
+              <div className="mt-8 rounded-2xl border border-ink-100 bg-white p-6 shadow-sm">
                 <h2 className="text-sm font-semibold text-ink-900">{modelsPage.social.heading}</h2>
                 <p className="mt-2 text-sm text-ink-600">{modelsPage.social.body}</p>
                 <SocialLinks className="mt-4 [&_a]:border-ink-200 [&_a]:text-ink-600 [&_a:hover]:border-ink-900 [&_a:hover]:text-ink-900" />
@@ -57,7 +57,7 @@ export default function ModelsPage() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-ink-100 bg-white p-6 sm:p-8">
+            <div className="rounded-2xl border border-ink-100 bg-white p-6 shadow-sm sm:p-8">
               <ModelForm />
             </div>
           </div>
