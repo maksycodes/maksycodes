@@ -24,7 +24,7 @@ export function TrustSection() {
     <Section id="trust" ariaLabel="Trust and safety" className="border-b border-ink-100 bg-paper-muted">
       <Eyebrow>{trust.eyebrow}</Eyebrow>
       <h2 className="mt-3 max-w-2xl text-3xl font-semibold tracking-tight text-ink-900 sm:text-4xl">{trust.heading}</h2>
-      <p className="mt-5 max-w-2xl rounded-xl border border-ink-200 bg-white p-5 text-ink-700">{trust.statement}</p>
+      <p className="mt-5 max-w-2xl rounded-xl border border-ink-200 bg-white p-5 text-ink-700 shadow-sm">{trust.statement}</p>
 
       <div className="mt-10 grid gap-6 sm:grid-cols-2">
         <List heading="What LOTACHI does" items={trust.does} tone="does" />

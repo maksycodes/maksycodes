@@ -14,7 +14,7 @@ export function ProviderStepsSection() {
         <StepFlow steps={providerSteps.steps} />
       </div>
 
-      <div className="mt-12 rounded-2xl bg-white p-6 sm:p-8">
+      <div className="mt-12 rounded-2xl bg-white p-6 shadow-sm sm:p-8">
         <h3 className="text-sm font-semibold text-ink-900">Being designed for</h3>
         <ul className="mt-3 flex flex-wrap gap-2">
           {providerSteps.audiences.map((item) => (

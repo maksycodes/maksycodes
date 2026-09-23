@@ -43,12 +43,12 @@ export default function ContactPage() {
                 </div>
               </dl>
 
-              <div id="partnerships" className="mt-10 rounded-2xl bg-paper-muted p-6 scroll-mt-24">
+              <div id="partnerships" className="mt-10 rounded-2xl bg-paper-muted p-6 shadow-sm scroll-mt-24">
                 <h2 className="font-semibold text-ink-900">{contactPage.partnerships.heading}</h2>
                 <p className="mt-2 text-sm text-ink-600">{contactPage.partnerships.body}</p>
               </div>
 
-              <div id="feedback" className="mt-6 rounded-2xl bg-paper-muted p-6 scroll-mt-24">
+              <div id="feedback" className="mt-6 rounded-2xl bg-paper-muted p-6 shadow-sm scroll-mt-24">
                 <h2 className="font-semibold text-ink-900">{contactPage.feedback.heading}</h2>
                 <p className="mt-2 text-sm text-ink-600">{contactPage.feedback.body}</p>
               </div>

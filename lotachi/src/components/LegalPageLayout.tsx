@@ -22,7 +22,7 @@ export function LegalPageLayout({ doc }: { doc: LegalDoc }) {
             <h1 className="text-3xl font-semibold tracking-tight text-ink-900 sm:text-4xl">{doc.heading}</h1>
             <p className="mt-2 text-sm text-ink-400">Last updated: {lastUpdated}</p>
 
-            <p role="note" className="mt-6 rounded-xl border border-ink-200 bg-paper-muted p-4 text-sm text-ink-600">
+            <p role="note" className="mt-6 rounded-xl border border-ink-200 bg-paper-muted p-4 text-sm text-ink-600 shadow-sm">
               {legalReviewNotice}
             </p>
 
@@ -44,7 +44,7 @@ export function LegalPageLayout({ doc }: { doc: LegalDoc }) {
                     </ul>
                   )}
                   {section.flag && (
-                    <p className="mt-3 rounded-lg border border-amber-300 bg-amber-50 px-3 py-2 text-sm text-amber-900">
+                    <p className="mt-3 rounded-lg border border-amber-300 bg-amber-50 px-3 py-2 text-sm text-amber-900 shadow-sm">
                       <strong>Solicitor review recommended:</strong> {section.flag}
                     </p>
                   )}

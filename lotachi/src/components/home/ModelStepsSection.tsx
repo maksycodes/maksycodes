@@ -14,7 +14,7 @@ export function ModelStepsSection() {
         <StepFlow steps={modelSteps.steps} />
       </div>
 
-      <div className="mt-12 grid gap-8 rounded-2xl bg-paper-muted p-6 sm:grid-cols-2 sm:p-8">
+      <div className="mt-12 grid gap-8 rounded-2xl bg-paper-muted p-6 shadow-sm sm:grid-cols-2 sm:p-8">
         <div>
           <h3 className="text-sm font-semibold text-ink-900">Opportunities may include</h3>
           <ul className="mt-3 flex flex-wrap gap-2">

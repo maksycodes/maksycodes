@@ -36,7 +36,7 @@ export default function HowItWorksPage() {
             ))}
           </ol>
 
-          <p className="mt-12 max-w-2xl rounded-xl border border-ink-200 bg-paper-muted p-5 text-sm text-ink-600">
+          <p className="mt-12 max-w-2xl rounded-xl border border-ink-200 bg-paper-muted p-5 text-sm text-ink-600 shadow-sm">
             {howItWorksPage.note}
           </p>
         </Section>

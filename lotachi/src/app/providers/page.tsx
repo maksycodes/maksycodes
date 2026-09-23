@@ -27,7 +27,7 @@ export default function ProvidersPage() {
               </h1>
               <p className="mt-5 text-ink-600">{providersPage.body}</p>
 
-              <div className="mt-8 rounded-2xl bg-paper-muted p-6">
+              <div className="mt-8 rounded-2xl bg-paper-muted p-6 shadow-sm">
                 <h2 className="font-semibold text-ink-900">{providersPage.pilotNote.heading}</h2>
                 <p className="mt-2 text-sm text-ink-600">{providersPage.pilotNote.body}</p>
                 <p className="mt-2 text-sm text-ink-500">{providersPage.pilotNote.constraints}</p>

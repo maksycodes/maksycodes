@@ -21,11 +21,11 @@ export function ModelTransparencySection() {
       </dl>
 
       <div className="mt-10 grid gap-6 sm:grid-cols-2">
-        <div className="rounded-2xl border border-ink-200 bg-paper-muted p-6">
+        <div className="rounded-2xl border border-ink-200 bg-paper-muted p-6 shadow-sm">
           <h3 className="font-semibold text-ink-900">{transparency.mediaDistinction.heading}</h3>
           <p className="mt-2 text-sm text-ink-600">{transparency.mediaDistinction.body}</p>
         </div>
-        <div className="rounded-2xl border border-ink-200 bg-paper-muted p-6">
+        <div className="rounded-2xl border border-ink-200 bg-paper-muted p-6 shadow-sm">
           <h3 className="font-semibold text-ink-900">Suitability isn&apos;t inferred from appearance.</h3>
           <p className="mt-2 text-sm text-ink-600">{transparency.appearanceNote}</p>
         </div>
