@@ -12,9 +12,9 @@ export const faqPage = {
         "LOTACHI is an early-stage marketplace connecting people who want to become models for training, demonstrations and portfolio work with the providers who need them.",
     },
     {
-      question: "What is a training model?",
+      question: "What is a model opportunity?",
       answer:
-        "A training model is someone who takes part in a supervised practical session, assessment, demonstration or portfolio shoot run by a training provider — often for free or at a reduced price.",
+        "A model opportunity is a supervised practical session, assessment, demonstration, portfolio shoot or piece of newly-qualified-practitioner practice run by a training provider — often for free or at a reduced price. Not every opportunity is training-based, so we use \"model opportunity\" as the umbrella term.",
     },
     {
       question: "Is LOTACHI free to join?",

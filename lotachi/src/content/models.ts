@@ -3,13 +3,13 @@
 export const modelsPage = {
   metaTitle: "Join as a Model",
   metaDescription:
-    "Get access to model opportunities near you. Join the LOTACHI early-access list to hear about relevant free, discounted and training-model opportunities.",
+    "Get access to model opportunities near you. Join the LOTACHI early-access list to hear about relevant free, discounted and model opportunities.",
   eyebrow: "For models",
   headline: "Get access to model opportunities near you.",
-  body: "Join the LOTACHI early-access list to hear about relevant free, discounted and training-model opportunities.",
+  body: "Join the LOTACHI early-access list to hear about relevant free, discounted and model opportunities.",
   note: "Additional information may be requested later, only when it's relevant to a specific opportunity.",
   ageNote:
-    "LOTACHI is for adults aged 18 and over. You may be asked to verify your age before accessing booking functionality, and participating providers may require valid photographic ID at your appointment.",
+    "LOTACHI is for adults aged 18 and over. You may be asked to verify your age before accessing future booking functionality, and participating providers may require valid photographic ID at your appointment.",
   social: {
     heading: "Want opportunities sooner?",
     body: "Follow LOTACHI for new opportunities as they're announced.",
@@ -20,6 +20,14 @@ export const modelsPage = {
     availabilityOptions: ["Weekdays", "Evenings", "Weekends", "Flexible"],
     lastMinuteOptions: ["Less than 24 hours", "24–48 hours", "48–72 hours", "More notice needed"],
     budgetOptions: ["Free only", "Under £25", "Under £50", "Under £100", "Depends on the opportunity"],
+    interestReasonOptions: [
+      "Save money on treatments/services",
+      "Try services I might not pay full price for",
+      "Help trainees learn",
+      "Find last-minute opportunities",
+      "Portfolio/content opportunities",
+      "Other",
+    ],
     ageConfirmLabel: "I confirm I am 18 or over.",
     consentLabel: "I'd like to hear from LOTACHI about relevant model opportunities and updates.",
     submitLabel: "Join the early-access list",

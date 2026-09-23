@@ -7,36 +7,36 @@ export const forProvidersPage = {
     "LOTACHI is an early-stage marketplace that helps training providers reach people interested in becoming models for practical training, assessments, demonstrations and portfolio work. It's being shaped through conversations with tutors, academies, clinics and training providers about how model recruitment and practical-session logistics work today.",
   sections: [
     {
-      heading: "Find more suitable models",
-      body: "Describe what you need, and reach people who are more likely to be a match — rather than posting into a general group and hoping.",
+      heading: "Fill difficult, specialist and last-minute requirements",
+      body: "LOTACHI is being built to help you fill difficult, specialist and last-minute model requirements — without relying only on social posts, mailing lists and manual outreach.",
+    },
+    {
+      heading: "Reach a wider pool, without replacing your booking system",
+      body: "Reach a wider pool of potentially suitable models — without replacing your existing booking or practice-management system. LOTACHI is designed to sit alongside it, not instead of it.",
     },
     {
       heading: "Be specific about who you're looking for",
-      body: "State the hair types, skin types or other characteristics a session is seeking or equipped to work with, so people can see whether they're a likely fit before applying — rather than that being guessed from appearance.",
+      body: "During the pilot, tell us the hair types, skin types or other characteristics a session is seeking or equipped to work with, so we can help match people more likely to be a fit — rather than that being guessed from appearance.",
     },
     {
       heading: "Be clear about photos, video and aftercare",
-      body: "Set out what any photos or video are for and whether consent will be needed separately from the treatment itself, and attach your own written aftercare and contact details once a booking is complete.",
+      body: "Set out what any photos or video are for and whether consent will be needed separately from the treatment itself. Once booking functionality exists, you'll attach your own written aftercare and contact details directly to each booking.",
     },
     {
       heading: "Reach people outside your existing database",
-      body: "Extend beyond your current customer list and social following to a wider pool of interested people.",
-    },
-    {
-      heading: "Manage difficult-to-fill requirements",
-      body: "Use LOTACHI for the sessions that are hardest to fill — specific categories, unusual requirements or off-peak times.",
+      body: "LOTACHI is being built to help you extend beyond your current customer list and social following to a wider pool of interested people.",
     },
     {
       heading: "Recruit last-minute replacements",
-      body: "When a model drops out, reach suitable people quickly instead of starting your search from scratch.",
+      body: "When a model drops out, LOTACHI aims to help you reach suitable people quickly instead of starting your search from scratch — this is one of the workflows we're testing during the pilot.",
     },
     {
-      heading: "Build a pool of returning models",
-      body: "Keep track of people who've been a good fit before, so you can invite them back for future sessions.",
+      heading: "A pool of returning models — planned",
+      body: "Keeping track of people who've been a good fit before, so you can invite them back for future sessions, is part of the direction we're exploring as LOTACHI develops.",
     },
     {
       heading: "Reduce repetitive admin",
-      body: "Spend less time re-posting the same requirement across multiple group chats and social channels.",
+      body: "LOTACHI aims to reduce the time you spend re-posting the same requirement across multiple group chats and social channels.",
     },
     {
       heading: "Future matching and workflow tools",
@@ -51,7 +51,7 @@ export const forProvidersPage = {
     cta: { label: "Join the Founding Provider Pilot", href: "/providers#provider-form" },
   },
   builtWith: {
-    heading: "Built with real provider conversations",
-    body: "We don't name providers we speak with without their permission — but LOTACHI's direction is being shaped directly by academies, clinics, salons and educators, not guesswork.",
+    heading: "Built with real conversations, not guesswork",
+    body: "Built with input from tutors, academies, clinics, salons and real model users. We don't name individuals or organisations we speak with without their permission, but LOTACHI's direction is shaped directly by them.",
   },
 };

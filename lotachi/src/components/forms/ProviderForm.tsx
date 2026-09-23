@@ -6,7 +6,7 @@ import { siteConfig } from "@/content/global";
 import { providersPage } from "@/content/providers";
 import { submitToFormspree, SubmitState } from "@/lib/formspree";
 import { getUtmParams, trackEvent } from "@/lib/analytics";
-import { Field, TextInput, Select, CheckboxGroup, RadioGroup, Checkbox, FormNotice, Honeypot, FormSection } from "./fields";
+import { Field, TextInput, Textarea, Select, CheckboxGroup, RadioGroup, Checkbox, FormNotice, Honeypot, FormSection } from "./fields";
 import { Button } from "../ui/Button";
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -23,10 +23,13 @@ export function ProviderForm() {
   const [providerType, setProviderType] = useState("");
   const [categories, setCategories] = useState<string[]>([]);
   const [volume, setVolume] = useState("");
+  const [next30Days, setNext30Days] = useState("");
   const [purposes, setPurposes] = useState<string[]>([]);
+  const [hardestToFill, setHardestToFill] = useState("");
   const [fillDifficulty, setFillDifficulty] = useState("");
   const [lastMinute, setLastMinute] = useState("");
   const [sources, setSources] = useState<string[]>([]);
+  const [currentProcess, setCurrentProcess] = useState("");
   const [challenge, setChallenge] = useState("");
   const [pilot, setPilot] = useState(false);
   const [hasAppointments, setHasAppointments] = useState(false);
@@ -69,10 +72,13 @@ export function ProviderForm() {
         provider_type: providerType,
         categories,
         model_volume: volume,
+        needs_models_next_30_days: next30Days,
         purposes,
+        hardest_to_fill: hardestToFill,
         fill_difficulty: fillDifficulty,
         last_minute_need: lastMinute,
         current_sources: sources,
+        current_process: currentProcess,
         biggest_challenge: challenge,
         pilot_interest: pilot,
         has_appointments_to_fill: hasAppointments,
@@ -197,11 +203,19 @@ export function ProviderForm() {
         <CheckboxGroup legend="Categories" name="categories" options={form.categoryOptions} values={categories} onChange={setCategories} />
 
         <RadioGroup
-          legend="Approximately how many models do you need"
+          legend="Approximately how many models do you need per month?"
           name="volume"
           options={form.volumeOptions}
           value={volume}
           onChange={setVolume}
+        />
+
+        <RadioGroup
+          legend="Do you need models within the next 30 days?"
+          name="next30Days"
+          options={form.next30DaysOptions}
+          value={next30Days}
+          onChange={setNext30Days}
         />
 
         <CheckboxGroup
@@ -212,6 +226,16 @@ export function ProviderForm() {
           onChange={setPurposes}
         />
 
+        <Field label="What's the hardest type of model requirement for you to fill?" htmlFor="provider-hardest-to-fill" optional>
+          <TextInput
+            id="provider-hardest-to-fill"
+            name="hardestToFill"
+            placeholder="e.g. a specific hair type, last-minute cover, a rare skin condition"
+            value={hardestToFill}
+            onChange={(e) => setHardestToFill(e.target.value)}
+          />
+        </Field>
+
         <RadioGroup
           legend="Do you ever struggle to fill appointments?"
           name="fillDifficulty"
@@ -221,7 +245,7 @@ export function ProviderForm() {
         />
 
         <RadioGroup
-          legend="Do you need last-minute models?"
+          legend="Are last-minute cancellations a recurring issue for you?"
           name="lastMinute"
           options={form.lastMinuteOptions}
           value={lastMinute}
@@ -235,6 +259,16 @@ export function ProviderForm() {
           values={sources}
           onChange={setSources}
         />
+
+        <Field label="Briefly describe how model recruitment works for you today" htmlFor="provider-current-process" optional>
+          <Textarea
+            id="provider-current-process"
+            name="currentProcess"
+            rows={3}
+            value={currentProcess}
+            onChange={(e) => setCurrentProcess(e.target.value)}
+          />
+        </Field>
 
         <Field label="What is the biggest challenge you currently face when finding or managing models?" htmlFor="provider-challenge" optional>
           <TextInput id="provider-challenge" name="challenge" value={challenge} onChange={(e) => setChallenge(e.target.value)} />

@@ -12,7 +12,7 @@ export function OpportunityCard({ opportunity }: { opportunity: OpportunityListi
     <div className="flex flex-col gap-3 rounded-2xl border border-ink-100 bg-white p-6 shadow-sm transition-shadow duration-200 hover:shadow-md">
       <div className="flex items-start justify-between gap-3">
         <Badge>{opportunity.category}</Badge>
-        <Badge tone="accent">Example opportunity</Badge>
+        <Badge tone="accent">Illustrative example — not a live listing</Badge>
       </div>
       <h3 className="text-lg font-semibold text-ink-900">{opportunity.title}</h3>
 
@@ -20,7 +20,7 @@ export function OpportunityCard({ opportunity }: { opportunity: OpportunityListi
         {[
           { label: "Needed for", value: opportunity.reason },
           { label: "Location", value: opportunity.location },
-          { label: "Price", value: opportunity.comparablePrice ? `${opportunity.modelPrice} (usually ${opportunity.comparablePrice})` : opportunity.modelPrice },
+          { label: "Price", value: opportunity.comparablePrice ? `${opportunity.modelPrice} (illustrative comparison: ${opportunity.comparablePrice})` : opportunity.modelPrice },
           { label: "Duration", value: formatDuration(opportunity.durationMinutes) },
           { label: "Notice", value: opportunity.notice },
         ].map((row) => (
