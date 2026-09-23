@@ -84,15 +84,18 @@ export function CookieConsent() {
   const minimized = DENSE_PAGES.includes(pathname) && !expanded;
 
   if (minimized) {
+    // Icon-only and no wider than the 44px touch-target floor — a text
+    // pill ("Cookies") is wide enough to still clip a long link on some
+    // narrow-viewport pages; this stays clear of everything by being as
+    // narrow as it can legitimately be.
     return (
       <button
         type="button"
         onClick={() => setExpanded(true)}
         aria-label="Cookie choices — tap to accept, reject or manage"
-        className="fixed bottom-3 right-3 z-50 inline-flex min-h-[44px] items-center gap-2 rounded-full border border-ink-200 bg-white px-4 py-2.5 text-sm font-medium text-ink-900 shadow-lg transition-colors hover:border-ink-400 sm:bottom-4 sm:right-4"
+        className="fixed bottom-3 right-3 z-50 flex h-11 w-11 items-center justify-center rounded-full border border-ink-200 bg-white shadow-lg transition-colors hover:border-ink-400 sm:bottom-4 sm:right-4"
       >
-        <span aria-hidden="true" className="h-2 w-2 shrink-0 rounded-full bg-accent" />
-        Cookies
+        <span aria-hidden="true" className="h-2.5 w-2.5 shrink-0 rounded-full bg-accent" />
       </button>
     );
   }
