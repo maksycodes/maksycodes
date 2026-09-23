@@ -2,18 +2,36 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { ACCEPT_ALL, REJECT_ALL, ConsentPreferences, applyConsent, getStoredConsent, saveConsent } from "@/lib/consent";
 
 // Dispatched by the footer's "Cookie settings" link so a visitor can change
 // their choice at any time after the first visit — see Footer.tsx.
 export const OPEN_COOKIE_SETTINGS_EVENT = "lotachi:open-cookie-settings";
 
+// /models and /providers have a tall single-column info block above the
+// fold on first load — the full-width banner has nowhere to sit without
+// overlapping a real link there. On those two pages only, start as a small
+// corner trigger instead: being narrow rather than full-width, it clears
+// that left-aligned content by construction, and expands to the identical
+// full banner on tap.
+const DENSE_PAGES = ["/models", "/providers"];
+
 export function CookieConsent() {
+  const pathname = usePathname();
   const [ready, setReady] = useState(false);
   const [visible, setVisible] = useState(false);
   const [showPreferences, setShowPreferences] = useState(false);
+  const [expanded, setExpanded] = useState(false);
   const [analyticsPref, setAnalyticsPref] = useState(false);
   const [marketingPref, setMarketingPref] = useState(false);
+
+  // Re-minimise on navigating to a fresh dense page rather than staying
+  // expanded from wherever the visitor was before.
+  useEffect(() => {
+    setExpanded(false);
+  }, [pathname]);
+
   useEffect(() => {
     const stored = getStoredConsent();
     let timer: ReturnType<typeof setTimeout> | undefined;
@@ -43,6 +61,7 @@ export function CookieConsent() {
       setMarketingPref(current?.marketing ?? false);
       setShowPreferences(true);
       setVisible(true);
+      setExpanded(true);
     }
 
     window.addEventListener(OPEN_COOKIE_SETTINGS_EVENT, handleReopen);
@@ -61,6 +80,22 @@ export function CookieConsent() {
   }
 
   if (!ready || !visible) return null;
+
+  const minimized = DENSE_PAGES.includes(pathname) && !expanded;
+
+  if (minimized) {
+    return (
+      <button
+        type="button"
+        onClick={() => setExpanded(true)}
+        aria-label="Cookie choices — tap to accept, reject or manage"
+        className="fixed bottom-3 right-3 z-50 inline-flex min-h-[44px] items-center gap-2 rounded-full border border-ink-200 bg-white px-4 py-2.5 text-sm font-medium text-ink-900 shadow-lg transition-colors hover:border-ink-400 sm:bottom-4 sm:right-4"
+      >
+        <span aria-hidden="true" className="h-2 w-2 shrink-0 rounded-full bg-accent" />
+        Cookies
+      </button>
+    );
+  }
 
   return (
     <div
