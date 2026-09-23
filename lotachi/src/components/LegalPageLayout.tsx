@@ -1,4 +1,3 @@
-import { legalReviewNotice } from "@/content/legal";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { Section } from "@/components/ui/Section";
@@ -22,10 +21,6 @@ export function LegalPageLayout({ doc }: { doc: LegalDoc }) {
             <h1 className="text-3xl font-semibold tracking-tight text-ink-900 sm:text-4xl">{doc.heading}</h1>
             <p className="mt-2 text-sm text-ink-400">Last updated: {lastUpdated}</p>
 
-            <p role="note" className="mt-6 rounded-xl border border-ink-200 bg-paper-muted p-4 text-sm text-ink-600 shadow-sm">
-              {legalReviewNotice}
-            </p>
-
             {doc.intro && <p className="mt-6 text-ink-600">{doc.intro}</p>}
 
             <div className="mt-10 flex flex-col gap-8 text-ink-600">
@@ -43,11 +38,9 @@ export function LegalPageLayout({ doc }: { doc: LegalDoc }) {
                       ))}
                     </ul>
                   )}
-                  {section.flag && (
-                    <p className="mt-3 rounded-lg border border-amber-300 bg-amber-50 px-3 py-2 text-sm text-amber-900 shadow-sm">
-                      <strong>Solicitor review recommended:</strong> {section.flag}
-                    </p>
-                  )}
+                  {/* section.flag holds internal solicitor-review notes — see
+                      src/content/legal.ts. Deliberately not rendered here;
+                      these are notes for LOTACHI/its advisors, not visitors. */}
                 </section>
               ))}
             </div>

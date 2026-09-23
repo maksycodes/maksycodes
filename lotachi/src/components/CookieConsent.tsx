@@ -169,18 +169,20 @@ export function CookieConsent() {
               />
             </label>
 
-            <label className="flex items-start justify-between gap-4">
+            <label className="flex items-start justify-between gap-4 opacity-60">
               <span>
                 <span className="block text-sm font-medium text-ink-900">Marketing</span>
                 <span className="block text-sm text-ink-500">
-                  Not currently used on this site. Shown here for transparency — nothing changes yet either way.
+                  Not currently used on this site — there is nothing to enable yet.
                 </span>
               </span>
               <input
                 type="checkbox"
-                checked={marketingPref}
-                onChange={(e) => setMarketingPref(e.target.checked)}
-                className="mt-1 h-5 w-5 shrink-0 rounded border-ink-300 text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                checked={false}
+                disabled
+                aria-disabled="true"
+                title="Not currently used on this site"
+                className="mt-1 h-5 w-5 shrink-0 cursor-not-allowed rounded border-ink-300 text-accent"
               />
             </label>
           </div>

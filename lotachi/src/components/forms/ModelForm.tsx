@@ -22,6 +22,7 @@ export function ModelForm() {
   const [availability, setAvailability] = useState<string[]>([]);
   const [lastMinute, setLastMinute] = useState("");
   const [budget, setBudget] = useState("");
+  const [interestReason, setInterestReason] = useState("");
   const [interests, setInterests] = useState("");
   const [ageConfirmed, setAgeConfirmed] = useState(false);
   const [consent, setConsent] = useState(false);
@@ -65,6 +66,7 @@ export function ModelForm() {
         availability,
         last_minute_availability: lastMinute,
         budget,
+        interest_reason: interestReason,
         interests,
         age_confirmed: ageConfirmed,
         consent,
@@ -183,6 +185,16 @@ export function ModelForm() {
           value={budget}
           onChange={setBudget}
         />
+
+        <div>
+          <RadioGroup
+            legend="Why are you interested in model opportunities? (optional)"
+            name="interestReason"
+            options={form.interestReasonOptions}
+            value={interestReason}
+            onChange={setInterestReason}
+          />
+        </div>
 
         <Field label="Anything you'd particularly like to be a model for?" htmlFor="model-interests" optional>
           <TextInput

@@ -14,8 +14,14 @@
 // organisation's policies — those were used only as a reference to spot
 // which operational topics this kind of business needs to cover, nothing
 // more. Sections marked with a `flag` are specific points a UK-qualified
-// solicitor should review and finalise before public launch, in addition
-// to the general review banner below.
+// solicitor should review and finalise before public launch.
+//
+// INTERNAL ONLY — legalReviewNotice and every section's `flag` field are
+// notes for LOTACHI and its future solicitor, not for site visitors.
+// LegalPageLayout.tsx deliberately does not render either of these publicly
+// (see the comment there). Keep this data here as the internal review
+// record; do not wire it back into public rendering without removing the
+// content first.
 
 export const legalReviewNotice =
   "This is an early-stage placeholder, written in plain English for LOTACHI's pre-launch site. It is not final legal advice — a UK-qualified solicitor should review this document, and in particular every section marked \"Solicitor review recommended\" below, before public launch.";
@@ -148,7 +154,7 @@ export const termsOfUse = {
     },
     {
       heading: "Eligibility",
-      body: "LOTACHI is for adults aged 18 and over. You may be asked to verify your age before accessing booking functionality, and participating providers may require valid photographic ID at your appointment. Today, joining the model waitlist requires you to self-declare that you're 18 or over — LOTACHI does not collect or store any identity document for this.",
+      body: "LOTACHI is for adults aged 18 and over. You may be asked to verify your age before accessing future booking functionality, and participating providers may require valid photographic ID at your appointment. Today, joining the model waitlist requires you to self-declare that you're 18 or over — LOTACHI does not collect or store any identity document for this.",
       flag: "This reflects a phased approach: self-declaration only today; platform-level age verification (ideally via a privacy-preserving third-party provider returning only an \"18+/not 18+\" result) before booking functionality launches; and both platform- and provider-level checks for higher-risk categories. A solicitor should confirm this phasing, and any parental/guardian consent or safeguarding process if under-18s are ever permitted, before booking functionality launches.",
     },
     {

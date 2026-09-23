@@ -17,7 +17,8 @@ export const providersPage = {
   form: {
     providerTypeOptions: ["Academy", "College", "Clinic", "Salon", "Independent educator", "Practitioner", "Other"],
     categoryOptions: ["Hair", "Aesthetics", "Beauty", "Nails", "SPMU", "Skin", "Wellness", "Other"],
-    volumeOptions: ["Per week", "Per month", "Occasionally"],
+    volumeOptions: ["1–2 per month", "3–5 per month", "6–10 per month", "10+ per month", "Varies a lot"],
+    next30DaysOptions: ["Yes", "No", "Not sure yet"],
     purposeOptions: [
       "Training",
       "Assessment",
@@ -41,7 +42,7 @@ export const providersPage = {
       "Other",
     ],
     pilotLabel: "I'd be interested in participating in an early LOTACHI pilot.",
-    hasAppointmentsLabel: "I have model appointments LOTACHI could help me fill during the pilot.",
+    hasAppointmentsLabel: "I have real model opportunities LOTACHI could help fill during the pilot.",
     submitLabel: "Join the provider network",
     successHeading: "Thank you — we've received your details.",
     successBody: "LOTACHI may contact you regarding early pilot opportunities as the platform develops.",

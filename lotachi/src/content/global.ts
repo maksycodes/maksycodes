@@ -7,7 +7,7 @@ export const siteConfig = {
   domain: "lotachi.com",
   tagline: "Find model opportunities. Find the right models.",
   description:
-    "LOTACHI is an early-stage marketplace connecting people who want to become models for training, demonstrations and portfolio work with the providers who need them — starting with beauty, hair, aesthetics and wellness in the UK.",
+    "LOTACHI is an early-stage marketplace connecting people who want to become models for training, demonstrations and portfolio work with the providers who need them — starting with hair, beauty and aesthetics in the UK.",
   emails: {
     general: process.env.NEXT_PUBLIC_CONTACT_EMAIL || "hello@lotachi.com",
     providers: process.env.NEXT_PUBLIC_PROVIDER_EMAIL || "providers@lotachi.com",
@@ -30,7 +30,7 @@ export const nav = {
   links: [
     { label: "For Models", href: "/for-models" },
     { label: "For Providers", href: "/for-providers" },
-    { label: "How it works", href: "/how-it-works" },
+    { label: "How It Works", href: "/how-it-works" },
     { label: "About", href: "/about" },
     { label: "FAQ", href: "/faq" },
     { label: "Contact", href: "/contact" },
@@ -45,7 +45,7 @@ export const footer = {
       heading: "LOTACHI",
       links: [
         { label: "About", href: "/about" },
-        { label: "How it works", href: "/how-it-works" },
+        { label: "How It Works", href: "/how-it-works" },
         { label: "FAQ", href: "/faq" },
         { label: "Contact", href: "/contact" },
       ],
