@@ -14,9 +14,10 @@ export function CookieConsent() {
   const [showPreferences, setShowPreferences] = useState(false);
   const [analyticsPref, setAnalyticsPref] = useState(false);
   const [marketingPref, setMarketingPref] = useState(false);
-
   useEffect(() => {
     const stored = getStoredConsent();
+    let timer: ReturnType<typeof setTimeout> | undefined;
+
     if (stored) {
       // Consent Mode defaults to denied on every fresh page load (see
       // layout.tsx) — a returning visitor's earlier choice has to be
@@ -25,7 +26,14 @@ export function CookieConsent() {
       setAnalyticsPref(stored.analytics);
       setMarketingPref(stored.marketing);
     } else {
-      setVisible(true);
+      // A first-time visitor sees no banner for a brief moment rather than
+      // having it paint instantly on top of the page — a fixed bottom
+      // banner otherwise geometrically covers whatever content sits in its
+      // footprint the instant the page loads, before anyone's had a chance
+      // to look at it. Nothing non-essential loads regardless of this delay
+      // (see GA4Loader), so this doesn't weaken consent — it just avoids
+      // the banner obscuring a real link/button on first paint.
+      timer = setTimeout(() => setVisible(true), 600);
     }
     setReady(true);
 
@@ -38,7 +46,10 @@ export function CookieConsent() {
     }
 
     window.addEventListener(OPEN_COOKIE_SETTINGS_EVENT, handleReopen);
-    return () => window.removeEventListener(OPEN_COOKIE_SETTINGS_EVENT, handleReopen);
+    return () => {
+      if (timer) clearTimeout(timer);
+      window.removeEventListener(OPEN_COOKIE_SETTINGS_EVENT, handleReopen);
+    };
   }, []);
 
   function choose(prefs: ConsentPreferences) {
@@ -55,37 +66,36 @@ export function CookieConsent() {
     <div
       role="region"
       aria-label="Cookie preferences"
-      className="fixed inset-x-4 bottom-4 z-50 mx-auto max-w-2xl rounded-2xl border border-ink-200 bg-white p-5 shadow-lg sm:p-6"
+      className="fixed inset-x-3 bottom-3 z-50 mx-auto max-w-2xl rounded-2xl border border-ink-200 bg-white p-3.5 shadow-lg sm:inset-x-4 sm:bottom-4 sm:p-5"
     >
       {!showPreferences ? (
         <>
-          <p className="text-sm text-ink-600">
-            We use strictly necessary storage to run this site. With your permission, we&apos;d also like to use
-            analytics to understand how it&apos;s used — see our{" "}
+          <p className="text-xs text-ink-600 sm:text-sm">
+            We use cookies to run this site and, with your permission, to understand how it&apos;s used — see our{" "}
             <Link href="/cookies" className="text-accent underline underline-offset-2">
               Cookie Policy
             </Link>
             .
           </p>
-          <div className="mt-4 flex flex-col gap-2 sm:flex-row">
+          <div className="mt-3 grid grid-cols-3 gap-2 sm:mt-4">
             <button
               type="button"
               onClick={() => choose(REJECT_ALL)}
-              className="inline-flex items-center justify-center rounded-full bg-ink-900 px-5 py-2.5 text-sm font-medium text-paper transition-colors hover:bg-ink-700"
+              className="inline-flex min-h-[44px] items-center justify-center rounded-full bg-ink-900 px-2 py-2.5 text-center text-xs font-medium text-paper transition-colors hover:bg-ink-700 sm:px-5 sm:text-sm"
             >
-              Reject non-essential
+              Reject
             </button>
             <button
               type="button"
               onClick={() => setShowPreferences(true)}
-              className="inline-flex items-center justify-center rounded-full border border-ink-200 px-5 py-2.5 text-sm font-medium text-ink-700 transition-colors hover:border-ink-400"
+              className="inline-flex min-h-[44px] items-center justify-center rounded-full border border-ink-200 px-2 py-2.5 text-center text-xs font-medium text-ink-700 transition-colors hover:border-ink-400 sm:px-5 sm:text-sm"
             >
-              Manage preferences
+              Preferences
             </button>
             <button
               type="button"
               onClick={() => choose(ACCEPT_ALL)}
-              className="inline-flex items-center justify-center rounded-full bg-ink-900 px-5 py-2.5 text-sm font-medium text-paper transition-colors hover:bg-ink-700"
+              className="inline-flex min-h-[44px] items-center justify-center rounded-full bg-ink-900 px-2 py-2.5 text-center text-xs font-medium text-paper transition-colors hover:bg-ink-700 sm:px-5 sm:text-sm"
             >
               Accept all
             </button>
@@ -137,18 +147,18 @@ export function CookieConsent() {
             </label>
           </div>
 
-          <div className="mt-5 flex flex-col gap-2 sm:flex-row">
+          <div className="mt-5 grid grid-cols-2 gap-2">
             <button
               type="button"
               onClick={() => choose(REJECT_ALL)}
-              className="inline-flex items-center justify-center rounded-full border border-ink-200 px-5 py-2.5 text-sm font-medium text-ink-700 transition-colors hover:border-ink-400"
+              className="inline-flex min-h-[44px] items-center justify-center rounded-full border border-ink-200 px-4 py-2.5 text-sm font-medium text-ink-700 transition-colors hover:border-ink-400"
             >
               Reject non-essential
             </button>
             <button
               type="button"
               onClick={() => choose({ analytics: analyticsPref, marketing: marketingPref })}
-              className="inline-flex items-center justify-center rounded-full bg-ink-900 px-5 py-2.5 text-sm font-medium text-paper transition-colors hover:bg-ink-700"
+              className="inline-flex min-h-[44px] items-center justify-center rounded-full bg-ink-900 px-4 py-2.5 text-sm font-medium text-paper transition-colors hover:bg-ink-700"
             >
               Save preferences
             </button>

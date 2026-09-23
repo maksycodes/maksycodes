@@ -2,7 +2,7 @@ import Link from "next/link";
 import { AnchorHTMLAttributes, ButtonHTMLAttributes } from "react";
 
 const base =
-  "inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-medium transition-colors focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-60";
+  "inline-flex min-h-[44px] items-center justify-center rounded-full px-6 py-3 text-sm font-medium transition-colors focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-60";
 
 // "accent" is a solid-fill button style, kept as an alias of "primary" —
 // the brand's Terracotta accent colour is reserved for small highlights

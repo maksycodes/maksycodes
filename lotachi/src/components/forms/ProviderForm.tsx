@@ -6,7 +6,7 @@ import { siteConfig } from "@/content/global";
 import { providersPage } from "@/content/providers";
 import { submitToFormspree, SubmitState } from "@/lib/formspree";
 import { getUtmParams, trackEvent } from "@/lib/analytics";
-import { Field, TextInput, Select, CheckboxGroup, RadioGroup, Checkbox, FormNotice, Honeypot } from "./fields";
+import { Field, TextInput, Select, CheckboxGroup, RadioGroup, Checkbox, FormNotice, Honeypot, FormSection } from "./fields";
 import { Button } from "../ui/Button";
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -96,168 +96,179 @@ export function ProviderForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-5">
+    <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-6">
       <Honeypot id="_gotcha-provider" value={gotcha} onChange={setGotcha} />
-      <div className="grid gap-5 sm:grid-cols-2">
-        <Field label="Name" htmlFor="provider-name" required error={errors.name}>
-          <TextInput
-            id="provider-name"
-            name="name"
-            autoComplete="name"
-            value={name}
-            onFocus={markStarted}
-            onChange={(e) => setName(e.target.value)}
-          />
-        </Field>
-        <Field label="Job title" htmlFor="provider-job-title" required error={errors.jobTitle}>
-          <TextInput
-            id="provider-job-title"
-            name="jobTitle"
-            autoComplete="organization-title"
-            value={jobTitle}
-            onChange={(e) => setJobTitle(e.target.value)}
-          />
-        </Field>
-      </div>
 
-      <Field label="Organisation / provider name" htmlFor="provider-org" required error={errors.organisation}>
-        <TextInput
-          id="provider-org"
-          name="organisation"
-          autoComplete="organization"
-          value={organisation}
-          onChange={(e) => setOrganisation(e.target.value)}
+      <FormSection step={1} title="About you & your business" description="Just enough to add you to the network and get in touch.">
+        <div className="grid gap-5 sm:grid-cols-2">
+          <Field label="Name" htmlFor="provider-name" required error={errors.name}>
+            <TextInput
+              id="provider-name"
+              name="name"
+              autoComplete="name"
+              value={name}
+              onFocus={markStarted}
+              onChange={(e) => setName(e.target.value)}
+            />
+          </Field>
+          <Field label="Job title" htmlFor="provider-job-title" required error={errors.jobTitle}>
+            <TextInput
+              id="provider-job-title"
+              name="jobTitle"
+              autoComplete="organization-title"
+              value={jobTitle}
+              onChange={(e) => setJobTitle(e.target.value)}
+            />
+          </Field>
+        </div>
+
+        <Field label="Organisation / provider name" htmlFor="provider-org" required error={errors.organisation}>
+          <TextInput
+            id="provider-org"
+            name="organisation"
+            autoComplete="organization"
+            value={organisation}
+            onChange={(e) => setOrganisation(e.target.value)}
+          />
+        </Field>
+
+        <div className="grid gap-5 sm:grid-cols-2">
+          <Field label="Email" htmlFor="provider-email" required error={errors.email}>
+            <TextInput
+              id="provider-email"
+              name="email"
+              type="email"
+              autoComplete="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </Field>
+          <Field label="Phone" htmlFor="provider-phone" optional>
+            <TextInput
+              id="provider-phone"
+              name="phone"
+              type="tel"
+              autoComplete="tel"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+            />
+          </Field>
+        </div>
+
+        <div className="grid gap-5 sm:grid-cols-2">
+          <Field label="Website or social link" htmlFor="provider-website" optional>
+            <TextInput
+              id="provider-website"
+              name="website"
+              placeholder="https://"
+              autoComplete="url"
+              value={website}
+              onChange={(e) => setWebsite(e.target.value)}
+            />
+          </Field>
+          <Field label="Location(s)" htmlFor="provider-locations" required error={errors.locations}>
+            <TextInput
+              id="provider-locations"
+              name="locations"
+              autoComplete="address-level2"
+              value={locations}
+              onChange={(e) => setLocations(e.target.value)}
+            />
+          </Field>
+        </div>
+
+        <Field label="Provider type" htmlFor="provider-type" optional>
+          <Select id="provider-type" name="providerType" value={providerType} onChange={(e) => setProviderType(e.target.value)}>
+            <option value="">Select…</option>
+            {form.providerTypeOptions.map((option) => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            ))}
+          </Select>
+        </Field>
+      </FormSection>
+
+      <FormSection
+        step={2}
+        title="What you're looking for"
+        description="Helps us match you to suitable models — you can update this later."
+      >
+        <CheckboxGroup legend="Categories" name="categories" options={form.categoryOptions} values={categories} onChange={setCategories} />
+
+        <RadioGroup
+          legend="Approximately how many models do you need"
+          name="volume"
+          options={form.volumeOptions}
+          value={volume}
+          onChange={setVolume}
         />
-      </Field>
 
-      <div className="grid gap-5 sm:grid-cols-2">
-        <Field label="Email" htmlFor="provider-email" required error={errors.email}>
-          <TextInput
-            id="provider-email"
-            name="email"
-            type="email"
-            autoComplete="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
+        <CheckboxGroup
+          legend="What do you usually need models for?"
+          name="purposes"
+          options={form.purposeOptions}
+          values={purposes}
+          onChange={setPurposes}
+        />
+
+        <RadioGroup
+          legend="Do you ever struggle to fill appointments?"
+          name="fillDifficulty"
+          options={form.fillDifficultyOptions}
+          value={fillDifficulty}
+          onChange={setFillDifficulty}
+        />
+
+        <RadioGroup
+          legend="Do you need last-minute models?"
+          name="lastMinute"
+          options={form.lastMinuteOptions}
+          value={lastMinute}
+          onChange={setLastMinute}
+        />
+
+        <CheckboxGroup
+          legend="How do you currently find models?"
+          name="sources"
+          options={form.sourceOptions}
+          values={sources}
+          onChange={setSources}
+        />
+
+        <Field label="What is the biggest challenge you currently face when finding or managing models?" htmlFor="provider-challenge" optional>
+          <TextInput id="provider-challenge" name="challenge" value={challenge} onChange={(e) => setChallenge(e.target.value)} />
         </Field>
-        <Field label="Phone" htmlFor="provider-phone" optional>
-          <TextInput
-            id="provider-phone"
-            name="phone"
-            type="tel"
-            autoComplete="tel"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-          />
-        </Field>
-      </div>
+      </FormSection>
 
-      <div className="grid gap-5 sm:grid-cols-2">
-        <Field label="Website or social link" htmlFor="provider-website" optional>
-          <TextInput
-            id="provider-website"
-            name="website"
-            placeholder="https://"
-            autoComplete="url"
-            value={website}
-            onChange={(e) => setWebsite(e.target.value)}
-          />
-        </Field>
-        <Field label="Location(s)" htmlFor="provider-locations" required error={errors.locations}>
-          <TextInput
-            id="provider-locations"
-            name="locations"
-            autoComplete="address-level2"
-            value={locations}
-            onChange={(e) => setLocations(e.target.value)}
-          />
-        </Field>
-      </div>
+      <FormSection step={3} title="Confirm & consent">
+        <div className="flex flex-col gap-3 rounded-lg bg-paper-muted p-4">
+          <p className="text-xs font-semibold uppercase tracking-wide text-ink-400">Founding Provider Pilot</p>
+          <Checkbox id="provider-pilot" checked={pilot} onChange={setPilot}>
+            {form.pilotLabel}
+          </Checkbox>
+          <Checkbox id="provider-has-appointments" checked={hasAppointments} onChange={setHasAppointments}>
+            {form.hasAppointmentsLabel}
+          </Checkbox>
+        </div>
 
-      <Field label="Provider type" htmlFor="provider-type" optional>
-        <Select id="provider-type" name="providerType" value={providerType} onChange={(e) => setProviderType(e.target.value)}>
-          <option value="">Select…</option>
-          {form.providerTypeOptions.map((option) => (
-            <option key={option} value={option}>
-              {option}
-            </option>
-          ))}
-        </Select>
-      </Field>
+        {state === "error" && (
+          <FormNotice tone="error">
+            {form.errorMessage} {siteConfig.emails.providers}.
+          </FormNotice>
+        )}
 
-      <CheckboxGroup legend="Categories" name="categories" options={form.categoryOptions} values={categories} onChange={setCategories} />
-
-      <RadioGroup
-        legend="Approximately how many models do you need"
-        name="volume"
-        options={form.volumeOptions}
-        value={volume}
-        onChange={setVolume}
-      />
-
-      <CheckboxGroup
-        legend="What do you usually need models for?"
-        name="purposes"
-        options={form.purposeOptions}
-        values={purposes}
-        onChange={setPurposes}
-      />
-
-      <RadioGroup
-        legend="Do you ever struggle to fill appointments?"
-        name="fillDifficulty"
-        options={form.fillDifficultyOptions}
-        value={fillDifficulty}
-        onChange={setFillDifficulty}
-      />
-
-      <RadioGroup
-        legend="Do you need last-minute models?"
-        name="lastMinute"
-        options={form.lastMinuteOptions}
-        value={lastMinute}
-        onChange={setLastMinute}
-      />
-
-      <CheckboxGroup
-        legend="How do you currently find models?"
-        name="sources"
-        options={form.sourceOptions}
-        values={sources}
-        onChange={setSources}
-      />
-
-      <Field label="What is the biggest challenge you currently face when finding or managing models?" htmlFor="provider-challenge" optional>
-        <TextInput id="provider-challenge" name="challenge" value={challenge} onChange={(e) => setChallenge(e.target.value)} />
-      </Field>
-
-      <div className="flex flex-col gap-3 rounded-lg bg-paper-muted p-4">
-        <p className="text-xs font-semibold uppercase tracking-wide text-ink-400">Founding Provider Pilot</p>
-        <Checkbox id="provider-pilot" checked={pilot} onChange={setPilot}>
-          {form.pilotLabel}
-        </Checkbox>
-        <Checkbox id="provider-has-appointments" checked={hasAppointments} onChange={setHasAppointments}>
-          {form.hasAppointmentsLabel}
-        </Checkbox>
-      </div>
-
-      {state === "error" && (
-        <FormNotice tone="error">
-          {form.errorMessage} {siteConfig.emails.providers}.
-        </FormNotice>
-      )}
-
-      <Button type="submit" variant="accent" disabled={state === "submitting"} className="sm:self-start">
-        {state === "submitting" ? "Sending…" : form.submitLabel}
-      </Button>
-      <p className="text-xs text-ink-400">
-        By submitting, you agree to LOTACHI contacting you about this enquiry. See our{" "}
-        <Link href="/privacy" className="underline underline-offset-2">
-          Privacy Policy
-        </Link>
-        .
-      </p>
+        <Button type="submit" variant="accent" disabled={state === "submitting"} className="sm:self-start">
+          {state === "submitting" ? "Sending…" : form.submitLabel}
+        </Button>
+        <p className="text-xs text-ink-400">
+          By submitting, you agree to LOTACHI contacting you about this enquiry. See our{" "}
+          <Link href="/privacy" className="underline underline-offset-2">
+            Privacy Policy
+          </Link>
+          .
+        </p>
+      </FormSection>
     </form>
   );
 }

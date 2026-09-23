@@ -3,6 +3,36 @@ import { InputHTMLAttributes, ReactNode, SelectHTMLAttributes, TextareaHTMLAttri
 const inputClasses =
   "w-full rounded-lg border border-ink-200 bg-paper px-4 py-2.5 text-ink-900 placeholder:text-ink-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent";
 
+// Groups a form's fields into a labelled, numbered section so a long form
+// reads as a handful of digestible steps rather than one undifferentiated
+// wall of choices — see ModelForm.tsx and ProviderForm.tsx.
+export function FormSection({
+  step,
+  title,
+  description,
+  children,
+}: {
+  step: number;
+  title: string;
+  description?: string;
+  children: ReactNode;
+}) {
+  return (
+    <div className="flex flex-col gap-5 border-t border-ink-100 pt-6 first:border-t-0 first:pt-0">
+      <div>
+        <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-ink-400">
+          <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-ink-900 text-[10px] text-paper">
+            {step}
+          </span>
+          {title}
+        </p>
+        {description && <p className="mt-2 text-sm text-ink-500">{description}</p>}
+      </div>
+      <div className="flex flex-col gap-5">{children}</div>
+    </div>
+  );
+}
+
 export function Field({
   label,
   htmlFor,
@@ -88,7 +118,7 @@ export function CheckboxGroup({
             <label
               key={option}
               htmlFor={id}
-              className={`cursor-pointer rounded-full border px-4 py-2 text-sm transition-colors ${
+              className={`inline-flex min-h-[44px] cursor-pointer items-center rounded-full border px-4 py-2 text-sm transition-colors ${
                 checked
                   ? "border-ink-900 bg-ink-900 text-paper"
                   : "border-ink-200 text-ink-700 hover:border-ink-400"
@@ -136,7 +166,7 @@ export function RadioGroup({
             <label
               key={option}
               htmlFor={id}
-              className={`cursor-pointer rounded-full border px-4 py-2 text-sm transition-colors ${
+              className={`inline-flex min-h-[44px] cursor-pointer items-center rounded-full border px-4 py-2 text-sm transition-colors ${
                 checked
                   ? "border-ink-900 bg-ink-900 text-paper"
                   : "border-ink-200 text-ink-700 hover:border-ink-400"

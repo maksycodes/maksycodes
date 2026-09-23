@@ -12,9 +12,12 @@ export function ProblemSection() {
         </div>
         <dl className="grid gap-6 sm:grid-cols-2">
           {problem.points.map((point) => (
-            <div key={point.label}>
-              <dt className="text-sm font-semibold text-ink-900">{point.label}</dt>
-              <dd className="mt-1 text-sm text-ink-600">{point.body}</dd>
+            <div key={point.label} className="flex gap-3">
+              <span aria-hidden="true" className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+              <div>
+                <dt className="text-sm font-semibold text-ink-900">{point.label}</dt>
+                <dd className="mt-1 text-sm text-ink-600">{point.body}</dd>
+              </div>
             </div>
           ))}
         </dl>

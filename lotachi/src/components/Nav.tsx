@@ -62,7 +62,7 @@ export function Nav() {
           aria-expanded={open}
           aria-controls="mobile-menu"
           onClick={() => setOpen((v) => !v)}
-          className="inline-flex items-center justify-center rounded-full p-2 text-ink-900 xl:hidden"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-full text-ink-900 xl:hidden"
         >
           <span className="sr-only">{open ? "Close menu" : "Open menu"}</span>
           {open ? (
@@ -80,13 +80,13 @@ export function Nav() {
       {open && (
         <div id="mobile-menu" className="border-t border-ink-100 bg-paper xl:hidden">
           <Container className="flex flex-col gap-4 py-6">
-            <nav aria-label="Mobile" className="flex flex-col gap-4">
+            <nav aria-label="Mobile" className="flex flex-col">
               {nav.links.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="text-base font-medium text-ink-700 hover:text-ink-900"
+                  className="flex min-h-[44px] items-center text-base font-medium text-ink-700 hover:text-ink-900"
                 >
                   {link.label}
                 </Link>

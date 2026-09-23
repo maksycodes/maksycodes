@@ -51,7 +51,7 @@ export function SocialLinks({ className = "" }: { className?: string }) {
             aria-label={`LOTACHI on ${link.label}`}
             onClick={() => trackEvent("social_link_clicked", { platform: link.key, href: link.href })}
             {...(isLive ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-ink-700 text-ink-200 transition-colors hover:border-paper hover:text-paper"
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-ink-700 text-ink-200 transition-colors hover:border-paper hover:text-paper"
           >
             <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
               {icons[link.key]}

@@ -38,7 +38,7 @@ export function Footer() {
         {footer.columns.map((column) => (
           <nav key={column.heading} aria-label={column.heading}>
             <h3 className="text-sm font-semibold text-ink-200">{column.heading}</h3>
-            <ul className="mt-4 flex flex-col gap-3">
+            <ul className="mt-2 flex flex-col">
               {column.links.map((link) => {
                 if (link.href === "#cookie-settings") {
                   return (
@@ -46,7 +46,7 @@ export function Footer() {
                       <button
                         type="button"
                         onClick={() => window.dispatchEvent(new Event(OPEN_COOKIE_SETTINGS_EVENT))}
-                        className="text-sm text-ink-300 hover:text-paper"
+                        className="flex min-h-[44px] items-center text-sm text-ink-300 hover:text-paper"
                       >
                         {link.label}
                       </button>
@@ -59,7 +59,7 @@ export function Footer() {
                     <Link
                       href={link.href}
                       onClick={event ? () => trackEvent(event, { label: link.label, placement: "footer" }) : undefined}
-                      className="text-sm text-ink-300 hover:text-paper"
+                      className="flex min-h-[44px] items-center text-sm text-ink-300 hover:text-paper"
                     >
                       {link.label}
                     </Link>
