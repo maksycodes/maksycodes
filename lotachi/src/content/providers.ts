@@ -21,7 +21,15 @@ export const providersPage = {
     categoryOptions: ["Hair", "Beauty", "Aesthetics", "Nails", "SPMU", "Other"],
     trainingDaysOptions: ["1 day/month", "2–4 days/month", "5–10 days/month", "More than 10 days/month", "Varies a lot"],
     traineesPerSessionOptions: ["1–5", "6–15", "16–30", "30+"],
-    volumeOptions: ["1–2 per month", "3–5 per month", "6–10 per month", "10+ per month", "Varies a lot"],
+    volumeOptions: [
+      "1–2 per month",
+      "3–5 per month",
+      "6–10 per month",
+      "11–20 per month",
+      "21–50 per month",
+      "50+ per month",
+      "Varies a lot",
+    ],
     requirementsNext30DaysOptions: ["None yet", "1–2", "3–5", "6–10", "More than 10", "Not sure yet"],
     urgentHardToFillValueOptions: [
       "Very valuable — it's a regular problem",
