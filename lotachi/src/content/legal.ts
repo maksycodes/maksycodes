@@ -42,8 +42,8 @@ export const privacyPolicy = {
       heading: "The personal data we collect today",
       body: "We only collect what you give us directly through our forms. Depending on which one you submit, this may include:",
       list: [
-        "Model early-access/waitlist form: first name, email, mobile number, postcode or area, travel distance, category interests, availability, last-minute availability, typical budget, and any optional message.",
-        "Provider network/pilot form: name, job title, organisation, email, phone, website or social link, location(s), provider type, categories, model volume, purpose, fill-difficulty, last-minute need, how you currently source models, pilot interest, whether you currently have appointments LOTACHI could help fill, and any optional message.",
+        "Model early-access/waitlist form: first name, email, mobile number (optional), postcode, travel radius, category interests, availability, shortest notice you'd need, openness to free or discounted pricing, and how you heard about LOTACHI (optional). We don't ask detailed suitability or treatment questions at sign-up.",
+        "Provider network/pilot form: name, job title, organisation, email, phone, website or social link, location(s), provider type, categories, training days per month, trainees per session, model volume needed, model requirements expected in the next 30 days, upcoming training dates, purpose, hardest-to-fill requirement, fill-difficulty, last-minute cancellation frequency, how you currently source models, your current recruitment process, your biggest challenge, pilot interest, whether you currently have opportunities LOTACHI could help fill, your views on a successful-fill fee and what a reasonable fee range would be, and how valuable help with urgent or hard-to-fill requirements would be.",
         "General contact form: name, email, the reason you selected, and your message.",
         "Footer email capture: your email address only.",
       ],
@@ -264,8 +264,9 @@ export const providerTerms = {
       body: "LOTACHI may suspend or remove a provider's participation in the pilot (or, in future, their listings) where we reasonably believe these terms have been breached, information has been misrepresented, a safety risk has been identified, or where required by law. We'll aim to explain why, where we're able to.",
     },
     {
-      heading: "Founding Provider Pilot pricing",
-      body: "The Founding Provider Pilot is free of platform cost during the initial pilot period. LOTACHI has not yet finalised any commission, subscription or other commercial pricing structure for the live marketplace — this will be communicated clearly and separately before it applies to any provider. This is a limited early-stage pilot with a small number of provider slots, and joining it does not guarantee permanent free access.",
+      heading: "Founding Provider Pilot",
+      body: "Commercial terms for the Founding Provider Pilot, including any fees, are set out in a separate written pilot agreement between LOTACHI and each participating provider, agreed before LOTACHI recruits for any requirement. These website terms do not themselves create any fee or payment obligation. LOTACHI has not finalised pricing for the wider platform; this will be communicated clearly and separately before it applies to any provider.",
+      flag: "A solicitor should confirm this wording creates no unintended fee or payment obligation on its own, and that it is consistent with the separate written pilot agreement, before public launch.",
     },
     {
       heading: "Full terms ahead of launch",

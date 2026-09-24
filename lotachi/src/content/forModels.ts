@@ -100,6 +100,16 @@ export const forModelsPage = {
       answer:
         "Yes. A provider may state characteristics they're specifically seeking or equipped to work with — for example a hair type or skin type — so you can see whether an opportunity is a likely fit before you apply.",
     },
+    {
+      question: "Do I pay LOTACHI for an opportunity?",
+      answer:
+        "No. During the pilot, if an opportunity has a price, you pay the provider directly — LOTACHI doesn't take payment for treatments.",
+    },
+    {
+      question: "Who do I pay?",
+      answer:
+        "The provider, directly, if the opportunity has a price. LOTACHI doesn't take payment for treatments during the pilot.",
+    },
   ],
-  cta: { label: "Join as a Chi Chi", href: "/models" },
+  cta: { label: "Join London Early Access", href: "/models" },
 };

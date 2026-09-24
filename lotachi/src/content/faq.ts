@@ -57,7 +57,17 @@ export const faqPage = {
     {
       question: "What if I have had previous treatments?",
       answer:
-        "We don't collect detailed treatment history on the initial waitlist form. A provider may ask you relevant questions directly if it matters for a specific opportunity.",
+        "We don't ask detailed suitability or treatment questions at sign-up. If a particular opportunity needs information such as hair characteristics, photos or provider-defined screening, we'll ask only when it's relevant.",
+    },
+    {
+      question: "Do I pay LOTACHI for an opportunity?",
+      answer:
+        "No. During the pilot, if an opportunity has a price, you pay the provider directly — LOTACHI doesn't take payment for treatments.",
+    },
+    {
+      question: "Who do I pay?",
+      answer:
+        "The provider, directly, if the opportunity has a price. LOTACHI doesn't take payment for treatments during the pilot.",
     },
     {
       question: "Are providers verified?",
@@ -110,7 +120,11 @@ export const faqPage = {
     },
     {
       question: "How much will it cost?",
-      answer: "The Founding Provider Pilot is free during the initial pilot period — early provider partners pay no platform cost while we test model matching, difficult-to-fill appointments and last-minute recruitment. Commercial pricing will be developed based on pilot results and provider feedback. This is a limited early-stage pilot with a small number of provider slots: future paid pricing may apply once it ends, and joining now doesn't guarantee permanent free access.",
+      answer: "No subscription and no set-up cost. During the pilot you tell us what you need, we recruit and match Chi Chis for you, and a successful-fill fee applies only once a LOTACHI-recruited Chi Chi has attended and you've confirmed it. The fee is set out in a short pilot agreement with you before we start, and may differ for standard and urgent or hard-to-fill requirements. Chi Chis pay you directly for any priced opportunity — LOTACHI doesn't handle treatment payments during the pilot. Pilot places are limited, and pricing for the wider platform will be set separately, based on what we learn.",
+    },
+    {
+      question: "Do Chi Chis pay LOTACHI or us?",
+      answer: "You. During the pilot, if an opportunity has a price, the Chi Chi pays you directly. LOTACHI doesn't take treatment payments.",
     },
   ],
 };

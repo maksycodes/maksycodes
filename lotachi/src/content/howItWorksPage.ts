@@ -44,13 +44,13 @@ export const howItWorksPage = {
     {
       number: "06",
       title: "Booking",
-      body: "Structured, in-platform booking is planned functionality. Today, the model and provider confirm appointment details directly between themselves.",
-      stage: "future",
+      body: "Structured, in-platform booking is planned. During the pilot, LOTACHI introduces you and the provider confirms the appointment. If the opportunity has a price, you pay the provider directly — LOTACHI doesn't take payment for treatments.",
+      stage: "pilot",
     },
     {
       number: "07",
       title: "Attendance",
-      body: "The model attends the session with the provider, who remains responsible for delivery. Any photo or video consent is requested separately from treatment consent, never combined with it.",
+      body: "The model attends the session with the provider, who remains responsible for delivery. Any photo or video consent is requested separately from treatment consent, never combined with it. The provider then confirms your attendance to LOTACHI.",
       stage: "pilot",
     },
     {

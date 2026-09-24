@@ -38,11 +38,12 @@ export const nav = {
     { label: "FAQ", href: "/faq" },
     { label: "Contact", href: "/contact" },
   ],
-  ctaModel: { label: "Join as a Chi Chi", href: "/models" },
+  ctaModel: { label: "Join London Early Access", href: "/models" },
   ctaProvider: { label: "Become a Founding Provider", href: "/providers" },
-  // The desktop pill nav has limited width and sits right next to the
-  // Chi Chi CTA — this shorter form keeps both buttons on one line. The
-  // mobile menu (full-width, stacked) uses the full ctaProvider label above.
+  // The desktop pill nav has limited width — these shorter forms keep both
+  // buttons on one line. The mobile menu (full-width, stacked) uses the
+  // full ctaModel/ctaProvider labels above.
+  ctaModelShort: { label: "Join Early Access", href: "/models" },
   ctaProviderShort: { label: "Founding Provider", href: "/providers" },
 };
 
@@ -60,7 +61,7 @@ export const footer = {
     {
       heading: "Get involved",
       links: [
-        { label: "Join as a Chi Chi", href: "/models" },
+        { label: "Join London Early Access", href: "/models" },
         { label: "Become a Founding Provider", href: "/providers" },
         { label: "Partnerships", href: "/contact#partnerships" },
         { label: "Help shape LOTACHI", href: "/contact#feedback" },

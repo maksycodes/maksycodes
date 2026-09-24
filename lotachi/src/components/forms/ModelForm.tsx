@@ -20,10 +20,9 @@ export function ModelForm() {
   const [travel, setTravel] = useState("");
   const [categories, setCategories] = useState<string[]>([]);
   const [availability, setAvailability] = useState<string[]>([]);
-  const [lastMinute, setLastMinute] = useState("");
-  const [budget, setBudget] = useState("");
-  const [interestReason, setInterestReason] = useState("");
-  const [interests, setInterests] = useState("");
+  const [minimumNotice, setMinimumNotice] = useState("");
+  const [priceInterest, setPriceInterest] = useState("");
+  const [heardAboutUs, setHeardAboutUs] = useState("");
   const [ageConfirmed, setAgeConfirmed] = useState(false);
   const [consent, setConsent] = useState(false);
   const [privacyAck, setPrivacyAck] = useState(false);
@@ -44,9 +43,9 @@ export function ModelForm() {
     trackEvent("category_selected", { context: "model", categories: next });
   }
 
-  function handleLastMinuteChange(next: string) {
-    setLastMinute(next);
-    trackEvent("short_notice_selected", { context: "model", availability: next });
+  function handleMinimumNoticeChange(next: string) {
+    setMinimumNotice(next);
+    trackEvent("short_notice_selected", { context: "model", minimum_notice: next });
   }
 
   function handleLocationBlur() {
@@ -65,7 +64,12 @@ export function ModelForm() {
     if (!firstName.trim()) nextErrors.firstName = "Please enter your first name.";
     if (!email.trim()) nextErrors.email = "Please enter your email address.";
     else if (!EMAIL_PATTERN.test(email)) nextErrors.email = "Please enter a valid email address.";
-    if (!location.trim()) nextErrors.location = "Please enter your postcode or area.";
+    if (!location.trim()) nextErrors.location = "Please enter your postcode.";
+    if (!travel) nextErrors.travel = form.travelRequiredError;
+    if (categories.length === 0) nextErrors.categories = form.categoriesRequiredError;
+    if (availability.length === 0) nextErrors.availability = form.availabilityRequiredError;
+    if (!minimumNotice) nextErrors.minimumNotice = form.minimumNoticeRequiredError;
+    if (!priceInterest) nextErrors.priceInterest = form.priceInterestRequiredError;
     if (!ageConfirmed) nextErrors.ageConfirmed = "Please confirm you're 18 or over to join.";
     if (!consent) nextErrors.consent = "Please confirm you'd like to hear from us.";
     if (!privacyAck) nextErrors.privacyAck = "Please confirm you've read the Privacy Policy.";
@@ -84,10 +88,9 @@ export function ModelForm() {
         travel_distance: travel,
         categories,
         availability,
-        last_minute_availability: lastMinute,
-        budget,
-        interest_reason: interestReason,
-        interests,
+        minimum_notice: minimumNotice,
+        price_interest: priceInterest,
+        heard_about_us: heardAboutUs,
         age_confirmed: ageConfirmed,
         consent,
         privacy_acknowledged: privacyAck,
@@ -139,7 +142,7 @@ export function ModelForm() {
         </div>
 
         <div className="grid gap-5 sm:grid-cols-2">
-          <Field label="Mobile number" htmlFor="model-mobile" optional>
+          <Field label="Mobile (helps with short-notice opportunities)" htmlFor="model-mobile" optional>
             <TextInput
               id="model-mobile"
               name="mobile"
@@ -149,7 +152,7 @@ export function ModelForm() {
               onChange={(e) => setMobile(e.target.value)}
             />
           </Field>
-          <Field label="Postcode or area" htmlFor="model-location" required error={errors.location}>
+          <Field label="Postcode" htmlFor="model-location" required error={errors.location}>
             <TextInput
               id="model-location"
               name="location"
@@ -173,6 +176,8 @@ export function ModelForm() {
           options={form.travelOptions}
           value={travel}
           onChange={setTravel}
+          required
+          error={errors.travel}
         />
 
         <CheckboxGroup
@@ -181,50 +186,47 @@ export function ModelForm() {
           options={form.categoryOptions}
           values={categories}
           onChange={handleCategoriesChange}
+          required
+          error={errors.categories}
         />
 
         <CheckboxGroup
-          legend="Typical availability"
+          legend="Availability"
           name="availability"
           options={form.availabilityOptions}
           values={availability}
           onChange={setAvailability}
+          required
+          error={errors.availability}
         />
 
         <RadioGroup
-          legend="Last-minute availability"
-          name="lastMinute"
-          options={form.lastMinuteOptions}
-          value={lastMinute}
-          onChange={handleLastMinuteChange}
+          legend="What's the shortest notice you could make an opportunity?"
+          name="minimumNotice"
+          options={form.minimumNoticeOptions}
+          value={minimumNotice}
+          onChange={handleMinimumNoticeChange}
+          required
+          error={errors.minimumNotice}
         />
 
         <RadioGroup
-          legend="Typical budget"
-          name="budget"
-          options={form.budgetOptions}
-          value={budget}
-          onChange={setBudget}
+          legend="How open are you to priced opportunities?"
+          name="priceInterest"
+          options={form.priceInterestOptions}
+          value={priceInterest}
+          onChange={setPriceInterest}
+          required
+          error={errors.priceInterest}
         />
 
-        <div>
-          <RadioGroup
-            legend="Why are you interested in model opportunities? (optional)"
-            name="interestReason"
-            options={form.interestReasonOptions}
-            value={interestReason}
-            onChange={setInterestReason}
-          />
-        </div>
-
-        <Field label="Anything you'd particularly like to be a model for?" htmlFor="model-interests" optional>
-          <TextInput
-            id="model-interests"
-            name="interests"
-            value={interests}
-            onChange={(e) => setInterests(e.target.value)}
-          />
-        </Field>
+        <RadioGroup
+          legend="How did you hear about LOTACHI? (optional)"
+          name="heardAboutUs"
+          options={form.heardAboutUsOptions}
+          value={heardAboutUs}
+          onChange={setHeardAboutUs}
+        />
       </FormSection>
 
       <FormSection

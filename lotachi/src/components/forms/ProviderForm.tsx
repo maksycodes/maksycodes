@@ -25,7 +25,10 @@ export function ProviderForm() {
   const [trainingDays, setTrainingDays] = useState("");
   const [traineesPerSession, setTraineesPerSession] = useState("");
   const [volume, setVolume] = useState("");
-  const [next30Days, setNext30Days] = useState("");
+  const [requirementsNext30Days, setRequirementsNext30Days] = useState("");
+  const [urgentHardToFillValue, setUrgentHardToFillValue] = useState("");
+  const [successfulFillFeeInterest, setSuccessfulFillFeeInterest] = useState("");
+  const [successfulFillFeeRange, setSuccessfulFillFeeRange] = useState("");
   const [nextTrainingDates, setNextTrainingDates] = useState("");
   const [purposes, setPurposes] = useState<string[]>([]);
   const [hardestToFill, setHardestToFill] = useState("");
@@ -87,7 +90,10 @@ export function ProviderForm() {
         training_days_per_month: trainingDays,
         trainees_per_session: traineesPerSession,
         model_volume: volume,
-        needs_models_next_30_days: next30Days,
+        model_requirements_next_30_days: requirementsNext30Days,
+        urgent_hard_to_fill_value: urgentHardToFillValue,
+        successful_fill_fee_interest: successfulFillFeeInterest,
+        successful_fill_fee_range: successfulFillFeeRange,
         next_training_dates: nextTrainingDates,
         purposes,
         hardest_to_fill: hardestToFill,
@@ -243,11 +249,35 @@ export function ProviderForm() {
         />
 
         <RadioGroup
-          legend="Do you need models within the next 30 days?"
-          name="next30Days"
-          options={form.next30DaysOptions}
-          value={next30Days}
-          onChange={setNext30Days}
+          legend="How many model requirements do you expect in the next 30 days?"
+          name="requirementsNext30Days"
+          options={form.requirementsNext30DaysOptions}
+          value={requirementsNext30Days}
+          onChange={setRequirementsNext30Days}
+        />
+
+        <RadioGroup
+          legend="How valuable would help with urgent or hard-to-fill requirements be?"
+          name="urgentHardToFillValue"
+          options={form.urgentHardToFillValueOptions}
+          value={urgentHardToFillValue}
+          onChange={setUrgentHardToFillValue}
+        />
+
+        <RadioGroup
+          legend="If LOTACHI recruited a suitable Chi Chi who attended, would you pay a successful-fill fee?"
+          name="successfulFillFeeInterest"
+          options={form.successfulFillFeeInterestOptions}
+          value={successfulFillFeeInterest}
+          onChange={setSuccessfulFillFeeInterest}
+        />
+
+        <RadioGroup
+          legend="For a verified successful attendance, which fee range would feel reasonable? (optional)"
+          name="successfulFillFeeRange"
+          options={form.successfulFillFeeRangeOptions}
+          value={successfulFillFeeRange}
+          onChange={setSuccessfulFillFeeRange}
         />
 
         <Field label={form.nextTrainingDatesLabel} htmlFor="provider-next-training-dates" optional>

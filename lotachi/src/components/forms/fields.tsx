@@ -92,12 +92,18 @@ export function CheckboxGroup({
   options,
   values,
   onChange,
+  hint,
+  error,
+  required,
 }: {
   legend: string;
   name: string;
   options: string[];
   values: string[];
   onChange: (values: string[]) => void;
+  hint?: string;
+  error?: string;
+  required?: boolean;
 }) {
   function toggle(option: string) {
     if (values.includes(option)) {
@@ -109,7 +115,16 @@ export function CheckboxGroup({
 
   return (
     <fieldset className="flex flex-col gap-2">
-      <legend className="text-sm font-medium text-ink-900">{legend}</legend>
+      <legend className="text-sm font-medium text-ink-900">
+        {legend}
+        {required && (
+          <span aria-hidden="true" className="text-accent">
+            {" "}
+            *
+          </span>
+        )}
+      </legend>
+      {hint && <p className="text-sm text-ink-500">{hint}</p>}
       <div className="flex flex-wrap gap-2">
         {options.map((option) => {
           const id = `${name}-${option.replace(/\s+/g, "-").toLowerCase()}`;
@@ -138,6 +153,11 @@ export function CheckboxGroup({
           );
         })}
       </div>
+      {error && (
+        <p role="alert" className="text-sm text-red-700">
+          {error}
+        </p>
+      )}
     </fieldset>
   );
 }
@@ -148,16 +168,31 @@ export function RadioGroup({
   options,
   value,
   onChange,
+  hint,
+  error,
+  required,
 }: {
   legend: string;
   name: string;
   options: string[];
   value: string;
   onChange: (value: string) => void;
+  hint?: string;
+  error?: string;
+  required?: boolean;
 }) {
   return (
     <fieldset className="flex flex-col gap-2">
-      <legend className="text-sm font-medium text-ink-900">{legend}</legend>
+      <legend className="text-sm font-medium text-ink-900">
+        {legend}
+        {required && (
+          <span aria-hidden="true" className="text-accent">
+            {" "}
+            *
+          </span>
+        )}
+      </legend>
+      {hint && <p className="text-sm text-ink-500">{hint}</p>}
       <div className="flex flex-wrap gap-2">
         {options.map((option) => {
           const id = `${name}-${option.replace(/\s+/g, "-").toLowerCase()}`;
@@ -186,6 +221,11 @@ export function RadioGroup({
           );
         })}
       </div>
+      {error && (
+        <p role="alert" className="text-sm text-red-700">
+          {error}
+        </p>
+      )}
     </fieldset>
   );
 }

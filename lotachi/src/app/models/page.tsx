@@ -27,7 +27,14 @@ export default function ModelsPage() {
                 {modelsPage.headline}
               </h1>
               <p className="mt-5 text-ink-600">{modelsPage.body}</p>
+
+              <p className="mt-4 rounded-xl border border-ink-200 bg-paper-muted p-4 text-sm text-ink-700">
+                {modelsPage.pilotFocusNote}
+              </p>
+
               <p className="mt-4 text-sm text-ink-500">{modelsPage.note}</p>
+              <p className="mt-2 text-sm text-ink-500">{modelsPage.privacyNote}</p>
+              <p className="mt-2 text-sm text-ink-500">{modelsPage.paymentNote}</p>
               <p className="mt-2 text-sm text-ink-500">{modelsPage.ageNote}</p>
 
               <div className="mt-6 rounded-2xl border border-ink-100 bg-white p-5 shadow-sm">
