@@ -40,6 +40,10 @@ export const nav = {
   ],
   ctaModel: { label: "Join as a Chi Chi", href: "/models" },
   ctaProvider: { label: "Become a Founding Provider", href: "/providers" },
+  // The desktop pill nav has limited width and sits right next to the
+  // Chi Chi CTA — this shorter form keeps both buttons on one line. The
+  // mobile menu (full-width, stacked) uses the full ctaProvider label above.
+  ctaProviderShort: { label: "Founding Provider", href: "/providers" },
 };
 
 export const footer = {

@@ -30,8 +30,8 @@ export function Nav() {
         scrolled ? "shadow-sm" : ""
       }`}
     >
-      <Container className="flex h-16 items-center justify-between sm:h-20">
-        <Link href="/" aria-label={siteConfig.name} className="flex items-center">
+      <Container className="flex h-16 items-center justify-between gap-4 sm:h-20">
+        <Link href="/" aria-label={siteConfig.name} className="flex shrink-0 items-center">
           <Image
             src="/brand/lotachi-horizontal-colour.png"
             alt={siteConfig.name}
@@ -42,35 +42,35 @@ export function Nav() {
           />
         </Link>
 
-        <nav aria-label="Primary" className="hidden items-center gap-7 xl:flex">
+        <nav aria-label="Primary" className="hidden shrink-0 items-center gap-5 xl:flex">
           {nav.links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               onClick={() => trackEvent("nav_click", { label: link.label })}
-              className="text-sm font-medium text-ink-700 hover:text-ink-900"
+              className="whitespace-nowrap text-sm font-medium text-ink-700 hover:text-ink-900"
             >
               {link.label}
             </Link>
           ))}
         </nav>
 
-        <div className="hidden items-center gap-3 xl:flex">
+        <div className="hidden shrink-0 items-center gap-2.5 xl:flex">
           <LinkButton
             href={nav.ctaModel.href}
             variant="outline"
-            className="px-5 py-2.5"
+            className="whitespace-nowrap px-4 py-2.5"
             onClick={() => trackEvent("model_cta_clicked", { label: nav.ctaModel.label, placement: "nav" })}
           >
             {nav.ctaModel.label}
           </LinkButton>
           <LinkButton
-            href={nav.ctaProvider.href}
+            href={nav.ctaProviderShort.href}
             variant="accent"
-            className="px-5 py-2.5"
-            onClick={() => trackEvent("provider_cta_clicked", { label: nav.ctaProvider.label, placement: "nav" })}
+            className="whitespace-nowrap px-4 py-2.5"
+            onClick={() => trackEvent("provider_cta_clicked", { label: nav.ctaProviderShort.label, placement: "nav" })}
           >
-            {nav.ctaProvider.label}
+            {nav.ctaProviderShort.label}
           </LinkButton>
         </div>
 
