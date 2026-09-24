@@ -114,7 +114,7 @@ export function CheckboxGroup({
   }
 
   return (
-    <fieldset className="flex flex-col gap-2">
+    <fieldset className="flex flex-col gap-3">
       <legend className="text-sm font-medium text-ink-900">
         {legend}
         {required && (
@@ -182,7 +182,7 @@ export function RadioGroup({
   required?: boolean;
 }) {
   return (
-    <fieldset className="flex flex-col gap-2">
+    <fieldset className="flex flex-col gap-3">
       <legend className="text-sm font-medium text-ink-900">
         {legend}
         {required && (
