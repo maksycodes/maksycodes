@@ -21,17 +21,24 @@ export function ProviderForm() {
   const [website, setWebsite] = useState("");
   const [locations, setLocations] = useState("");
   const [providerType, setProviderType] = useState("");
+  const [providerTypeOther, setProviderTypeOther] = useState("");
   const [categories, setCategories] = useState<string[]>([]);
+  const [categoriesOther, setCategoriesOther] = useState("");
   const [trainingDays, setTrainingDays] = useState("");
   const [traineesPerSession, setTraineesPerSession] = useState("");
   const [volume, setVolume] = useState("");
-  const [next30Days, setNext30Days] = useState("");
+  const [requirementsNext30Days, setRequirementsNext30Days] = useState("");
+  const [urgentHardToFillValue, setUrgentHardToFillValue] = useState("");
+  const [successfulFillFeeInterest, setSuccessfulFillFeeInterest] = useState("");
+  const [successfulFillFeeRange, setSuccessfulFillFeeRange] = useState("");
   const [nextTrainingDates, setNextTrainingDates] = useState("");
   const [purposes, setPurposes] = useState<string[]>([]);
+  const [purposesOther, setPurposesOther] = useState("");
   const [hardestToFill, setHardestToFill] = useState("");
   const [fillDifficulty, setFillDifficulty] = useState("");
   const [lastMinute, setLastMinute] = useState("");
   const [sources, setSources] = useState<string[]>([]);
+  const [sourcesOther, setSourcesOther] = useState("");
   const [currentProcess, setCurrentProcess] = useState("");
   const [challenge, setChallenge] = useState("");
   const [pilot, setPilot] = useState(false);
@@ -83,17 +90,24 @@ export function ProviderForm() {
         website,
         locations,
         provider_type: providerType,
+        provider_type_other: providerTypeOther,
         categories,
+        categories_other: categoriesOther,
         training_days_per_month: trainingDays,
         trainees_per_session: traineesPerSession,
         model_volume: volume,
-        needs_models_next_30_days: next30Days,
+        model_requirements_next_30_days: requirementsNext30Days,
+        urgent_hard_to_fill_value: urgentHardToFillValue,
+        successful_fill_fee_interest: successfulFillFeeInterest,
+        successful_fill_fee_range: successfulFillFeeRange,
         next_training_dates: nextTrainingDates,
         purposes,
+        purposes_other: purposesOther,
         hardest_to_fill: hardestToFill,
         fill_difficulty: fillDifficulty,
         last_minute_need: lastMinute,
         current_sources: sources,
+        current_sources_other: sourcesOther,
         current_process: currentProcess,
         biggest_challenge: challenge,
         pilot_interest: pilot,
@@ -193,6 +207,7 @@ export function ProviderForm() {
               id="provider-locations"
               name="locations"
               autoComplete="address-level2"
+              placeholder="e.g. Shoreditch, Manchester — separate multiple with a comma"
               value={locations}
               onChange={(e) => setLocations(e.target.value)}
             />
@@ -208,6 +223,16 @@ export function ProviderForm() {
               </option>
             ))}
           </Select>
+          {providerType === "Other" && (
+            <TextInput
+              className="mt-3"
+              name="providerTypeOther"
+              placeholder="Please specify"
+              aria-label="Provider type — please specify &quot;Other&quot;"
+              value={providerTypeOther}
+              onChange={(e) => setProviderTypeOther(e.target.value)}
+            />
+          )}
         </Field>
       </FormSection>
 
@@ -216,7 +241,15 @@ export function ProviderForm() {
         title="What you're looking for"
         description="Helps us match you to suitable models — you can update this later."
       >
-        <CheckboxGroup legend="Categories" name="categories" options={form.categoryOptions} values={categories} onChange={handleCategoriesChange} />
+        <CheckboxGroup
+          legend="Categories"
+          name="categories"
+          options={form.categoryOptions}
+          values={categories}
+          onChange={handleCategoriesChange}
+          otherValue={categoriesOther}
+          onOtherChange={setCategoriesOther}
+        />
 
         <RadioGroup
           legend="How many training days do you run per month?"
@@ -243,11 +276,35 @@ export function ProviderForm() {
         />
 
         <RadioGroup
-          legend="Do you need models within the next 30 days?"
-          name="next30Days"
-          options={form.next30DaysOptions}
-          value={next30Days}
-          onChange={setNext30Days}
+          legend="How many model requirements do you expect in the next 30 days?"
+          name="requirementsNext30Days"
+          options={form.requirementsNext30DaysOptions}
+          value={requirementsNext30Days}
+          onChange={setRequirementsNext30Days}
+        />
+
+        <RadioGroup
+          legend="How valuable would help with urgent or hard-to-fill requirements be?"
+          name="urgentHardToFillValue"
+          options={form.urgentHardToFillValueOptions}
+          value={urgentHardToFillValue}
+          onChange={setUrgentHardToFillValue}
+        />
+
+        <RadioGroup
+          legend="If LOTACHI recruited a suitable Chi Chi who attended, would you pay a successful-fill fee?"
+          name="successfulFillFeeInterest"
+          options={form.successfulFillFeeInterestOptions}
+          value={successfulFillFeeInterest}
+          onChange={setSuccessfulFillFeeInterest}
+        />
+
+        <RadioGroup
+          legend="For a verified successful attendance, which fee range would feel reasonable? (optional)"
+          name="successfulFillFeeRange"
+          options={form.successfulFillFeeRangeOptions}
+          value={successfulFillFeeRange}
+          onChange={setSuccessfulFillFeeRange}
         />
 
         <Field label={form.nextTrainingDatesLabel} htmlFor="provider-next-training-dates" optional>
@@ -266,6 +323,8 @@ export function ProviderForm() {
           options={form.purposeOptions}
           values={purposes}
           onChange={setPurposes}
+          otherValue={purposesOther}
+          onOtherChange={setPurposesOther}
         />
 
         <Field label="What's the hardest type of model requirement for you to fill?" htmlFor="provider-hardest-to-fill" optional>
@@ -300,6 +359,8 @@ export function ProviderForm() {
           options={form.sourceOptions}
           values={sources}
           onChange={setSources}
+          otherValue={sourcesOther}
+          onOtherChange={setSourcesOther}
         />
 
         <Field label="Briefly describe how model recruitment works for you today" htmlFor="provider-current-process" optional>
@@ -334,7 +395,7 @@ export function ProviderForm() {
           </FormNotice>
         )}
 
-        <Button type="submit" variant="accent" disabled={state === "submitting"} className="sm:self-start">
+        <Button type="submit" variant="accent" disabled={state === "submitting"} className="mt-3 sm:self-start">
           {state === "submitting" ? "Sending…" : form.submitLabel}
         </Button>
         <p className="text-xs text-ink-400">

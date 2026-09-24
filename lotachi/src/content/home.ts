@@ -6,7 +6,7 @@ export const hero = {
   eyebrow: "London early access",
   headline: "Find model opportunities. Find the right models.",
   body: "LOTACHI connects Chi Chis — the people who take part in model opportunities — with training providers who need suitable, reliable models. We're building our founding community in hair, beauty, aesthetics, nails and SPMU, starting in London.",
-  ctaModel: { label: "Join as a Chi Chi", href: "/models" },
+  ctaModel: { label: "Join London Early Access", href: "/models" },
   ctaProvider: { label: "Become a Founding Provider", href: "/providers" },
   ctaHowItWorks: { label: "How It Works", href: "/how-it-works" },
 };
@@ -34,7 +34,7 @@ export const whyModels = {
     "See clear provider information",
     "Only receive opportunities relevant to your interests, where possible",
   ],
-  cta: { label: "Join as a Chi Chi", href: "/models" },
+  cta: { label: "Join London Early Access", href: "/models" },
 };
 
 export const providerProblem = {
@@ -116,7 +116,7 @@ export const earlyAccess = {
   heading: "Help build LOTACHI from the start.",
   body: "LOTACHI is currently building its founding Chi Chi and provider community in London, while testing real model-filling workflows. Join now and help shape the platform.",
   badge: "Founding Chi Chis & Provider Partners",
-  ctaModel: { label: "Join as a Chi Chi", href: "/models" },
+  ctaModel: { label: "Join London Early Access", href: "/models" },
   ctaProvider: { label: "Become a Founding Provider", href: "/providers" },
 };
 

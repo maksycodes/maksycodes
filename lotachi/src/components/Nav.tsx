@@ -57,12 +57,12 @@ export function Nav() {
 
         <div className="hidden shrink-0 items-center gap-2.5 xl:flex">
           <LinkButton
-            href={nav.ctaModel.href}
+            href={nav.ctaModelShort.href}
             variant="outline"
             className="whitespace-nowrap px-4 py-2.5"
-            onClick={() => trackEvent("model_cta_clicked", { label: nav.ctaModel.label, placement: "nav" })}
+            onClick={() => trackEvent("model_cta_clicked", { label: nav.ctaModelShort.label, placement: "nav" })}
           >
-            {nav.ctaModel.label}
+            {nav.ctaModelShort.label}
           </LinkButton>
           <LinkButton
             href={nav.ctaProviderShort.href}

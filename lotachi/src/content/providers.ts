@@ -3,15 +3,17 @@
 export const providersPage = {
   metaTitle: "Become a Founding Provider — Find Models for Training",
   metaDescription:
-    "Find models for training academy, salon or clinic sessions in London. Become a LOTACHI Founding Provider and help us fix model recruitment.",
+    "Become a LOTACHI Founding Provider in London. No subscription — a successful-fill fee applies only after a LOTACHI-recruited Chi Chi has attended and you've confirmed it.",
   eyebrow: "Founding provider pilot",
   headline: "Become a Founding Provider.",
   body: "Chi Chis are LOTACHI community members looking for model opportunities. LOTACHI is currently working with London providers to understand and improve how you find suitable models. Tell us about your organisation and how you currently recruit, and we'll be in touch as things develop.",
+  pilotFocusNote:
+    "The first London pilot is prioritising hair and aesthetics providers. If you work in beauty, nails or SPMU, register now — we'll contact you as the pilot extends to your category.",
   pilotNote: {
-    heading: "Founding Provider Pilot — free during the initial pilot period.",
-    body: "Early provider partners can join the LOTACHI pilot at no platform cost while we test model matching, difficult-to-fill appointments and last-minute recruitment. Commercial pricing will be developed based on pilot results and provider feedback.",
+    heading: "Founding Provider Pilot — no subscription, fee only after verified attendance.",
+    body: "No subscription and no set-up cost. During the pilot you tell us what you need, we recruit and match Chi Chis for you, and a successful-fill fee applies only once a LOTACHI-recruited Chi Chi has attended and you've confirmed it. The fee is set out in a short pilot agreement with you before we start, and may differ for standard and urgent or hard-to-fill requirements.",
     constraints:
-      "This is a limited early-stage pilot with a small number of provider slots. Future paid pricing may apply once the pilot ends, and joining now does not guarantee permanent free access.",
+      "Chi Chis pay you directly for any priced opportunity — LOTACHI doesn't handle treatment payments during the pilot. Pilot places are limited, and pricing for the wider platform will be set separately, based on what we learn.",
     cta: { label: "Join the Founding Provider Pilot", href: "#provider-form" },
   },
   form: {
@@ -19,8 +21,23 @@ export const providersPage = {
     categoryOptions: ["Hair", "Beauty", "Aesthetics", "Nails", "SPMU", "Other"],
     trainingDaysOptions: ["1 day/month", "2–4 days/month", "5–10 days/month", "More than 10 days/month", "Varies a lot"],
     traineesPerSessionOptions: ["1–5", "6–15", "16–30", "30+"],
-    volumeOptions: ["1–2 per month", "3–5 per month", "6–10 per month", "10+ per month", "Varies a lot"],
-    next30DaysOptions: ["Yes", "No", "Not sure yet"],
+    volumeOptions: [
+      "1–2 per month",
+      "3–5 per month",
+      "6–10 per month",
+      "11–20 per month",
+      "21–50 per month",
+      "50+ per month",
+      "Varies a lot",
+    ],
+    requirementsNext30DaysOptions: ["None yet", "1–2", "3–5", "6–10", "More than 10", "Not sure yet"],
+    urgentHardToFillValueOptions: [
+      "Very valuable — it's a regular problem",
+      "Somewhat valuable",
+      "Not a priority for us",
+    ],
+    successfulFillFeeInterestOptions: ["Yes", "Possibly — depends on the fee", "Only for certain requirements", "No"],
+    successfulFillFeeRangeOptions: ["Under £5", "£5–£10", "£10–£20", "£20+", "Depends on the requirement"],
     purposeOptions: [
       "Training",
       "Assessment",

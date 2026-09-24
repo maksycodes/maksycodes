@@ -70,8 +70,8 @@ export function Field({
   );
 }
 
-export function TextInput(props: InputHTMLAttributes<HTMLInputElement>) {
-  return <input {...props} className={inputClasses} />;
+export function TextInput({ className = "", ...props }: InputHTMLAttributes<HTMLInputElement>) {
+  return <input {...props} className={`${inputClasses} ${className}`} />;
 }
 
 export function Textarea(props: TextareaHTMLAttributes<HTMLTextAreaElement>) {
@@ -92,12 +92,25 @@ export function CheckboxGroup({
   options,
   values,
   onChange,
+  hint,
+  error,
+  required,
+  otherValue,
+  onOtherChange,
 }: {
   legend: string;
   name: string;
   options: string[];
   values: string[];
   onChange: (values: string[]) => void;
+  hint?: string;
+  error?: string;
+  required?: boolean;
+  // When one of `options` is exactly "Other", pass these to reveal a
+  // free-text field for it once selected — otherwise "Other" is collected
+  // with no way to say what it means.
+  otherValue?: string;
+  onOtherChange?: (value: string) => void;
 }) {
   function toggle(option: string) {
     if (values.includes(option)) {
@@ -107,10 +120,21 @@ export function CheckboxGroup({
     }
   }
 
+  const showOther = onOtherChange && values.includes("Other");
+
   return (
-    <fieldset className="flex flex-col gap-2">
-      <legend className="text-sm font-medium text-ink-900">{legend}</legend>
-      <div className="flex flex-wrap gap-2">
+    <fieldset className="flex flex-col">
+      <legend className="text-sm font-medium text-ink-900">
+        {legend}
+        {required && (
+          <span aria-hidden="true" className="text-accent">
+            {" "}
+            *
+          </span>
+        )}
+      </legend>
+      {hint && <p className="mt-1 text-sm text-ink-500">{hint}</p>}
+      <div className="mt-8 flex flex-wrap gap-3">
         {options.map((option) => {
           const id = `${name}-${option.replace(/\s+/g, "-").toLowerCase()}`;
           const checked = values.includes(option);
@@ -138,6 +162,21 @@ export function CheckboxGroup({
           );
         })}
       </div>
+      {showOther && (
+        <TextInput
+          className="mt-3"
+          name={`${name}Other`}
+          placeholder="Please specify"
+          aria-label={`${legend} — please specify "Other"`}
+          value={otherValue ?? ""}
+          onChange={(e) => onOtherChange(e.target.value)}
+        />
+      )}
+      {error && (
+        <p role="alert" className="mt-2 text-sm text-red-700">
+          {error}
+        </p>
+      )}
     </fieldset>
   );
 }
@@ -148,17 +187,41 @@ export function RadioGroup({
   options,
   value,
   onChange,
+  hint,
+  error,
+  required,
+  otherValue,
+  onOtherChange,
 }: {
   legend: string;
   name: string;
   options: string[];
   value: string;
   onChange: (value: string) => void;
+  hint?: string;
+  error?: string;
+  required?: boolean;
+  // When one of `options` is exactly "Other", pass these to reveal a
+  // free-text field for it once selected — otherwise "Other" is collected
+  // with no way to say what it means.
+  otherValue?: string;
+  onOtherChange?: (value: string) => void;
 }) {
+  const showOther = onOtherChange && value === "Other";
+
   return (
-    <fieldset className="flex flex-col gap-2">
-      <legend className="text-sm font-medium text-ink-900">{legend}</legend>
-      <div className="flex flex-wrap gap-2">
+    <fieldset className="flex flex-col">
+      <legend className="text-sm font-medium text-ink-900">
+        {legend}
+        {required && (
+          <span aria-hidden="true" className="text-accent">
+            {" "}
+            *
+          </span>
+        )}
+      </legend>
+      {hint && <p className="mt-1 text-sm text-ink-500">{hint}</p>}
+      <div className="mt-8 flex flex-wrap gap-3">
         {options.map((option) => {
           const id = `${name}-${option.replace(/\s+/g, "-").toLowerCase()}`;
           const checked = value === option;
@@ -186,6 +249,21 @@ export function RadioGroup({
           );
         })}
       </div>
+      {showOther && (
+        <TextInput
+          className="mt-3"
+          name={`${name}Other`}
+          placeholder="Please specify"
+          aria-label={`${legend} — please specify "Other"`}
+          value={otherValue ?? ""}
+          onChange={(e) => onOtherChange(e.target.value)}
+        />
+      )}
+      {error && (
+        <p role="alert" className="mt-2 text-sm text-red-700">
+          {error}
+        </p>
+      )}
     </fieldset>
   );
 }

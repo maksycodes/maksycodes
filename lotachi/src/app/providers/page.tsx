@@ -27,6 +27,10 @@ export default function ProvidersPage() {
               </h1>
               <p className="mt-5 text-ink-600">{providersPage.body}</p>
 
+              <p className="mt-4 rounded-xl border border-ink-200 bg-paper-muted p-4 text-sm text-ink-700">
+                {providersPage.pilotFocusNote}
+              </p>
+
               <div className="mt-6 rounded-2xl bg-paper-muted p-5 shadow-sm">
                 <h2 className="font-semibold text-ink-900">{providersPage.pilotNote.heading}</h2>
                 <p className="mt-2 text-sm text-ink-600">{providersPage.pilotNote.body}</p>
@@ -49,7 +53,7 @@ export default function ProvidersPage() {
               <p className="mt-1 text-sm text-ink-400">
                 Looking for model opportunities instead?{" "}
                 <Link href="/models" className="text-accent underline underline-offset-2">
-                  Join as a Chi Chi
+                  Join London Early Access
                 </Link>
                 .
               </p>

@@ -44,10 +44,10 @@ export const forProvidersPage = {
     },
   ],
   pilot: {
-    heading: "Founding Provider Pilot — free during the initial pilot period.",
-    body: "Early provider partners can join the LOTACHI pilot at no platform cost while we test model matching, difficult-to-fill appointments and last-minute recruitment. Commercial pricing will be developed based on pilot results and provider feedback.",
+    heading: "Founding Provider Pilot — no subscription, fee only after verified attendance.",
+    body: "No subscription and no set-up cost. During the pilot you tell us what you need, we recruit and match Chi Chis for you, and a successful-fill fee applies only once a LOTACHI-recruited Chi Chi has attended and you've confirmed it. The fee is set out in a short pilot agreement with you before we start, and may differ for standard and urgent or hard-to-fill requirements.",
     constraints:
-      "This is a limited early-stage pilot with a small number of provider slots. Future paid pricing may apply once the pilot ends, and joining now does not guarantee permanent free access.",
+      "Chi Chis pay you directly for any priced opportunity — LOTACHI doesn't handle treatment payments during the pilot. Pilot places are limited, and pricing for the wider platform will be set separately, based on what we learn.",
     cta: { label: "Join the Founding Provider Pilot", href: "/providers#provider-form" },
   },
   builtWith: {
