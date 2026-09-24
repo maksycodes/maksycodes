@@ -47,9 +47,9 @@ export default function ProvidersPage() {
               </p>
 
               <p className="mt-1 text-sm text-ink-400">
-                Looking for opportunities as a model instead?{" "}
+                Looking for model opportunities instead?{" "}
                 <Link href="/models" className="text-accent underline underline-offset-2">
-                  Join as a model
+                  Join as a Chi Chi
                 </Link>
                 .
               </p>

@@ -31,11 +31,31 @@ export function ModelForm() {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [state, setState] = useState<SubmitState>("idle");
   const hasStarted = useRef(false);
+  const hasCapturedPostcode = useRef(false);
 
   function markStarted() {
     if (hasStarted.current) return;
     hasStarted.current = true;
     trackEvent("model_signup_started");
+  }
+
+  function handleCategoriesChange(next: string[]) {
+    setCategories(next);
+    trackEvent("category_selected", { context: "model", categories: next });
+  }
+
+  function handleLastMinuteChange(next: string) {
+    setLastMinute(next);
+    trackEvent("short_notice_selected", { context: "model", availability: next });
+  }
+
+  function handleLocationBlur() {
+    // Only records that a postcode/area was entered — never the value
+    // itself, which isn't needed for analytics and shouldn't be collected
+    // purely to track form progress.
+    if (hasCapturedPostcode.current || !location.trim()) return;
+    hasCapturedPostcode.current = true;
+    trackEvent("postcode_captured", { context: "model" });
   }
 
   async function handleSubmit(e: FormEvent) {
@@ -136,6 +156,7 @@ export function ModelForm() {
               autoComplete="postal-code"
               value={location}
               onChange={(e) => setLocation(e.target.value)}
+              onBlur={handleLocationBlur}
             />
           </Field>
         </div>
@@ -159,7 +180,7 @@ export function ModelForm() {
           name="categories"
           options={form.categoryOptions}
           values={categories}
-          onChange={setCategories}
+          onChange={handleCategoriesChange}
         />
 
         <CheckboxGroup
@@ -175,7 +196,7 @@ export function ModelForm() {
           name="lastMinute"
           options={form.lastMinuteOptions}
           value={lastMinute}
-          onChange={setLastMinute}
+          onChange={handleLastMinuteChange}
         />
 
         <RadioGroup

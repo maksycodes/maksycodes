@@ -27,7 +27,7 @@ export function Footer() {
             height={320}
             className="h-8 w-auto"
           />
-          <p className="mt-2 text-sm text-ink-300">{siteConfig.domain}</p>
+          <p className="mt-2 text-sm text-ink-300">{siteConfig.descriptor}</p>
           <p className="mt-4 max-w-xs text-sm text-ink-300">{footer.emailCapture.body}</p>
           <div className="mt-4">
             <EmailCaptureForm />

@@ -20,7 +20,7 @@ function WhyCard({
 }) {
   return (
     <div
-      className={`flex flex-col rounded-2xl border p-8 shadow-sm ${
+      className={`mx-auto flex w-full max-w-2xl flex-col rounded-2xl border p-8 shadow-sm ${
         tone === "model" ? "border-ink-100 bg-white" : "border-ink-800 bg-ink-900 text-paper"
       }`}
     >
@@ -56,13 +56,18 @@ function WhyCard({
   );
 }
 
-export function WhySection() {
+export function WhyModelsSection() {
   return (
-    <Section ariaLabel="Why models and providers may like LOTACHI" className="border-b border-ink-100">
-      <div className="grid gap-6 lg:grid-cols-2">
-        <WhyCard {...whyModels} tone="model" />
-        <WhyCard {...whyProviders} tone="provider" />
-      </div>
+    <Section ariaLabel="Why Chi Chis choose LOTACHI" className="border-b border-ink-100">
+      <WhyCard {...whyModels} tone="model" />
+    </Section>
+  );
+}
+
+export function WhyProvidersSection() {
+  return (
+    <Section ariaLabel="Why providers choose LOTACHI" className="border-b border-ink-100 bg-paper-muted">
+      <WhyCard {...whyProviders} tone="provider" />
     </Section>
   );
 }

@@ -19,6 +19,7 @@ export default function AboutPage() {
           <div className="max-w-2xl">
             <Badge tone="accent">{aboutPage.eyebrow}</Badge>
             <h1 className="mt-4 text-3xl font-semibold tracking-tight text-ink-900 sm:text-4xl">{aboutPage.heading}</h1>
+            <p className="mt-2 text-sm font-medium text-accent-dark">{aboutPage.descriptor}</p>
             <p className="mt-5 text-ink-600">{aboutPage.intro}</p>
 
             <div className="mt-10 flex flex-col gap-8">

@@ -3,8 +3,9 @@ export const aboutPage = {
   metaDescription: "Why LOTACHI is being built, and the longer-term vision behind it.",
   eyebrow: "About",
   heading: "Why we're building LOTACHI.",
+  descriptor: "The marketplace for model opportunities.",
   intro:
-    "LOTACHI was created after seeing how fragmented the process of finding model opportunities can be for both providers and the public. Opportunities live in scattered social posts, WhatsApp groups and personal contact lists — hard for the right people to find, and time-consuming for providers to manage.",
+    "LOTACHI was created after seeing how fragmented the process of finding model opportunities can be for both providers and the public. Opportunities live in scattered social posts, WhatsApp groups and personal contact lists — hard for the right people to find, and time-consuming for providers to manage. We call our community members Chi Chis — the people who take part in model opportunities.",
   founder: {
     heading: "Founder",
     body: [

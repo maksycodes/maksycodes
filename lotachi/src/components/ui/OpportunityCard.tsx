@@ -11,7 +11,10 @@ export function OpportunityCard({ opportunity }: { opportunity: OpportunityListi
   return (
     <div className="flex flex-col gap-4 rounded-2xl border border-ink-100 bg-white p-6 shadow-sm transition-shadow duration-200 hover:shadow-md sm:p-7">
       <div className="flex flex-col gap-2">
-        <Badge>{opportunity.category}</Badge>
+        <div className="flex flex-wrap items-center gap-2">
+          <Badge>{opportunity.category}</Badge>
+          {opportunity.subcategory && <Badge>{opportunity.subcategory}</Badge>}
+        </div>
         <p className="flex items-center gap-1.5 text-xs font-medium text-accent-dark">
           <span aria-hidden="true" className="h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
           Illustrative example — not a live listing

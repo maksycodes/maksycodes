@@ -1,10 +1,10 @@
 export const forProvidersPage = {
-  metaTitle: "For Providers",
-  metaDescription: "How LOTACHI is being built to help training providers find and manage models.",
+  metaTitle: "For Providers — Find Models for Training Academy Sessions",
+  metaDescription: "How LOTACHI is being built to help training providers in London find and manage suitable models.",
   eyebrow: "For providers",
   heading: "Built around how providers actually work.",
   intro:
-    "LOTACHI is an early-stage marketplace that helps training providers reach people interested in becoming models for practical training, assessments, demonstrations and portfolio work. It's being shaped through conversations with tutors, academies, clinics and training providers about how model recruitment and practical-session logistics work today.",
+    "LOTACHI is an early-stage marketplace helping London training providers reach Chi Chis — LOTACHI community members looking for model opportunities — for practical training, assessments, demonstrations and portfolio work. It's being shaped through conversations with tutors, academies, clinics and training providers about how model recruitment and practical-session logistics work today.",
   sections: [
     {
       heading: "Fill difficult, specialist and last-minute requirements",

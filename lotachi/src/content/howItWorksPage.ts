@@ -62,7 +62,7 @@ export const howItWorksPage = {
   ],
   note: "Where a step involves professional or clinical judgement, LOTACHI refers to people as 'potentially suitable' or 'potentially eligible' — the final decision sits with the provider. LOTACHI does not infer suitability from appearance, and never writes aftercare content on a provider's behalf.",
   forModels: {
-    heading: "For models",
+    heading: "For Chi Chis",
     opportunityTypesHeading: "Opportunities may include",
     opportunityTypes: [
       "Free services",

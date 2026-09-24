@@ -3,31 +3,29 @@
 import type { OpportunityListing } from "@/types/opportunity";
 
 export const hero = {
-  eyebrow: "Early access",
+  eyebrow: "London early access",
   headline: "Find model opportunities. Find the right models.",
-  body: "Get early access to free, discounted and other model opportunities in hair, beauty and aesthetics — with clearer information about price, supervision, eligibility and photo use, before you commit.",
-  ctaModel: { label: "Join as a Model", href: "/models" },
-  ctaProvider: { label: "Join as a Provider", href: "/providers" },
+  body: "LOTACHI connects Chi Chis — the people who take part in model opportunities — with training providers who need suitable, reliable models. We're building our founding community in hair, beauty, aesthetics, nails and SPMU, starting in London.",
+  ctaModel: { label: "Join as a Chi Chi", href: "/models" },
+  ctaProvider: { label: "Become a Founding Provider", href: "/providers" },
   ctaHowItWorks: { label: "How It Works", href: "/how-it-works" },
 };
 
-export const problem = {
-  eyebrow: "Why LOTACHI exists",
-  heading: "Model opportunities are scattered.",
-  body: "Model opportunities are scattered across social media, mailing lists, provider databases and informal channels — making them difficult to discover for models and repetitive to manage for providers. LOTACHI is being built as one structured place to discover, match and manage model opportunities.",
-  points: [
-    { label: "Discovery", body: "One place to find opportunities, instead of many separate channels." },
-    { label: "Matching", body: "Being built to surface opportunities to people more likely to be a fit." },
-    { label: "Location & availability", body: "Filtering by where you are and when you're free, as the opportunity feed develops." },
-    { label: "Eligibility", body: "Clearer requirements shown up front, where a provider sets them." },
-    { label: "Last-minute needs", body: "A better way to fill gaps that come up at short notice." },
-    { label: "Reduced admin", body: "Aiming to reduce time spent repeating the same recruitment process manually." },
+export const chiChiHowItWorks = {
+  eyebrow: "For Chi Chis",
+  heading: "How it works, as a Chi Chi.",
+  intro: "A Chi Chi is what we call anyone in the LOTACHI community looking for a model opportunity — you're a Chi Chi even before you're matched to a specific one.",
+  steps: [
+    { number: "01", title: "Discover", body: "Browse the kind of model opportunities available near you — training, assessments, portfolio work and more.", stage: "pilot" as const },
+    { number: "02", title: "Check requirements", body: "See who's looking, what's involved, and what's expected before you commit to anything.", stage: "pilot" as const },
+    { number: "03", title: "Join or express interest", body: "Full in-platform booking is coming with the LOTACHI marketplace. Today, join early access and we'll be in touch about relevant opportunities.", stage: "future" as const },
+    { number: "04", title: "Attend", body: "Turn up, take part, and get the aftercare and contact details the provider has given you.", stage: "pilot" as const },
   ],
 };
 
 export const whyModels = {
-  eyebrow: "Why models may like LOTACHI",
-  heading: "One place to discover opportunities.",
+  eyebrow: "Why Chi Chis choose LOTACHI",
+  heading: "One place to discover model opportunities.",
   items: [
     "Discover opportunities in one place",
     "Find discounted and free opportunities",
@@ -36,11 +34,25 @@ export const whyModels = {
     "See clear provider information",
     "Only receive opportunities relevant to your interests, where possible",
   ],
-  cta: { label: "Join as a Model", href: "/models" },
+  cta: { label: "Join as a Chi Chi", href: "/models" },
+};
+
+export const providerProblem = {
+  eyebrow: "The provider problem",
+  heading: "Still finding models through WhatsApp, Instagram, spreadsheets and old databases?",
+  body: "Most providers recruit models the same fragmented way: a post here, a message there, a spreadsheet nobody keeps up to date. It works until it doesn't — an unsuitable enquiry, a specialist requirement nobody in your database fits, a cancellation the night before a session.",
+  points: [
+    { label: "Unsuitable enquiries", body: "Hours spent replying to people who were never going to be a fit." },
+    { label: "Difficult-to-fill requirements", body: "Specific hair, skin or treatment needs your usual channels rarely cover." },
+    { label: "No-shows and late cancellations", body: "A session at risk with no quick way to find a replacement." },
+    { label: "Staff time", body: "Recruiting models manually instead of running your business." },
+    { label: "Fragmented communication", body: "Enquiries scattered across DMs, group chats and inboxes with no shared record." },
+  ],
+  positioning: "LOTACHI is being built as the model recruitment and workflow layer that sits alongside how you already run training — not another database to maintain, but a way to reach more of the right people, faster.",
 };
 
 export const whyProviders = {
-  eyebrow: "Why providers may like LOTACHI",
+  eyebrow: "Why providers choose LOTACHI",
   heading: "A wider, more organised pool of models.",
   items: [
     "Being built to reach a wider pool of potential models",
@@ -51,7 +63,14 @@ export const whyProviders = {
     "A pool of returning models — planned for later",
     "Eventually, more systematic management of model opportunities",
   ],
-  cta: { label: "Join as a Provider", href: "/providers" },
+  cta: { label: "Become a Founding Provider", href: "/providers" },
+};
+
+export const founderHome = {
+  eyebrow: "Why LOTACHI exists",
+  heading: "Founded by Amaka Ananti.",
+  body: "LOTACHI is being built from first-hand experience of the fragmented way model opportunities are currently discovered and managed — after taking part in them herself, and hearing the same story from tutors, academies, clinics and salons.",
+  cta: { label: "Read more about LOTACHI", href: "/about" },
 };
 
 export const trust = {
@@ -64,7 +83,7 @@ export const trust = {
     "LOTACHI does not make clinical suitability decisions, and never infers suitability from photos or appearance.",
     "Providers remain responsible for consultation, consent, supervision, delivery and aftercare.",
     "Photo/video consent is always requested separately from treatment consent — never combined.",
-    "Provider verification may be introduced or expanded as LOTACHI develops.",
+    "Providers will be required to meet LOTACHI's onboarding requirements for their service and location.",
   ],
   moreLink: { label: "Read the full trust & safety detail", href: "/safety" },
 };
@@ -93,24 +112,27 @@ export const transparency = {
 };
 
 export const earlyAccess = {
-  eyebrow: "Early access",
+  eyebrow: "London early access",
   heading: "Help build LOTACHI from the start.",
-  body: "LOTACHI is currently building its founding model and provider community while testing real model-filling workflows. Join now and help shape the platform.",
-  badge: "Founding Models & Early Provider Partners",
-  ctaModel: { label: "Join as a Model", href: "/models" },
-  ctaProvider: { label: "Join as a Provider", href: "/providers" },
+  body: "LOTACHI is currently building its founding Chi Chi and provider community in London, while testing real model-filling workflows. Join now and help shape the platform.",
+  badge: "Founding Chi Chis & Provider Partners",
+  ctaModel: { label: "Join as a Chi Chi", href: "/models" },
+  ctaProvider: { label: "Become a Founding Provider", href: "/providers" },
 };
 
 // Illustrative only — not live opportunities. Every card using this data
-// must be labelled "Example opportunity" in the UI. Shaped to the
-// OpportunityListing type (src/types/opportunity.ts) so the cards
-// demonstrate the transparency a real listing is designed to provide.
+// must be labelled "Illustrative example — not a live listing" in the UI.
+// Shaped to the OpportunityListing type (src/types/opportunity.ts) so the
+// cards demonstrate the transparency a real listing is designed to provide.
+// One example per launch category (Hair, Beauty, Aesthetics, Nails, SPMU) —
+// `subcategory` carries skin-related treatment types (facials, peels,
+// laser/IPL) under Beauty/Aesthetics rather than a standalone Skin category.
 export const exampleOpportunities: OpportunityListing[] = [
   {
-    id: "example-hair-colour-correction",
+    id: "example-hair-urgent-colour",
     category: "Hair",
-    title: "Colour correction — model needed",
-    location: "Manchester",
+    title: "Urgent hair colour model needed — tomorrow",
+    location: "London",
     reason: "Training",
     performedBy: "Final-stage hairdressing student",
     supervision: "Supervised throughout by a qualified tutor",
@@ -122,19 +144,40 @@ export const exampleOpportunities: OpportunityListing[] = [
     modelCharacteristicsSought: "Looking for a range of hair types and lengths — ask if you're unsure whether yours fits",
     media: { photosOrVideoTaken: true, usage: ["Training records", "Portfolio"], faceIdentifiable: false, requiresSeparateConsent: true },
     aftercareProvided: true,
-    cancellationPolicy: "Please give at least 48 hours' notice if you can't attend",
+    cancellationPolicy: "This slot is last-minute — please only apply if you can definitely attend",
+    notice: "Tomorrow",
+  },
+  {
+    id: "example-beauty-chemical-peel",
+    category: "Beauty",
+    subcategory: "Chemical peel",
+    title: "Free chemical peel — model needed",
+    location: "London",
+    reason: "Training",
+    performedBy: "Beauty therapy student",
+    supervision: "Supervised throughout by a qualified tutor",
+    priceType: "Free",
+    modelPrice: "Free",
+    comparablePrice: null,
+    durationMinutes: 60,
+    eligibility: ["Full consultation carried out before anything proceeds", "No active skin infections in the treatment area"],
+    modelCharacteristicsSought: null,
+    media: { photosOrVideoTaken: true, usage: ["Training records"], faceIdentifiable: false, requiresSeparateConsent: true },
+    aftercareProvided: true,
+    cancellationPolicy: "At least 24 hours' notice requested",
     notice: "This week",
   },
   {
     id: "example-aesthetics-consultation",
     category: "Aesthetics",
-    title: "Consultation & assessment practice",
+    subcategory: "Consultation & assessment",
+    title: "Discounted aesthetics training session",
     location: "London",
     reason: "Assessment",
     performedBy: "Qualified aesthetics practitioner completing an assessment module",
     supervision: "Assessed by an external examiner; the practitioner is already qualified",
     priceType: "Discounted",
-    modelPrice: "£20",
+    modelPrice: "£25",
     comparablePrice: "£60 standard consultation rate",
     durationMinutes: 45,
     eligibility: ["Full consultation carried out before anything proceeds"],
@@ -145,29 +188,10 @@ export const exampleOpportunities: OpportunityListing[] = [
     notice: "Flexible dates",
   },
   {
-    id: "example-spmu-portfolio-brows",
-    category: "SPMU",
-    title: "Portfolio session — brows",
-    location: "Birmingham",
-    reason: "Portfolio",
-    performedBy: "Newly qualified SPMU practitioner",
-    supervision: "Working independently as a newly qualified practitioner; academy remains available for support",
-    priceType: "Free",
-    modelPrice: "Free",
-    comparablePrice: "£150–£250 typical studio rate",
-    durationMinutes: 120,
-    eligibility: ["Not currently pregnant or breastfeeding", "No previous SPMU in the treatment area"],
-    modelCharacteristicsSought: "Looking for a range of brow shapes and skin tones for portfolio variety",
-    media: { photosOrVideoTaken: true, usage: ["Portfolio", "Social media"], faceIdentifiable: true, requiresSeparateConsent: true },
-    aftercareProvided: true,
-    cancellationPolicy: "This slot is last-minute — please only apply if you can definitely attend",
-    notice: "Last-minute",
-  },
-  {
     id: "example-nails-newly-qualified",
     category: "Nails",
     title: "Newly qualified practitioner practice",
-    location: "Leeds",
+    location: "London",
     reason: "Newly qualified practitioner",
     performedBy: "Newly qualified nail technician",
     supervision: "Salon owner available on-site throughout",
@@ -181,6 +205,25 @@ export const exampleOpportunities: OpportunityListing[] = [
     aftercareProvided: true,
     cancellationPolicy: "Please give at least 24 hours' notice",
     notice: "Next 2 weeks",
+  },
+  {
+    id: "example-spmu-portfolio-brows",
+    category: "SPMU",
+    title: "Portfolio session — brows",
+    location: "London",
+    reason: "Portfolio",
+    performedBy: "Newly qualified SPMU practitioner",
+    supervision: "Working independently as a newly qualified practitioner; academy remains available for support",
+    priceType: "Free",
+    modelPrice: "Free",
+    comparablePrice: "£150–£250 typical studio rate",
+    durationMinutes: 120,
+    eligibility: ["Not currently pregnant or breastfeeding", "No previous SPMU in the treatment area"],
+    modelCharacteristicsSought: "Looking for a range of brow shapes and skin tones for portfolio variety",
+    media: { photosOrVideoTaken: true, usage: ["Portfolio", "Social media"], faceIdentifiable: true, requiresSeparateConsent: true },
+    aftercareProvided: true,
+    cancellationPolicy: "This slot is last-minute — please only apply if you can definitely attend",
+    notice: "Last-minute",
   },
 ];
 

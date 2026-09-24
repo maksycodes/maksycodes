@@ -22,8 +22,11 @@ export function ProviderForm() {
   const [locations, setLocations] = useState("");
   const [providerType, setProviderType] = useState("");
   const [categories, setCategories] = useState<string[]>([]);
+  const [trainingDays, setTrainingDays] = useState("");
+  const [traineesPerSession, setTraineesPerSession] = useState("");
   const [volume, setVolume] = useState("");
   const [next30Days, setNext30Days] = useState("");
+  const [nextTrainingDates, setNextTrainingDates] = useState("");
   const [purposes, setPurposes] = useState<string[]>([]);
   const [hardestToFill, setHardestToFill] = useState("");
   const [fillDifficulty, setFillDifficulty] = useState("");
@@ -42,6 +45,16 @@ export function ProviderForm() {
     if (hasStarted.current) return;
     hasStarted.current = true;
     trackEvent("provider_signup_started");
+  }
+
+  function handleCategoriesChange(next: string[]) {
+    setCategories(next);
+    trackEvent("category_selected", { context: "provider", categories: next });
+  }
+
+  function handleLastMinuteChange(next: string) {
+    setLastMinute(next);
+    trackEvent("short_notice_selected", { context: "provider", frequency: next });
   }
 
   async function handleSubmit(e: FormEvent) {
@@ -71,8 +84,11 @@ export function ProviderForm() {
         locations,
         provider_type: providerType,
         categories,
+        training_days_per_month: trainingDays,
+        trainees_per_session: traineesPerSession,
         model_volume: volume,
         needs_models_next_30_days: next30Days,
+        next_training_dates: nextTrainingDates,
         purposes,
         hardest_to_fill: hardestToFill,
         fill_difficulty: fillDifficulty,
@@ -200,7 +216,23 @@ export function ProviderForm() {
         title="What you're looking for"
         description="Helps us match you to suitable models — you can update this later."
       >
-        <CheckboxGroup legend="Categories" name="categories" options={form.categoryOptions} values={categories} onChange={setCategories} />
+        <CheckboxGroup legend="Categories" name="categories" options={form.categoryOptions} values={categories} onChange={handleCategoriesChange} />
+
+        <RadioGroup
+          legend="How many training days do you run per month?"
+          name="trainingDays"
+          options={form.trainingDaysOptions}
+          value={trainingDays}
+          onChange={setTrainingDays}
+        />
+
+        <RadioGroup
+          legend="Roughly how many trainees per session?"
+          name="traineesPerSession"
+          options={form.traineesPerSessionOptions}
+          value={traineesPerSession}
+          onChange={setTraineesPerSession}
+        />
 
         <RadioGroup
           legend="Approximately how many models do you need per month?"
@@ -217,6 +249,16 @@ export function ProviderForm() {
           value={next30Days}
           onChange={setNext30Days}
         />
+
+        <Field label={form.nextTrainingDatesLabel} htmlFor="provider-next-training-dates" optional>
+          <TextInput
+            id="provider-next-training-dates"
+            name="nextTrainingDates"
+            placeholder="e.g. every Tuesday, or specific dates if you have them"
+            value={nextTrainingDates}
+            onChange={(e) => setNextTrainingDates(e.target.value)}
+          />
+        </Field>
 
         <CheckboxGroup
           legend="What do you usually need models for?"
@@ -249,7 +291,7 @@ export function ProviderForm() {
           name="lastMinute"
           options={form.lastMinuteOptions}
           value={lastMinute}
-          onChange={setLastMinute}
+          onChange={handleLastMinuteChange}
         />
 
         <CheckboxGroup

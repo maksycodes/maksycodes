@@ -51,14 +51,18 @@ export default function ModelsPage() {
               <p className="mt-1 text-sm text-ink-400">
                 Interested in listing opportunities instead?{" "}
                 <Link href="/providers" className="text-accent underline underline-offset-2">
-                  Join as a provider
+                  Become a Founding Provider
                 </Link>
                 .
               </p>
             </div>
 
             <div className="rounded-2xl border border-ink-100 bg-white p-6 shadow-sm sm:p-8">
-              <ModelForm />
+              <h2 className="text-lg font-semibold text-ink-900">{modelsPage.formHeading}</h2>
+              <p className="mt-1 text-sm text-ink-500">{modelsPage.formIntro}</p>
+              <div className="mt-6">
+                <ModelForm />
+              </div>
             </div>
           </div>
         </Section>

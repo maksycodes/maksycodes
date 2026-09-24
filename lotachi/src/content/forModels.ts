@@ -1,10 +1,10 @@
 export const forModelsPage = {
-  metaTitle: "For Models",
-  metaDescription: "What being a LOTACHI model means, how opportunities work, and what to expect.",
-  eyebrow: "For models",
-  heading: "What being a model means.",
+  metaTitle: "For Chi Chis — Model Opportunities Explained",
+  metaDescription: "What a Chi Chi is, what being a model for a LOTACHI opportunity means, and what to expect.",
+  eyebrow: "For Chi Chis",
+  heading: "What being a Chi Chi means.",
   intro:
-    "Being a model means taking part in a practical training session, assessment, demonstration or portfolio shoot run by a training provider — sometimes for free, sometimes at a reduced price. Providers need people like you to make practical learning possible.",
+    "A Chi Chi is what we call anyone in the LOTACHI community looking for a model opportunity — you're a Chi Chi from the moment you join, even before you're matched to anything. Being the model for a specific opportunity means taking part in a practical training session, assessment, demonstration or portfolio shoot run by a training provider — sometimes for free, sometimes at a reduced price. Providers need people like you to make practical learning possible.",
   sections: [
     {
       heading: "Why providers need models",
@@ -101,5 +101,5 @@ export const forModelsPage = {
         "Yes. A provider may state characteristics they're specifically seeking or equipped to work with — for example a hair type or skin type — so you can see whether an opportunity is a likely fit before you apply.",
     },
   ],
-  cta: { label: "Join as a Model", href: "/models" },
+  cta: { label: "Join as a Chi Chi", href: "/models" },
 };

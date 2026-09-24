@@ -60,7 +60,15 @@ export type BookingAftercare = {
 
 export type OpportunityListing = {
   id: string;
+  // One of LOTACHI's five launch categories: Hair, Beauty, Aesthetics,
+  // Nails, SPMU.
   category: string;
+  // Optional treatment type within that category (e.g. "Chemical peel",
+  // "Facial", "Laser/IPL"). Skin-related treatments sit under Beauty or
+  // Aesthetics as a subcategory for now — this field is what would let
+  // Skin become its own top-level category later if volume justifies it,
+  // without a data migration.
+  subcategory?: string;
   title: string;
   location: string;
 

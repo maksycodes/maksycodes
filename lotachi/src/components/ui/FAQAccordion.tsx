@@ -1,10 +1,22 @@
+"use client";
+
+import { trackEvent } from "@/lib/analytics";
+
 type FaqItem = { question: string; answer: string };
 
 export function FAQAccordion({ items }: { items: FaqItem[] }) {
   return (
     <div className="flex flex-col divide-y divide-ink-200 border-t border-b border-ink-200">
       {items.map((item) => (
-        <details key={item.question} className="group py-5">
+        <details
+          key={item.question}
+          className="group py-5"
+          onToggle={(e) => {
+            if ((e.target as HTMLDetailsElement).open) {
+              trackEvent("faq_interaction", { question: item.question });
+            }
+          }}
+        >
           <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-medium text-ink-900">
             {item.question}
             <span aria-hidden="true" className="shrink-0 text-ink-400 transition-transform group-open:rotate-45">

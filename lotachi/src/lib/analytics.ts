@@ -80,6 +80,10 @@ export type AnalyticsEvent =
   | "provider_cta_clicked"
   | "provider_pilot_clicked"
   | "social_link_clicked"
+  | "category_selected"
+  | "postcode_captured"
+  | "short_notice_selected"
+  | "faq_interaction"
   | (string & {});
 
 export function trackEvent(event: AnalyticsEvent, payload: Record<string, unknown> = {}): void {

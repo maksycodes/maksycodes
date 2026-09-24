@@ -6,8 +6,11 @@ export const siteConfig = {
   name: "LOTACHI",
   domain: "lotachi.com",
   tagline: "Find model opportunities. Find the right models.",
+  // Concise brand descriptor for metadata, social sharing and footer/About
+  // copy — not used as a competing second headline in the hero.
+  descriptor: "The marketplace for model opportunities.",
   description:
-    "LOTACHI is an early-stage marketplace connecting people who want to become models for training, demonstrations and portfolio work with the providers who need them — starting with hair, beauty and aesthetics in the UK.",
+    "The marketplace for model opportunities. Discover hair, beauty, aesthetics, nails and SPMU opportunities in London, and connect training providers with suitable, reliable models. Join the Chi Chi community for early access.",
   emails: {
     general: process.env.NEXT_PUBLIC_CONTACT_EMAIL || "hello@lotachi.com",
     providers: process.env.NEXT_PUBLIC_PROVIDER_EMAIL || "providers@lotachi.com",
@@ -28,15 +31,15 @@ export const siteConfig = {
 
 export const nav = {
   links: [
-    { label: "For Models", href: "/for-models" },
+    { label: "For Chi Chis", href: "/for-models" },
     { label: "For Providers", href: "/for-providers" },
     { label: "How It Works", href: "/how-it-works" },
     { label: "About", href: "/about" },
     { label: "FAQ", href: "/faq" },
     { label: "Contact", href: "/contact" },
   ],
-  ctaModel: { label: "Join as a Model", href: "/models" },
-  ctaProvider: { label: "Join as a Provider", href: "/providers" },
+  ctaModel: { label: "Join as a Chi Chi", href: "/models" },
+  ctaProvider: { label: "Become a Founding Provider", href: "/providers" },
 };
 
 export const footer = {
@@ -53,8 +56,8 @@ export const footer = {
     {
       heading: "Get involved",
       links: [
-        { label: "Join as a Model", href: "/models" },
-        { label: "Join as a Provider", href: "/providers" },
+        { label: "Join as a Chi Chi", href: "/models" },
+        { label: "Become a Founding Provider", href: "/providers" },
         { label: "Partnerships", href: "/contact#partnerships" },
         { label: "Help shape LOTACHI", href: "/contact#feedback" },
       ],
@@ -79,5 +82,5 @@ export const footer = {
     successMessage: "Thanks — you're subscribed.",
   },
   copyright: `© ${new Date().getFullYear()} LOTACHI. All rights reserved.`,
-  status: "LOTACHI is in early access. The marketplace is not yet live.",
+  status: "LOTACHI is in early access in London. The marketplace is not yet live.",
 };

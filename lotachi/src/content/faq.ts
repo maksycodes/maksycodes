@@ -1,15 +1,20 @@
 export const faqPage = {
-  metaTitle: "FAQ",
-  metaDescription: "Answers to common questions from models and training providers about LOTACHI.",
+  metaTitle: "FAQ — Model Opportunities & Becoming a Provider",
+  metaDescription: "Answers to common questions from Chi Chis and training providers about LOTACHI model opportunities in London.",
   eyebrow: "FAQ",
   heading: "Common questions",
-  modelsHeading: "For models",
+  modelsHeading: "For Chi Chis",
   providersHeading: "For providers",
   models: [
     {
       question: "What is LOTACHI?",
       answer:
         "LOTACHI is an early-stage marketplace connecting people who want to become models for training, demonstrations and portfolio work with the providers who need them.",
+    },
+    {
+      question: "What is a Chi Chi?",
+      answer:
+        "A Chi Chi is what we call anyone in the LOTACHI community looking for a model opportunity — you're a Chi Chi from the moment you join, even before you're matched to anything. You become the model for a specific opportunity once you're matched or booked.",
     },
     {
       question: "What is a model opportunity?",
