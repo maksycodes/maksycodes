@@ -22,6 +22,7 @@ export function ProviderForm() {
   const [locations, setLocations] = useState("");
   const [providerType, setProviderType] = useState("");
   const [categories, setCategories] = useState<string[]>([]);
+  const [categoriesOther, setCategoriesOther] = useState("");
   const [trainingDays, setTrainingDays] = useState("");
   const [traineesPerSession, setTraineesPerSession] = useState("");
   const [volume, setVolume] = useState("");
@@ -31,10 +32,12 @@ export function ProviderForm() {
   const [successfulFillFeeRange, setSuccessfulFillFeeRange] = useState("");
   const [nextTrainingDates, setNextTrainingDates] = useState("");
   const [purposes, setPurposes] = useState<string[]>([]);
+  const [purposesOther, setPurposesOther] = useState("");
   const [hardestToFill, setHardestToFill] = useState("");
   const [fillDifficulty, setFillDifficulty] = useState("");
   const [lastMinute, setLastMinute] = useState("");
   const [sources, setSources] = useState<string[]>([]);
+  const [sourcesOther, setSourcesOther] = useState("");
   const [currentProcess, setCurrentProcess] = useState("");
   const [challenge, setChallenge] = useState("");
   const [pilot, setPilot] = useState(false);
@@ -87,6 +90,7 @@ export function ProviderForm() {
         locations,
         provider_type: providerType,
         categories,
+        categories_other: categoriesOther,
         training_days_per_month: trainingDays,
         trainees_per_session: traineesPerSession,
         model_volume: volume,
@@ -96,10 +100,12 @@ export function ProviderForm() {
         successful_fill_fee_range: successfulFillFeeRange,
         next_training_dates: nextTrainingDates,
         purposes,
+        purposes_other: purposesOther,
         hardest_to_fill: hardestToFill,
         fill_difficulty: fillDifficulty,
         last_minute_need: lastMinute,
         current_sources: sources,
+        current_sources_other: sourcesOther,
         current_process: currentProcess,
         biggest_challenge: challenge,
         pilot_interest: pilot,
@@ -222,7 +228,15 @@ export function ProviderForm() {
         title="What you're looking for"
         description="Helps us match you to suitable models — you can update this later."
       >
-        <CheckboxGroup legend="Categories" name="categories" options={form.categoryOptions} values={categories} onChange={handleCategoriesChange} />
+        <CheckboxGroup
+          legend="Categories"
+          name="categories"
+          options={form.categoryOptions}
+          values={categories}
+          onChange={handleCategoriesChange}
+          otherValue={categoriesOther}
+          onOtherChange={setCategoriesOther}
+        />
 
         <RadioGroup
           legend="How many training days do you run per month?"
@@ -296,6 +310,8 @@ export function ProviderForm() {
           options={form.purposeOptions}
           values={purposes}
           onChange={setPurposes}
+          otherValue={purposesOther}
+          onOtherChange={setPurposesOther}
         />
 
         <Field label="What's the hardest type of model requirement for you to fill?" htmlFor="provider-hardest-to-fill" optional>
@@ -330,6 +346,8 @@ export function ProviderForm() {
           options={form.sourceOptions}
           values={sources}
           onChange={setSources}
+          otherValue={sourcesOther}
+          onOtherChange={setSourcesOther}
         />
 
         <Field label="Briefly describe how model recruitment works for you today" htmlFor="provider-current-process" optional>

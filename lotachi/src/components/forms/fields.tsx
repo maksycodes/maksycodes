@@ -70,8 +70,8 @@ export function Field({
   );
 }
 
-export function TextInput(props: InputHTMLAttributes<HTMLInputElement>) {
-  return <input {...props} className={inputClasses} />;
+export function TextInput({ className = "", ...props }: InputHTMLAttributes<HTMLInputElement>) {
+  return <input {...props} className={`${inputClasses} ${className}`} />;
 }
 
 export function Textarea(props: TextareaHTMLAttributes<HTMLTextAreaElement>) {
@@ -95,6 +95,8 @@ export function CheckboxGroup({
   hint,
   error,
   required,
+  otherValue,
+  onOtherChange,
 }: {
   legend: string;
   name: string;
@@ -104,6 +106,11 @@ export function CheckboxGroup({
   hint?: string;
   error?: string;
   required?: boolean;
+  // When one of `options` is exactly "Other", pass these to reveal a
+  // free-text field for it once selected — otherwise "Other" is collected
+  // with no way to say what it means.
+  otherValue?: string;
+  onOtherChange?: (value: string) => void;
 }) {
   function toggle(option: string) {
     if (values.includes(option)) {
@@ -112,6 +119,8 @@ export function CheckboxGroup({
       onChange([...values, option]);
     }
   }
+
+  const showOther = onOtherChange && values.includes("Other");
 
   return (
     <fieldset className="flex flex-col">
@@ -153,6 +162,16 @@ export function CheckboxGroup({
           );
         })}
       </div>
+      {showOther && (
+        <TextInput
+          className="mt-3"
+          name={`${name}Other`}
+          placeholder="Please specify"
+          aria-label={`${legend} — please specify "Other"`}
+          value={otherValue ?? ""}
+          onChange={(e) => onOtherChange(e.target.value)}
+        />
+      )}
       {error && (
         <p role="alert" className="mt-2 text-sm text-red-700">
           {error}
@@ -171,6 +190,8 @@ export function RadioGroup({
   hint,
   error,
   required,
+  otherValue,
+  onOtherChange,
 }: {
   legend: string;
   name: string;
@@ -180,7 +201,14 @@ export function RadioGroup({
   hint?: string;
   error?: string;
   required?: boolean;
+  // When one of `options` is exactly "Other", pass these to reveal a
+  // free-text field for it once selected — otherwise "Other" is collected
+  // with no way to say what it means.
+  otherValue?: string;
+  onOtherChange?: (value: string) => void;
 }) {
+  const showOther = onOtherChange && value === "Other";
+
   return (
     <fieldset className="flex flex-col">
       <legend className="text-sm font-medium text-ink-900">
@@ -221,6 +249,16 @@ export function RadioGroup({
           );
         })}
       </div>
+      {showOther && (
+        <TextInput
+          className="mt-3"
+          name={`${name}Other`}
+          placeholder="Please specify"
+          aria-label={`${legend} — please specify "Other"`}
+          value={otherValue ?? ""}
+          onChange={(e) => onOtherChange(e.target.value)}
+        />
+      )}
       {error && (
         <p role="alert" className="mt-2 text-sm text-red-700">
           {error}

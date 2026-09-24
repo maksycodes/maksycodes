@@ -23,6 +23,7 @@ export function ModelForm() {
   const [minimumNotice, setMinimumNotice] = useState("");
   const [priceInterest, setPriceInterest] = useState("");
   const [heardAboutUs, setHeardAboutUs] = useState("");
+  const [heardAboutUsOther, setHeardAboutUsOther] = useState("");
   const [ageConfirmed, setAgeConfirmed] = useState(false);
   const [consent, setConsent] = useState(false);
   const [privacyAck, setPrivacyAck] = useState(false);
@@ -91,6 +92,7 @@ export function ModelForm() {
         minimum_notice: minimumNotice,
         price_interest: priceInterest,
         heard_about_us: heardAboutUs,
+        heard_about_us_other: heardAboutUsOther,
         age_confirmed: ageConfirmed,
         consent,
         privacy_acknowledged: privacyAck,
@@ -226,6 +228,8 @@ export function ModelForm() {
           options={form.heardAboutUsOptions}
           value={heardAboutUs}
           onChange={setHeardAboutUs}
+          otherValue={heardAboutUsOther}
+          onOtherChange={setHeardAboutUsOther}
         />
       </FormSection>
 
