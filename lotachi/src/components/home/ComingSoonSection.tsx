@@ -11,7 +11,7 @@ export function ComingSoonSection() {
       </h2>
       <p className="mt-4 max-w-2xl text-ink-600">{comingSoonFeed.body}</p>
 
-      <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {exampleOpportunities.map((opportunity) => (
           <OpportunityCard key={opportunity.id} opportunity={opportunity} />
         ))}

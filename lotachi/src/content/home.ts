@@ -124,7 +124,8 @@ export const earlyAccess = {
 // must be labelled "Illustrative example — not a live listing" in the UI.
 // Shaped to the OpportunityListing type (src/types/opportunity.ts) so the
 // cards demonstrate the transparency a real listing is designed to provide.
-// One example per launch category (Hair, Beauty, Aesthetics, Nails, SPMU).
+// At least one example per launch category (Hair, Beauty, Aesthetics,
+// Nails, SPMU) — six in total, filling two full rows in the grid.
 // Titles follow a consistent "[context] — [specific treatment]" pattern —
 // naming the actual technique (e.g. "Russian lip filler", "BIAB") rather
 // than a generic category description. `subcategory` carries that same
@@ -190,6 +191,26 @@ export const exampleOpportunities: OpportunityListing[] = [
     aftercareProvided: true,
     cancellationPolicy: "At least 24 hours' notice requested",
     notice: "Flexible dates",
+  },
+  {
+    id: "example-aesthetics-microneedling",
+    category: "Aesthetics",
+    subcategory: "Microneedling",
+    title: "Free training session — microneedling",
+    location: "London",
+    reason: "Training",
+    performedBy: "Aesthetics practitioner in training",
+    supervision: "Supervised throughout by a qualified aesthetics tutor",
+    priceType: "Free",
+    modelPrice: "Free",
+    comparablePrice: "£120 standard clinic rate",
+    durationMinutes: 60,
+    eligibility: ["Full consultation carried out before anything proceeds", "No active skin infections or recent sunburn in the treatment area"],
+    modelCharacteristicsSought: null,
+    media: { photosOrVideoTaken: true, usage: ["Clinical notes", "Training records"], faceIdentifiable: true, requiresSeparateConsent: true },
+    aftercareProvided: true,
+    cancellationPolicy: "At least 24 hours' notice requested",
+    notice: "This week",
   },
   {
     id: "example-nails-newly-qualified",
