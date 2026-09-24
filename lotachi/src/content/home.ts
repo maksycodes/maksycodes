@@ -124,14 +124,18 @@ export const earlyAccess = {
 // must be labelled "Illustrative example — not a live listing" in the UI.
 // Shaped to the OpportunityListing type (src/types/opportunity.ts) so the
 // cards demonstrate the transparency a real listing is designed to provide.
-// One example per launch category (Hair, Beauty, Aesthetics, Nails, SPMU) —
-// `subcategory` carries skin-related treatment types (facials, peels,
-// laser/IPL) under Beauty/Aesthetics rather than a standalone Skin category.
+// One example per launch category (Hair, Beauty, Aesthetics, Nails, SPMU).
+// Titles follow a consistent "[context] — [specific treatment]" pattern —
+// naming the actual technique (e.g. "Russian lip filler", "BIAB") rather
+// than a generic category description. `subcategory` carries that same
+// specific treatment type; for Beauty/Aesthetics this is also what would
+// let Skin become its own top-level category later if volume justifies it.
 export const exampleOpportunities: OpportunityListing[] = [
   {
     id: "example-hair-urgent-colour",
     category: "Hair",
-    title: "Urgent hair colour model needed — tomorrow",
+    subcategory: "Balayage",
+    title: "Urgent training session — balayage colour correction",
     location: "London",
     reason: "Training",
     performedBy: "Final-stage hairdressing student",
@@ -151,7 +155,7 @@ export const exampleOpportunities: OpportunityListing[] = [
     id: "example-beauty-chemical-peel",
     category: "Beauty",
     subcategory: "Chemical peel",
-    title: "Free chemical peel — model needed",
+    title: "Free training session — chemical peel",
     location: "London",
     reason: "Training",
     performedBy: "Beauty therapy student",
@@ -168,21 +172,21 @@ export const exampleOpportunities: OpportunityListing[] = [
     notice: "This week",
   },
   {
-    id: "example-aesthetics-consultation",
+    id: "example-aesthetics-lip-filler",
     category: "Aesthetics",
-    subcategory: "Consultation & assessment",
-    title: "Discounted aesthetics training session",
+    subcategory: "Russian lip filler",
+    title: "Discounted training session — Russian lip filler",
     location: "London",
-    reason: "Assessment",
-    performedBy: "Qualified aesthetics practitioner completing an assessment module",
-    supervision: "Assessed by an external examiner; the practitioner is already qualified",
+    reason: "Training",
+    performedBy: "Aesthetics practitioner in training",
+    supervision: "Supervised throughout by a qualified aesthetics tutor",
     priceType: "Discounted",
-    modelPrice: "£25",
-    comparablePrice: "£60 standard consultation rate",
+    modelPrice: "£40",
+    comparablePrice: "£180 standard clinic rate",
     durationMinutes: 45,
-    eligibility: ["Full consultation carried out before anything proceeds"],
+    eligibility: ["Full consultation carried out before anything proceeds", "Not currently pregnant or breastfeeding"],
     modelCharacteristicsSought: null,
-    media: { photosOrVideoTaken: true, usage: ["Clinical notes", "Assessment"], faceIdentifiable: true, requiresSeparateConsent: true },
+    media: { photosOrVideoTaken: true, usage: ["Clinical notes", "Training records"], faceIdentifiable: true, requiresSeparateConsent: true },
     aftercareProvided: true,
     cancellationPolicy: "At least 24 hours' notice requested",
     notice: "Flexible dates",
@@ -190,7 +194,8 @@ export const exampleOpportunities: OpportunityListing[] = [
   {
     id: "example-nails-newly-qualified",
     category: "Nails",
-    title: "Newly qualified practitioner practice",
+    subcategory: "BIAB",
+    title: "Newly qualified practitioner — BIAB application on hands",
     location: "London",
     reason: "Newly qualified practitioner",
     performedBy: "Newly qualified nail technician",
@@ -209,7 +214,8 @@ export const exampleOpportunities: OpportunityListing[] = [
   {
     id: "example-spmu-portfolio-brows",
     category: "SPMU",
-    title: "Portfolio session — brows",
+    subcategory: "Nanoblading",
+    title: "Portfolio session — nanobladed brows",
     location: "London",
     reason: "Portfolio",
     performedBy: "Newly qualified SPMU practitioner",
