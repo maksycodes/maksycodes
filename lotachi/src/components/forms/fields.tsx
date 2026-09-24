@@ -125,7 +125,7 @@ export function CheckboxGroup({
         )}
       </legend>
       {hint && <p className="mt-1 text-sm text-ink-500">{hint}</p>}
-      <div className="mt-8 flex flex-wrap gap-2">
+      <div className="mt-8 flex flex-wrap gap-3">
         {options.map((option) => {
           const id = `${name}-${option.replace(/\s+/g, "-").toLowerCase()}`;
           const checked = values.includes(option);
@@ -193,7 +193,7 @@ export function RadioGroup({
         )}
       </legend>
       {hint && <p className="mt-1 text-sm text-ink-500">{hint}</p>}
-      <div className="mt-8 flex flex-wrap gap-2">
+      <div className="mt-8 flex flex-wrap gap-3">
         {options.map((option) => {
           const id = `${name}-${option.replace(/\s+/g, "-").toLowerCase()}`;
           const checked = value === option;

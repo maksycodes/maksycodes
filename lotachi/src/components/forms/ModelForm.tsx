@@ -273,7 +273,7 @@ export function ModelForm() {
           </FormNotice>
         )}
 
-        <Button type="submit" variant="accent" disabled={state === "submitting"} className="sm:self-start">
+        <Button type="submit" variant="accent" disabled={state === "submitting"} className="mt-3 sm:self-start">
           {state === "submitting" ? "Sending…" : form.submitLabel}
         </Button>
       </FormSection>

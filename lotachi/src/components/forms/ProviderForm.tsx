@@ -364,7 +364,7 @@ export function ProviderForm() {
           </FormNotice>
         )}
 
-        <Button type="submit" variant="accent" disabled={state === "submitting"} className="sm:self-start">
+        <Button type="submit" variant="accent" disabled={state === "submitting"} className="mt-3 sm:self-start">
           {state === "submitting" ? "Sending…" : form.submitLabel}
         </Button>
         <p className="text-xs text-ink-400">
