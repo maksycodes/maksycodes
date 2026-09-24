@@ -21,6 +21,7 @@ export function ProviderForm() {
   const [website, setWebsite] = useState("");
   const [locations, setLocations] = useState("");
   const [providerType, setProviderType] = useState("");
+  const [providerTypeOther, setProviderTypeOther] = useState("");
   const [categories, setCategories] = useState<string[]>([]);
   const [categoriesOther, setCategoriesOther] = useState("");
   const [trainingDays, setTrainingDays] = useState("");
@@ -89,6 +90,7 @@ export function ProviderForm() {
         website,
         locations,
         provider_type: providerType,
+        provider_type_other: providerTypeOther,
         categories,
         categories_other: categoriesOther,
         training_days_per_month: trainingDays,
@@ -221,6 +223,16 @@ export function ProviderForm() {
               </option>
             ))}
           </Select>
+          {providerType === "Other" && (
+            <TextInput
+              className="mt-3"
+              name="providerTypeOther"
+              placeholder="Please specify"
+              aria-label="Provider type — please specify &quot;Other&quot;"
+              value={providerTypeOther}
+              onChange={(e) => setProviderTypeOther(e.target.value)}
+            />
+          )}
         </Field>
       </FormSection>
 
