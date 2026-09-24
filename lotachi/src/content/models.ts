@@ -24,7 +24,7 @@ export const modelsPage = {
   formIntro: "Tell us what kinds of model opportunities you're interested in.",
   form: {
     travelOptions: ["Up to 3 miles", "Up to 5 miles", "Up to 10 miles", "Anywhere in London", "Outside London too"],
-    categoryOptions: ["Hair", "Aesthetics", "Beauty", "Nails", "SPMU"],
+    categoryOptions: ["Hair", "Aesthetics", "Beauty", "Nails", "SPMU", "Other"],
     availabilityOptions: ["Weekday daytimes", "Weekday evenings", "Weekend daytimes", "Weekend evenings"],
     minimumNoticeOptions: ["Same day", "Next day", "2–3 days", "A week or more"],
     priceInterestOptions: ["Free only", "Free or low-cost", "Open to discounted opportunities at different prices"],

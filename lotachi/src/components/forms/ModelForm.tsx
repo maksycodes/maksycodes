@@ -19,6 +19,7 @@ export function ModelForm() {
   const [location, setLocation] = useState("");
   const [travel, setTravel] = useState("");
   const [categories, setCategories] = useState<string[]>([]);
+  const [categoriesOther, setCategoriesOther] = useState("");
   const [availability, setAvailability] = useState<string[]>([]);
   const [minimumNotice, setMinimumNotice] = useState("");
   const [priceInterest, setPriceInterest] = useState("");
@@ -88,6 +89,7 @@ export function ModelForm() {
         location,
         travel_distance: travel,
         categories,
+        categories_other: categoriesOther,
         availability,
         minimum_notice: minimumNotice,
         price_interest: priceInterest,
@@ -190,6 +192,8 @@ export function ModelForm() {
           onChange={handleCategoriesChange}
           required
           error={errors.categories}
+          otherValue={categoriesOther}
+          onOtherChange={setCategoriesOther}
         />
 
         <CheckboxGroup
