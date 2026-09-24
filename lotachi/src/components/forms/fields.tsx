@@ -114,7 +114,7 @@ export function CheckboxGroup({
   }
 
   return (
-    <fieldset className="flex flex-col gap-3">
+    <fieldset className="flex flex-col">
       <legend className="text-sm font-medium text-ink-900">
         {legend}
         {required && (
@@ -124,8 +124,8 @@ export function CheckboxGroup({
           </span>
         )}
       </legend>
-      {hint && <p className="text-sm text-ink-500">{hint}</p>}
-      <div className="flex flex-wrap gap-2">
+      {hint && <p className="mt-1 text-sm text-ink-500">{hint}</p>}
+      <div className="mt-4 flex flex-wrap gap-2">
         {options.map((option) => {
           const id = `${name}-${option.replace(/\s+/g, "-").toLowerCase()}`;
           const checked = values.includes(option);
@@ -154,7 +154,7 @@ export function CheckboxGroup({
         })}
       </div>
       {error && (
-        <p role="alert" className="text-sm text-red-700">
+        <p role="alert" className="mt-2 text-sm text-red-700">
           {error}
         </p>
       )}
@@ -182,7 +182,7 @@ export function RadioGroup({
   required?: boolean;
 }) {
   return (
-    <fieldset className="flex flex-col gap-3">
+    <fieldset className="flex flex-col">
       <legend className="text-sm font-medium text-ink-900">
         {legend}
         {required && (
@@ -192,8 +192,8 @@ export function RadioGroup({
           </span>
         )}
       </legend>
-      {hint && <p className="text-sm text-ink-500">{hint}</p>}
-      <div className="flex flex-wrap gap-2">
+      {hint && <p className="mt-1 text-sm text-ink-500">{hint}</p>}
+      <div className="mt-4 flex flex-wrap gap-2">
         {options.map((option) => {
           const id = `${name}-${option.replace(/\s+/g, "-").toLowerCase()}`;
           const checked = value === option;
@@ -222,7 +222,7 @@ export function RadioGroup({
         })}
       </div>
       {error && (
-        <p role="alert" className="text-sm text-red-700">
+        <p role="alert" className="mt-2 text-sm text-red-700">
           {error}
         </p>
       )}
