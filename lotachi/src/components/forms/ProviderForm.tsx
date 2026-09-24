@@ -205,6 +205,7 @@ export function ProviderForm() {
               id="provider-locations"
               name="locations"
               autoComplete="address-level2"
+              placeholder="e.g. Shoreditch, Manchester — separate multiple with a comma"
               value={locations}
               onChange={(e) => setLocations(e.target.value)}
             />
