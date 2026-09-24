@@ -9,14 +9,17 @@ function formatDuration(minutes: number) {
 
 export function OpportunityCard({ opportunity }: { opportunity: OpportunityListing }) {
   return (
-    <div className="flex flex-col gap-3 rounded-2xl border border-ink-100 bg-white p-6 shadow-sm transition-shadow duration-200 hover:shadow-md">
-      <div className="flex items-start justify-between gap-3">
+    <div className="flex flex-col gap-4 rounded-2xl border border-ink-100 bg-white p-6 shadow-sm transition-shadow duration-200 hover:shadow-md sm:p-7">
+      <div className="flex flex-col gap-2">
         <Badge>{opportunity.category}</Badge>
-        <Badge tone="accent">Illustrative example — not a live listing</Badge>
+        <p className="flex items-center gap-1.5 text-xs font-medium text-accent-dark">
+          <span aria-hidden="true" className="h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+          Illustrative example — not a live listing
+        </p>
       </div>
       <h3 className="text-lg font-semibold text-ink-900">{opportunity.title}</h3>
 
-      <dl className="flex flex-col gap-1.5 text-sm">
+      <dl className="flex flex-col gap-2 text-sm">
         {[
           { label: "Needed for", value: opportunity.reason },
           { label: "Location", value: opportunity.location },
