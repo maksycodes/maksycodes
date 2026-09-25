@@ -2,6 +2,8 @@
 
 Status: **awaiting approval**. No theme code has been written. It gets built only after you approve this proposal.
 
+> **Superseded** by v2 in [`maksycodes/nanti-theme` → `docs/ARCHITECTURE.md`](https://github.com/maksycodes/nanti-theme/blob/main/docs/ARCHITECTURE.md).
+
 ---
 
 ## 1. My understanding of NANTI
