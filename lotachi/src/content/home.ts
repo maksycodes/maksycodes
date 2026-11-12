@@ -68,9 +68,12 @@ export const whyProviders = {
 };
 
 export const founderHome = {
-  eyebrow: "Why LOTACHI exists",
+  eyebrow: "Who we are",
   heading: "Founded by Amaka Ananti.",
   body: "LOTACHI is being built from first-hand experience of the fragmented way model opportunities are currently discovered and managed — after taking part in them herself, and hearing the same story from tutors, academies, clinics and salons.",
+  photo: { src: "/founder-amaka.jpg", alt: "Amaka Ananti, founder of LOTACHI" },
+  linkedinUrl: "https://uk.linkedin.com/in/amaka-ananti",
+  tradingStatus: "LOTACHI is not yet trading — pre-launch.",
   cta: { label: "Read more about LOTACHI", href: "/about" },
 };
 
