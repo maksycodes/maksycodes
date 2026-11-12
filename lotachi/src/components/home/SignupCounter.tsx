@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { earlyAccess } from "@/content/home";
+import { whereWeAre } from "@/content/home";
 
 export function SignupCounter() {
   const [count, setCount] = useState<number | null>(null);
@@ -27,7 +27,7 @@ export function SignupCounter() {
 
   return (
     <p className="text-sm font-medium text-accent">
-      {earlyAccess.signupCountTemplate.replace("{count}", count.toLocaleString("en-GB"))}
+      {whereWeAre.signupCountTemplate.replace("{count}", count.toLocaleString("en-GB"))}
     </p>
   );
 }

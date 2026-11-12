@@ -4,8 +4,8 @@ import type { OpportunityListing } from "@/types/opportunity";
 
 export const hero = {
   eyebrow: "London early access",
-  headline: "Find model opportunities. Find the right models.",
-  body: "LOTACHI connects Chi Chis — the people who take part in model opportunities — with training providers who need suitable, reliable models. We're building our founding community in hair, beauty, aesthetics, nails and SPMU, starting in London.",
+  headline: "Free and discounted beauty, hair and aesthetics treatments, as a training model in London.",
+  body: "LOTACHI connects Chi Chis, the people who take part in model opportunities, with training providers who need suitable, reliable models. Every treatment is carried out by students under supervision.",
   ctaModel: { label: "Join London Early Access", href: "/models" },
   ctaProvider: { label: "Become a Founding Provider", href: "/providers" },
   ctaHowItWorks: { label: "How It Works", href: "/how-it-works" },
@@ -111,12 +111,24 @@ export const transparency = {
     "Providers can state which hair types, skin types or other characteristics they're specifically seeking or equipped to work with. LOTACHI does not infer whether you're suitable for an opportunity from photos or appearance alone — that's for the provider to assess directly.",
 };
 
+export const whereWeAre = {
+  eyebrow: "Where we are",
+  heading: "Where we are right now.",
+  signupCountTemplate: "{count} Chi Chis have joined early access",
+  stat: "129 model spaces offered across 36 sessions so far.",
+  quote: {
+    // Placeholder — swap for a real anonymised quote once a pilot provider gives one.
+    isPlaceholder: true,
+    body: "Add a short anonymised quote from a pilot provider here.",
+    attribution: "Anonymised pilot provider",
+  },
+};
+
 export const earlyAccess = {
   eyebrow: "London early access",
   heading: "Help build LOTACHI from the start.",
   body: "LOTACHI is currently building its founding Chi Chi and provider community in London, while testing real model-filling workflows. Join now and help shape the platform.",
   badge: "Founding Chi Chis & Provider Partners",
-  signupCountTemplate: "{count} Chi Chis have joined early access",
   ctaModel: { label: "Join London Early Access", href: "/models" },
   ctaProvider: { label: "Become a Founding Provider", href: "/providers" },
 };

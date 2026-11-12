@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { pageMetadata } from "@/lib/seo";
 import { providersPage } from "@/content/providers";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
@@ -8,10 +9,7 @@ import { Badge } from "@/components/ui/Badge";
 import { ProviderForm } from "@/components/forms/ProviderForm";
 import { ProviderPilotCta } from "@/components/ProviderPilotCta";
 
-export const metadata: Metadata = {
-  title: providersPage.metaTitle,
-  description: providersPage.metaDescription,
-};
+export const metadata: Metadata = pageMetadata("/providers", providersPage.metaTitle, providersPage.metaDescription);
 
 export default function ProvidersPage() {
   return (

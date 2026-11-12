@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { forModelsPage } from "@/content/forModels";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
@@ -7,10 +8,7 @@ import { Badge } from "@/components/ui/Badge";
 import { LinkButton } from "@/components/ui/Button";
 import { FAQAccordion } from "@/components/ui/FAQAccordion";
 
-export const metadata: Metadata = {
-  title: forModelsPage.metaTitle,
-  description: forModelsPage.metaDescription,
-};
+export const metadata: Metadata = pageMetadata("/for-models", forModelsPage.metaTitle, forModelsPage.metaDescription);
 
 export default function ForModelsPage() {
   return (

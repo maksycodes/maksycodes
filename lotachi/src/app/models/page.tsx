@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { pageMetadata } from "@/lib/seo";
 import { modelsPage } from "@/content/models";
 import { siteConfig } from "@/content/global";
 import { Nav } from "@/components/Nav";
@@ -9,10 +10,7 @@ import { Badge } from "@/components/ui/Badge";
 import { SocialLinks } from "@/components/SocialLinks";
 import { ModelForm } from "@/components/forms/ModelForm";
 
-export const metadata: Metadata = {
-  title: modelsPage.metaTitle,
-  description: modelsPage.metaDescription,
-};
+export const metadata: Metadata = pageMetadata("/models", modelsPage.metaTitle, modelsPage.metaDescription);
 
 export default function ModelsPage() {
   return (

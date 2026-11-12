@@ -25,7 +25,10 @@ export const siteConfig = {
     instagram: "https://www.instagram.com/joinlotachi",
     youtube: "https://www.youtube.com/@joinlotachi",
     linkedin: "https://www.linkedin.com/company/lotachi/",
-    facebook: "https://www.facebook.com/share/1c8qJrQC48/?mibextid=wwXIfr",
+    // Was a share-link redirect (facebook.com/share/...); replaced with the
+    // canonical page URL it resolves to, so the link doesn't depend on that
+    // redirect staying valid.
+    facebook: "https://www.facebook.com/p/Lotachi-61592728337930/",
   },
 };
 

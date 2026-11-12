@@ -1,14 +1,12 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { aboutPage } from "@/content/about";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { Section } from "@/components/ui/Section";
 import { Badge } from "@/components/ui/Badge";
 
-export const metadata: Metadata = {
-  title: aboutPage.metaTitle,
-  description: aboutPage.metaDescription,
-};
+export const metadata: Metadata = pageMetadata("/about", aboutPage.metaTitle, aboutPage.metaDescription);
 
 export default function AboutPage() {
   return (

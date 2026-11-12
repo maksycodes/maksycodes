@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { forProvidersPage } from "@/content/forProviders";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
@@ -6,10 +7,11 @@ import { Section } from "@/components/ui/Section";
 import { Badge } from "@/components/ui/Badge";
 import { ProviderPilotCta } from "@/components/ProviderPilotCta";
 
-export const metadata: Metadata = {
-  title: forProvidersPage.metaTitle,
-  description: forProvidersPage.metaDescription,
-};
+export const metadata: Metadata = pageMetadata(
+  "/for-providers",
+  forProvidersPage.metaTitle,
+  forProvidersPage.metaDescription,
+);
 
 export default function ForProvidersPage() {
   return (

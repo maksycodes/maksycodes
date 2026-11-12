@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { howItWorksPage } from "@/content/howItWorksPage";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { Section } from "@/components/ui/Section";
 import { Badge } from "@/components/ui/Badge";
 
-export const metadata: Metadata = {
-  title: howItWorksPage.metaTitle,
-  description: howItWorksPage.metaDescription,
-};
+export const metadata: Metadata = pageMetadata(
+  "/how-it-works",
+  howItWorksPage.metaTitle,
+  howItWorksPage.metaDescription,
+);
 
 const stageStyles: Record<string, string> = {
   available: "border-accent text-accent-dark",

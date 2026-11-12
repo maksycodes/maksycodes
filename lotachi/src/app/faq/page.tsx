@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { faqPage } from "@/content/faq";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
@@ -6,10 +7,7 @@ import { Section } from "@/components/ui/Section";
 import { Badge } from "@/components/ui/Badge";
 import { FAQAccordion } from "@/components/ui/FAQAccordion";
 
-export const metadata: Metadata = {
-  title: faqPage.metaTitle,
-  description: faqPage.metaDescription,
-};
+export const metadata: Metadata = pageMetadata("/faq", faqPage.metaTitle, faqPage.metaDescription);
 
 export default function FAQPage() {
   return (

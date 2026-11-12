@@ -344,6 +344,11 @@ export const safetyDisclaimer = {
       body: "LOTACHI does not currently guarantee that providers or opportunities are verified. Provider verification may be introduced or expanded as the platform develops, and we'll aim to be clear about what checks, if any, have actually been carried out for a given provider or opportunity.",
     },
     {
+      heading: "What providers agree to, before being listed",
+      body: "Under our Provider Terms, every provider confirms they (and anyone performing a service on their behalf) hold the qualifications, licences and professional body memberships required for what they're offering, confirms they carry adequate public liability and, where relevant, professional indemnity insurance, and agrees to give us evidence of either if we reasonably ask for it. This is a confirmation providers give us, not an independent check LOTACHI has carried out — see Verification above.",
+      flag: "A solicitor should confirm this accurately summarises the Provider Terms' qualifications/insurance clauses and doesn't overstate what's actually enforced before public launch.",
+    },
+    {
       heading: "Availability and placement",
       body: "LOTACHI does not currently guarantee availability of any opportunity, or that you will be placed or matched with a provider.",
     },
