@@ -20,6 +20,7 @@ export function Hero() {
           {hero.headline}
         </h1>
         <p className="mt-6 text-lg text-ink-600 motion-safe:animate-rise-in [animation-delay:160ms]">{hero.body}</p>
+        <p className="mt-3 text-sm text-ink-500 motion-safe:animate-rise-in [animation-delay:200ms]">{hero.dualSidedNote}</p>
         <div className="mt-10 flex flex-col gap-3 motion-safe:animate-rise-in [animation-delay:240ms] sm:flex-row">
           <LinkButton
             href={hero.ctaModel.href}

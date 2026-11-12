@@ -3,7 +3,7 @@ import { Section, Eyebrow } from "../ui/Section";
 
 export function ModelTransparencySection() {
   return (
-    <Section id={transparency.id} ariaLabel="Model transparency" className="border-b border-ink-100">
+    <Section id={transparency.id} ariaLabel="Treatment transparency" className="border-b border-ink-100">
       <Eyebrow>{transparency.eyebrow}</Eyebrow>
       <h2 className="mt-3 max-w-2xl text-3xl font-semibold tracking-tight text-ink-900 sm:text-4xl">
         {transparency.heading}

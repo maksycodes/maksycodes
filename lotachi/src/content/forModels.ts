@@ -1,13 +1,13 @@
 export const forModelsPage = {
-  metaTitle: "For Chi Chis — Model Opportunities Explained",
-  metaDescription: "What a Chi Chi is, what being a model for a LOTACHI opportunity means, and what to expect.",
+  metaTitle: "For Chi Chis — Discounted Treatments Explained",
+  metaDescription: "What a Chi Chi is, what taking part in a LOTACHI treatment opportunity means, and what to expect.",
   eyebrow: "For Chi Chis",
   heading: "What being a Chi Chi means.",
   intro:
-    "A Chi Chi is what we call anyone in the LOTACHI community looking for a model opportunity — you're a Chi Chi from the moment you join, even before you're matched to anything. Being the model for a specific opportunity means taking part in a practical training session, assessment, demonstration or portfolio shoot run by a training provider — sometimes for free, sometimes at a reduced price. Providers need people like you to make practical learning possible.",
+    "A Chi Chi is what we call anyone in the LOTACHI community looking for a discounted or free treatment opportunity — you're a Chi Chi from the moment you join, even before you're matched to anything. Taking part in a specific opportunity means receiving a practical training session, assessment, demonstration or portfolio treatment run by a training provider — sometimes for free, sometimes at a reduced price. No photos are required, and there's no particular look, age or skin type needed. Providers need people like you to make practical learning possible.",
   sections: [
     {
-      heading: "Why providers need models",
+      heading: "Why providers need you",
       body: "Training providers, academies and practitioners need real people to practise on, assess against or build a portfolio with. That's where you come in — and it's often the reason opportunities are offered free or at a reduced price.",
     },
     {
@@ -43,7 +43,17 @@ export const forModelsPage = {
     {
       question: "Do I get paid?",
       answer:
-        "No. Being a model means receiving a service, often free or discounted, rather than being paid — though this can vary by opportunity, so always check what's on offer.",
+        "No. Being a Chi Chi means receiving a service, often free or discounted, rather than being paid — though this can vary by opportunity, so always check what's on offer.",
+    },
+    {
+      question: "Do I need to be photographed?",
+      answer:
+        "No. Photos are never required to join or take part. Some individual opportunities may ask to take photos or video, but that's always a separate request with its own consent — never assumed, and never a condition of being a Chi Chi.",
+    },
+    {
+      question: "Do I need to look a certain way?",
+      answer:
+        "No — any age, look or skin type can join as a Chi Chi. Individual opportunities may be looking for specific hair or skin types, and the provider decides suitability for their own opportunity, but there's no general appearance requirement to join LOTACHI.",
     },
     {
       question: "Are treatments free?",

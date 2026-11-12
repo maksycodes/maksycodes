@@ -5,12 +5,12 @@
 export const siteConfig = {
   name: "LOTACHI",
   domain: "lotachi.com",
-  tagline: "Find model opportunities. Find the right models.",
+  tagline: "Free and discounted treatments, open to everyone.",
   // Concise brand descriptor for metadata, social sharing and footer/About
   // copy — not used as a competing second headline in the hero.
   descriptor: "The marketplace for model opportunities.",
   description:
-    "The marketplace for model opportunities. Discover hair, beauty, aesthetics, nails and SPMU opportunities in London, and connect training providers with suitable, reliable models. Join the Chi Chi community for early access.",
+    "Free and discounted hair, beauty, aesthetics, nails and SPMU treatments from students training under supervision in London — no photos required, any age, look or skin type. LOTACHI also connects training providers with the Chi Chis they need. Join early access.",
   emails: {
     general: process.env.NEXT_PUBLIC_CONTACT_EMAIL || "hello@lotachi.com",
     providers: process.env.NEXT_PUBLIC_PROVIDER_EMAIL || "providers@lotachi.com",

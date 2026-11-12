@@ -45,6 +45,16 @@ export const faqPage = {
       answer: "The provider decides suitability for their specific opportunity. LOTACHI does not make clinical suitability decisions, and doesn't infer suitability from photos or appearance alone.",
     },
     {
+      question: "Do I need to be photographed?",
+      answer:
+        "No. Photos are never required to join or take part. Some individual opportunities may ask to take photos or video, but that's always a separate request with its own consent — never assumed, and never a condition of being a Chi Chi.",
+    },
+    {
+      question: "Do I need to look a certain way?",
+      answer:
+        "No — any age, look or skin type can join as a Chi Chi. Individual opportunities may be looking for specific hair or skin types, and the provider decides suitability for their own opportunity, but there's no general appearance requirement to join LOTACHI.",
+    },
+    {
       question: "Will photos or video be taken of me?",
       answer:
         "Only where a listing says so, and only with your separate agreement — that's different from agreeing to the treatment. A listing will say what any photos or video are for and whether your face would be identifiable.",

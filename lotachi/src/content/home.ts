@@ -4,8 +4,9 @@ import type { OpportunityListing } from "@/types/opportunity";
 
 export const hero = {
   eyebrow: "London early access",
-  headline: "Free and discounted beauty, hair and aesthetics treatments, as a training model in London.",
-  body: "LOTACHI connects Chi Chis, the people who take part in model opportunities, with training providers who need suitable, reliable models. Every treatment is carried out by students under supervision.",
+  headline: "Discounted treatments from supervised students, open to everyone.",
+  body: "Hair, beauty, aesthetics, nails and SPMU treatments from students training under supervision, starting in London. Photos are never required. Any age, look or skin type.",
+  dualSidedNote: "LOTACHI connects Chi Chis with training providers who need suitable, reliable models.",
   ctaModel: { label: "Join London Early Access", href: "/models" },
   ctaProvider: { label: "Become a Founding Provider", href: "/providers" },
   ctaHowItWorks: { label: "How It Works", href: "/how-it-works" },
@@ -14,9 +15,9 @@ export const hero = {
 export const chiChiHowItWorks = {
   eyebrow: "For Chi Chis",
   heading: "How it works, as a Chi Chi.",
-  intro: "A Chi Chi is what we call anyone in the LOTACHI community looking for a model opportunity — you're a Chi Chi even before you're matched to a specific one.",
+  intro: "A Chi Chi is what we call anyone in the LOTACHI community looking for a treatment opportunity — you're a Chi Chi even before you're matched to a specific one. No photos required, and there's no particular look, age or skin type needed to join.",
   steps: [
-    { number: "01", title: "Discover", body: "Browse the kind of model opportunities available near you — training, assessments, portfolio work and more.", stage: "pilot" as const },
+    { number: "01", title: "Discover", body: "Browse the kind of treatment opportunities available near you — training, assessments, portfolio work and more.", stage: "pilot" as const },
     { number: "02", title: "Check requirements", body: "See who's looking, what's involved, and what's expected before you commit to anything.", stage: "pilot" as const },
     { number: "03", title: "Join or express interest", body: "Full in-platform booking is coming with the LOTACHI marketplace. Today, join early access and we'll be in touch about relevant opportunities.", stage: "future" as const },
     { number: "04", title: "Attend", body: "Turn up, take part, and get the aftercare and contact details the provider has given you.", stage: "pilot" as const },
@@ -25,7 +26,7 @@ export const chiChiHowItWorks = {
 
 export const whyModels = {
   eyebrow: "Why Chi Chis choose LOTACHI",
-  heading: "One place to discover model opportunities.",
+  heading: "One place to discover discounted and free treatments.",
   items: [
     "Discover opportunities in one place",
     "Find discounted and free opportunities",
@@ -90,15 +91,15 @@ export const trust = {
 
 export const transparency = {
   id: "model-transparency",
-  eyebrow: "Model transparency",
-  heading: "Being a model can mean different things at different providers.",
+  eyebrow: "Treatment transparency",
+  heading: "Taking part can mean different things at different providers.",
   message: "Know what you're agreeing to before you book.",
   intro:
-    "What 'being a model' involves varies a lot — who performs the service, how it's priced, whether photos are taken and what they're used for, what aftercare looks like. LOTACHI's goal is to make those differences clear on every listing, before you book, not after.",
+    "What taking part involves varies a lot — who performs the service, how it's priced, whether photos are taken and what they're used for, what aftercare looks like. LOTACHI's goal is to make those differences clear on every listing, before you book, not after.",
   fields: [
-    { label: "Why a model is needed", body: "Training, assessment, demonstration, portfolio, content creation and more — shown plainly, not left for you to guess." },
+    { label: "Why a Chi Chi is needed", body: "Training, assessment, demonstration, portfolio, content creation and more — shown plainly, not left for you to guess." },
     { label: "Who performs it, and supervision", body: "Whether it's a student, newly qualified practitioner or experienced professional, and how they're supervised." },
-    { label: "Pricing", body: "The model price, and a comparable standard price where the provider has given one." },
+    { label: "Pricing", body: "The discounted or free treatment price, and a comparable standard price where the provider has given one." },
     { label: "Duration and eligibility", body: "How long to expect, and any requirements the provider has set." },
     { label: "Photos and video", body: "Whether any will be taken, exactly what they may be used for, and whether your face would be identifiable." },
     { label: "Aftercare and contact", body: "Provider-specific aftercare attached to your booking, and how to reach the provider afterwards." },
@@ -115,7 +116,7 @@ export const whereWeAre = {
   eyebrow: "Where we are",
   heading: "Where we are right now.",
   signupCountTemplate: "{count} Chi Chis have joined early access",
-  stat: "129 model spaces offered across 36 sessions so far.",
+  stat: "One London college advertised 129 model spaces across 36 sessions in November 2026 — a glimpse of the demand Chi Chis can tap into.",
   quote: {
     // Placeholder — swap for a real anonymised quote once a pilot provider gives one.
     isPlaceholder: true,
