@@ -5,6 +5,7 @@ import { trackEvent } from "@/lib/analytics";
 import { Section, Eyebrow } from "../ui/Section";
 import { Badge } from "../ui/Badge";
 import { LinkButton } from "../ui/Button";
+import { SignupCounter } from "./SignupCounter";
 
 export function EarlyAccessSection() {
   return (
@@ -14,6 +15,7 @@ export function EarlyAccessSection() {
         <Eyebrow>{earlyAccess.eyebrow}</Eyebrow>
         <h2 className="text-3xl font-semibold tracking-tight text-ink-900 sm:text-4xl">{earlyAccess.heading}</h2>
         <p className="text-ink-600">{earlyAccess.body}</p>
+        <SignupCounter />
         <div className="flex flex-col gap-3 sm:flex-row">
           <LinkButton
             href={earlyAccess.ctaModel.href}

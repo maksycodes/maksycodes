@@ -116,6 +116,7 @@ export const earlyAccess = {
   heading: "Help build LOTACHI from the start.",
   body: "LOTACHI is currently building its founding Chi Chi and provider community in London, while testing real model-filling workflows. Join now and help shape the platform.",
   badge: "Founding Chi Chis & Provider Partners",
+  signupCountTemplate: "{count} Chi Chis have joined early access",
   ctaModel: { label: "Join London Early Access", href: "/models" },
   ctaProvider: { label: "Become a Founding Provider", href: "/providers" },
 };

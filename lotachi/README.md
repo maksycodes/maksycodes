@@ -96,6 +96,7 @@ Visit http://localhost:3000.
 | `NEXT_PUBLIC_CONTACT_EMAIL` | No (defaults to `hello@lotachi.com`) | General contact email shown on site |
 | `NEXT_PUBLIC_PROVIDER_EMAIL` | No (defaults to `providers@lotachi.com`) | Provider contact email shown on site |
 | `NEXT_PUBLIC_GA4_MEASUREMENT_ID` | No (analytics stays fully off without it) | GA4 property Measurement ID, e.g. `G-XXXXXXXXXX` |
+| `FORMSPREE_MODEL_FORM_API_KEY` | No (counter hides without it) | Server-only Formspree Read-only API key, powers the homepage Chi Chi signup counter |
 
 **Formspree is already configured** with LOTACHI's live form IDs, set as the defaults in
 `.env.example`:
@@ -118,6 +119,28 @@ your Vercel project's environment variables) — the part after `/f/` in the for
 Without an ID set, the relevant form still renders and validates normally but shows a friendly
 error on submit telling the visitor to email you directly instead — nothing breaks, it just can't
 send yet.
+
+### Chi Chi signup counter
+
+The homepage "early access" section shows a live "X Chi Chis have joined early access" line,
+sourced from the model waitlist form's Formspree submission count. The count is fetched
+server-side by `src/app/api/signup-count/route.ts` and only that number is ever sent to the
+browser — no Formspree API key reaches client code.
+
+To turn it on:
+
+1. In Formspree, open the **model waitlist form** (`mwlpobvd` by default) → **Settings** → enable
+   the **"HTTP API"** toggle. This requires a Formspree **Professional or Business** plan.
+2. Copy the form's **Read-only API key** (not the Master key — read-only is all this needs).
+3. Set `FORMSPREE_MODEL_FORM_API_KEY` to that value in `.env.local` (local dev) and in your
+   **Vercel project → Settings → Environment Variables** (production/preview) — never commit it.
+4. Redeploy. No other setup is needed: the route reuses `NEXT_PUBLIC_FORMSPREE_MODEL_FORM_ID` as
+   the form's hashid.
+
+If the HTTP API isn't enabled, the plan doesn't support it, the key is missing, or the Formspree
+request fails for any reason, the counter simply doesn't render — never an error message or a
+"0". The result is cached for 5 minutes (`export const revalidate = 300` in the route) so the
+homepage isn't hitting Formspree's API on every page load.
 
 ## Analytics & UTM tracking
 
